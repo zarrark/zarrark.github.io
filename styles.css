@@ -1,0 +1,71 @@
+blockquote {
+  font-style: italic
+}
+
+#figcap{
+    font-size:150%;
+    color:#717D7E;
+    text-align: center;
+}
+
+#fig {
+  width: 60%;
+}
+
+#tabcap{
+    font-size:150%;
+    color:#717D7E;
+    text-align: center;
+}
+
+#footer{
+    position:fixed;
+    height:30px;
+    bottom:0;
+    left:0;
+    right:15px;
+    text-align: right;
+    background-color:white;
+    margin-bottom:0;
+}
+
+#KeySources{
+    font-size:150%;
+    color:#717D7E;
+}
+
+#box {
+  text-align: center;
+  float: center;
+  width:60%;
+  z-index:-10;
+  border: solid;
+  border-width: 1px;
+  overflow:auto;
+  padding:10px;
+  border-radius: 5px;
+  background-color: #F0F0F0;
+}
+
+#left {
+  left:-8.33%;
+  text-align: left;
+  float: left;
+  width:70%;
+  z-index:-10;
+}
+
+#right {
+  left:31.25%;
+  top: 75px;
+  float: right;
+  text-align: left;
+  z-index:-10;
+  border: solid;
+  border-width: 1px;
+  height:400px;
+  width:30%;
+  overflow:auto;
+  padding:10px;
+}
+

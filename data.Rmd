@@ -1,0 +1,403 @@
+---
+title: "Data"
+bibliography: bib_iswelindus.bib
+link-citations: true
+output:
+  html_document:
+    toc: true  
+    toc_float: true  
+---
+
+# Data Folders
+
+Project data is categorized and kept in three folders in the shared ISWEL project folder [pdrive\\is-wel\\indus\\datagis](https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\datagis)
+
+<ul>
+<li> raw – Contains unprocessed data from various sources.</li> 
+<li> processed – Contains data which has been prepared for the ISWEL models.</li>
+<li> code – Contains code used to process raw data.</li>
+</ul>
+
+
+# Data Formats
+
+Data used in this project is available in several different formats. Some of these are:
+
+<ul>
+<li> Spatial polygons – By boundaries </li> 
+<li> Spatial grid cells – By X,Y coordinates and cell size </li> 
+<li> Flow/directional data – For flow or connecting lines </li> 
+<li> Parameters for processes – Individual processes </li> 
+<li> Temporal ranges – Annual, monthly, daily etc.</li> 
+</ul>
+
+## Spatial data
+
+Spatial data can be either polygon data or gridded data as shown in Figure 1 below.
+
+<p id="figcap"> Figure 1: Polygon and gridded spatial data examples</p>
+<center>
+<div id="fig">
+![](figures\f_data_formatsSpatial.PNG)
+</div>
+</center>
+
+<br><br>
+
+## Flow or directional data
+
+Data can also indicate infrastructure or flow paths from one spatial to another as shown in Figure 2 below.
+
+<p id="figcap"> Figure 2: Directional data examples</p>
+<center>
+<div id="fig">
+![](figures\f_data_formatsFlow.PNG)
+</div>
+</center>
+
+<br><br>
+
+
+## Temporal data ranges
+
+Data can also vary by temporal scales as shown in Figure 3 below.
+
+<p id="figcap"> Figure 3: Temporal data range examples</p>
+<center>
+<div id="fig">
+![](figures\f_data_formatsTemporal.PNG)
+</div>
+</center>
+
+<br><br>
+
+
+# Expected Data
+
+Data from the different disciplines involved in the ISWEL project are broadly categorized as shown below. As the particular data is gathered and processed it will be further classified.
+
+<p id="tabcap">Table 1: Expected energy data examples</p> 
+
+| Energy                     | Data examples                                    |
+|----------------------------|--------------------------------------------------|
+| Energy - Quality           | Grades                                           |
+| Energy - Primary           | Coal, Oil, Gas, Nuclear                          |
+| Energy - Extraction        | Mining                                           |
+| Energy - Conversion        | Powerplants                                      |
+| Energy - Storage           | Hydropower                                       |
+| Energy - Imports           | Coal, Oil, Gas, Nuclear, Electricity             |
+| Energy - Exports           | Coal, Oil, Gas, Nuclear, Electricity             |
+| Energy - Transmission      | Voltage                                          |
+| Energy - Distribution      | Voltage                                          |
+| Energy - Demands           | Industry, Services, Agriculture, Residential     |
+
+<p id="tabcap">Table 2: Expected water data examples</p> 
+
+| Water                      | Data examples                                    |
+|----------------------------|--------------------------------------------------|
+| Water - Quality            | Grades                                           |
+| Water - Primary            | Rain, Snow/Ice, Aquifers, Soil                   |
+| Water - Extraction         | Pumping                                          |
+| Water - Conversion         | Desalination, Purification, Wastewater Treatment |
+| Water - Storage            | Reservoirs, Rainwater Harvesting                 |
+| Water - Imports            | Water                                            |
+| Water - Exports            | Water                                            |
+| Water - Transmission       | Canals, Pipes                                    |
+| Water - Distribution       | Pipes                                            |
+| Water - Demands            | Industry, Services, Agriculture, Residential     |
+
+<p id="tabcap">Table 3: Expected agricultural data examples</p> 
+
+| Agriculture                | Data examples                                    |
+|----------------------------|--------------------------------------------------|
+| Agriculture - Quality      | Grades                                           |
+| Agriculture - Primary      | Wheat, Rice, Cotton                              |
+| Agriculture - Extraction   | Harvesting                                       |
+| Agriculture - Conversion   | Tillage, Irrigation, Fertilizers                 |
+| Agriculture - Storage      | Silos, graineries                                |
+| Agriculture - Imports      | Wheat, Rice, Cotton                              |
+| Agriculture - Exports      | Wheat, Rice, Cotton                              |
+| Agriculture - Transmission | Land, Air, Sea                                   |
+| Agriculture - Distribution | Land, Air, Sea                                   |
+| Agriculture - Demands      | Consumption, Fodder, Industry                    |
+
+<p id="tabcap">Table 4: Expected land data examples</p> 
+
+| Land                       | Data examples                                    |
+|----------------------------|--------------------------------------------------|
+| Land - Quality             | Grades                                           |
+| Land - Primary             | Forest, Residential, Commerical, Agricultural    |
+| Land - Conversion          | Deforestation, commercialization                 |
+
+<p id="tabcap">Table 5: Expected administration data examples</p> 
+
+| Admin                      | Data examples                                    |
+|----------------------------|--------------------------------------------------|
+| Admin - Boundaries         | Country, Province, River basin, County etc.      |
+| Admin - Econ               | GDP, Income, Interest rates                      |
+| Admin - Demographics       | Urban, Rural, Male, Female, Education            |
+
+<br><br>
+
+# Processed Data Summary
+
+The following table gives a summary of the data sets that have been processed.
+
+<p id="tabcap">Table 6: Data sets processed</p> 
+
+| Sector | Sub-sector                | Detail             | Region | Map, Chart, Table, gif | Spatial Type     | Spatial Scale             | Temproal Scale | Folder name                   |
+|--------|---------------------|--------------------|--------|------------------------|------------------|---------------------------|----------------|-------------------------------|
+| Admin  | Admin_boundaries    | Admin boundaries   | Indus  | Maps                   | Polygons         | Country, Basin, Sub-basin | -              | processed_admin_boundaries    |
+| Admin  | Admin_population    | Population         | Indus  | Map, Chart, Table, Gif | Polygons, Raster | Country, Basin, Sub-basin | Annual         | processed_admin_population    |
+| Water  | Water_temp          | Water temperature  | Indus  | Map, Chart, Table, Gif | Polygons, Raster | Country, Basin, Sub-basin | Daily          | processed_water_temp          |
+| Energy | Energy_transmission | Transmission lines | Indus  | Maps, Table            | Polygons         | Country, Basin, Sub-basin | -              | processed_energy_transmission |
+
+# Processed Data Details
+
+Processed data is available in the ISWEL project folder [pdrive\\is-wel\\indus\\datagis](https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\datagis).
+
+## Admin_boundaries
+
+| Admin boundary data files                      |
+|------------------------------------------------|
+| f_Map_Indus_IIASA_Orig_HYDROBASINS.pdf         |
+| f_Map_Indus_IIASA_Orig_HYDROBASINS.png         |
+| f_Map_Indus_IIASA_Orig_subbasin_by_country.pdf |
+| f_Map_Indus_IIASA_Orig_subbasin_by_country.png |
+|	f_Map_Indus_IIASA_Orig_subbasinByCountryPIDs.pdf	|
+|	f_Map_Indus_IIASA_Orig_subbasinByCountryPIDs.png	|
+|	t_Indus_IIASA_Orig_subbasinByCountryPIDsDetails.csv	|
+|	t_Indus_IIASA_Orig_subbasinByCountryPIDsSummary.csv	|
+
+<p id="figcap"> Admin boundary data example 1</p>
+<center>
+<div id="fig">
+![](figures\f_Map_Indus_IIASA_Orig_HYDROBASINS.png)
+</div>
+</center>
+
+<br><br>
+
+<p id="figcap"> Admin boundary data example 2</p>
+<center>
+<div id="fig">
+![](figures\f_Map_Indus_IIASA_Orig_subbasinByCountryPIDs.png)
+</div>
+</center>
+
+<br><br>
+
+<p id="tabcap">Table 1: Indus Basin spatial polygon unit IDs and locations. For more details on the elevations, centroids and outlets go to [pdrive\\is-wel\\indus\\datagis\\processed\\processed_admin_boundaries](https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus%5Cdatagis%5Cprocessed\processed_admin_boundaries) </p> 
+|	No.	|	Polygon ID (PID)	|	Basin	|	Country	|
+|	:---------:	|	:---------:	|	:---------:	|	:---------:	|
+|	1	|	2213	|	Indus	|	Afghanistan	|
+|	2	|	2214	|	Indus	|	Afghanistan	|
+|	3	|	2215	|	Indus	|	China	|
+|	4	|	2216	|	Indus	|	India	|
+|	5	|	2217	|	Indus	|	India	|
+|	6	|	2218	|	Indus	|	India	|
+|	7	|	2219	|	Indus	|	India	|
+|	8	|	2220	|	Indus	|	India	|
+|	9	|	2221	|	Indus	|	India	|
+|	10	|	2222	|	Indus	|	India	|
+|	11	|	2223	|	Indus	|	India	|
+|	12	|	2224	|	Indus	|	Pakistan	|
+|	13	|	2225	|	Indus	|	Pakistan	|
+|	14	|	2226	|	Indus	|	Pakistan	|
+|	15	|	2227	|	Indus	|	Pakistan	|
+|	16	|	2228	|	Indus	|	Pakistan	|
+|	17	|	2229	|	Indus	|	Pakistan	|
+|	18	|	2230	|	Indus	|	Pakistan	|
+|	19	|	2231	|	Indus	|	Pakistan	|
+|	20	|	2232	|	Indus	|	Pakistan	|
+|	21	|	2233	|	Indus	|	Pakistan	|
+|	22	|	2234	|	Indus	|	Pakistan	|
+|	23	|	2235	|	Indus	|	Pakistan	|
+|	24	|	2236	|	Indus	|	Pakistan	|
+|	25	|	2237	|	Indus	|	Pakistan	|
+|	26	|	2238	|	Indus	|	Pakistan	|
+|	27	|	2239	|	Indus	|	Pakistan	|
+|	28	|	2240	|	Indus	|	Pakistan	|
+|	29	|	2241	|	Indus	|	Pakistan	|
+|	30	|	2242	|	Indus	|	China	|
+|	31	|	2243	|	Indus	|	India	|
+|	32	|	2244	|	Indus	|	China	|
+|	33	|	2245	|	Indus	|	China	|
+|	34	|	2246	|	Indus	|	India	|
+|	35	|	2247	|	Indus	|	China	|
+|	36	|	2248	|	Indus	|	Pakistan	|
+|	37	|	2249	|	Indus	|	India	|
+|	38	|	2250	|	Indus	|	Pakistan	|
+|	39	|	2251	|	Indus	|	Afghanistan	|
+|	40	|	2252	|	Indus	|	Afghanistan	|
+|	41	|	2253	|	Indus	|	Pakistan	|
+|	42	|	2254	|	Indus	|	India	|
+|	43	|	2255	|	Indus	|	India	|
+
+
+
+
+## Admin_population
+
+|	Admin population data files	|
+|	-----------------------------------------------------------------------------------------------------	|
+|	anim_ChartIndus_IIASA_total_pop_2010to2090_byCOUNTRY.gif	|
+|	anim_ChartIndus_IIASA_urban_pop_2010to2090_byCOUNTRY.gif	|
+|	anim_Map_Indus_IIASA_rural_pop_2010to2090_PolygonsbyPID.gif	|
+|	anim_Map_Indus_IIASA_rural_pop_2010to2090_Raster.gif	|
+|	anim_Map_Indus_IIASA_total_pop_2010to2090_PolygonsbyPID.gif	|
+|	anim_Map_Indus_IIASA_total_pop_2010to2090_Raster.gif	|
+|	anim_Map_Indus_IIASA_urban_pop_2010to2090_PolygonsbyPID.gif	|
+|	anim_Map_Indus_IIASA_urban_pop_2010to2090_Raster.gif	|
+|	f_Chart_Indus_IIASA_rural_pop_2010to2090_ChartbyCountry.pdf	|
+|	f_Chart_Indus_IIASA_rural_pop_2010to2090_ChartbyCountry.png	|
+|	f_Chart_Indus_IIASA_total_pop_2010to2090_ChartbyCountry.pdf	|
+|	f_Chart_Indus_IIASA_total_pop_2010to2090_ChartbyCountry.png	|
+|	f_Chart_Indus_IIASA_urban_pop_2010to2090_ChartbyCountry.pdf	|
+|	f_Chart_Indus_IIASA_urban_pop_2010to2090_ChartbyCountry.png	|
+|	f_Map_Indus_IIASA_Orig_HYDROBASINS.pdf	|
+|	f_Map_Indus_IIASA_Orig_HYDROBASINS.png	|
+|	f_Map_Indus_IIASA_Orig_subbasin_by_country.pdf	|
+|	f_Map_Indus_IIASA_Orig_subbasin_by_country.png	|
+|	f_Map_Indus_IIASA_rural_pop_2010to2090_PolygonsbyPID.pdf	|
+|	f_Map_Indus_IIASA_rural_pop_2010to2090_PolygonsbyPID.png	|
+|	f_Map_Indus_IIASA_rural_pop_2010to2090_Raster.pdf	|
+|	f_Map_Indus_IIASA_rural_pop_2010to2090_Raster.png	|
+|	f_Map_Indus_IIASA_total_pop_2010to2090_PolygonsbyPID.pdf	|
+|	f_Map_Indus_IIASA_total_pop_2010to2090_PolygonsbyPID.png	|
+|	f_Map_Indus_IIASA_total_pop_2010to2090_Raster.pdf	|
+|	f_Map_Indus_IIASA_total_pop_2010to2090_Raster.png	|
+|	f_Map_Indus_IIASA_urban_pop_2010to2090_PolygonsbyPID.pdf	|
+|	f_Map_Indus_IIASA_urban_pop_2010to2090_PolygonsbyPID.png	|
+|	f_Map_Indus_IIASA_urban_pop_2010to2090_Raster.pdf	|
+|	f_Map_Indus_IIASA_urban_pop_2010to2090_Raster.png	|
+|	t_GLOBAL_IIASA_edit_SSP2_Population2010to2090_byXY.csv	|
+|	t_Indus_IIASA_edit_SSP2_Population_rural_pop_2010to2090_byPIDCOUNTRY.csv	|
+|	t_Indus_IIASA_edit_SSP2_Population_total_pop_2010to2090_byPIDCOUNTRY.csv	|
+|	t_Indus_IIASA_edit_SSP2_Population_urban_pop_2010to2090_byPIDCOUNTRY.csv	|
+|	t_Indus_IIASA_edit_SSP2_Population2010to2090_byXY.csv	|
+
+<p id="figcap"> Admin population data example: rural population gridded animation</p>
+<center>
+<div id="fig">
+![](figures\anim_Map_Indus_IIASA_rural_pop_2010to2090_Raster.gif)
+</div>
+</center>
+
+<br><br>
+
+<p id="figcap"> Admin population data example: urban population gridded animation</p>
+<center>
+<div id="fig">
+![](figures\anim_Map_Indus_IIASA_urban_pop_2010to2090_Raster.gif)
+</div>
+</center>
+
+<br><br>
+
+<p id="figcap"> Admin population example: rural population maps</p>
+<center>
+<div id="fig">
+![](figures\f_Map_Indus_IIASA_rural_pop_2010to2090_PolygonsbyPID.png)
+</div>
+</center>
+
+<br><br>
+
+<p id="figcap"> Admin population example: rural population charts</p>
+<center>
+<div id="fig">
+![](figures\f_Chart_Indus_IIASA_rural_pop_2010to2090_ChartbyCountry.png)
+</div>
+</center>
+
+<br><br>
+
+## Water_temp
+
+|	Water temperature	|
+|	-----------------------------------------------------------------------------------------------------	|
+|	anim_ChartIndus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_byCOUNTRY.gif	|
+|	anim_ChartIndus_IIASA_waterTemp_2007_Jan_01_2006toJul_21_2008_byCOUNTRY.gif	|
+|	anim_ChartIndus_IIASA_waterTemp_2008_Jan_01_2006toJul_21_2008_byCOUNTRY.gif	|
+|	anim_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_PolygonsbyPID.gif	|
+|	anim_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_Raster.gif	|
+|	anim_Map_Indus_IIASA_waterTemp_2007_Jan_01_2006toJul_21_2008_PolygonsbyPID.gif	|
+|	anim_Map_Indus_IIASA_waterTemp_2007_Jan_01_2006toJul_21_2008_Raster.gif	|
+|	anim_Map_Indus_IIASA_waterTemp_2008_Jan_01_2006toJul_21_2008_PolygonsbyPID.gif	|
+|	anim_Map_Indus_IIASA_waterTemp_2008_Jan_01_2006toJul_21_2008_Raster.gif	|
+|	f_Map_Indus_IIASA_Orig_HYDROBASINS.pdf	|
+|	f_Map_Indus_IIASA_Orig_HYDROBASINS.png	|
+|	f_Map_Indus_IIASA_Orig_subbasin_by_country.pdf	|
+|	f_Map_Indus_IIASA_Orig_subbasin_by_country.png	|
+|	f_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_ChartbyCountry.pdf	|
+|	f_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_ChartbyCountry.png	|
+|	f_Map_Indus_IIASA_waterTemp_2007_Jan_01_2006toJul_21_2008_ChartbyCountry.pdf	|
+|	f_Map_Indus_IIASA_waterTemp_2007_Jan_01_2006toJul_21_2008_ChartbyCountry.png	|
+|	f_Map_Indus_IIASA_waterTemp_2008_Jan_01_2006toJul_21_2008_ChartbyCountry.pdf	|
+|	f_Map_Indus_IIASA_waterTemp_2008_Jan_01_2006toJul_21_2008_ChartbyCountry.png	|
+|	t_Indus_IIASA_edit_waterTemp_2006_Jan_01_2006toJul_21_2008_byPIDCOUNTRY.csv	|
+|	t_Indus_IIASA_edit_waterTemp_2007_Jan_01_2006toJul_21_2008_byPIDCOUNTRY.csv	|
+|	t_Indus_IIASA_edit_waterTemp_2008_Jan_01_2006toJul_21_2008_byPIDCOUNTRY.csv	|
+|	t_Indus_IIASA_edit_waterTemp_Jan_01_2006toJul_21_2008_byXY.csv	|
+
+
+<p id="figcap"> Water temperature data example: 2006 daily polygon animation</p>
+<center>
+<div id="fig">
+![](figures\anim_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_PolygonsbyPID.gif)
+</div>
+</center>
+
+<br><br>
+
+<p id="figcap"> Water temperature data example: 2006 weekly gridded animation</p>
+<center>
+<div id="fig">
+![](figures\anim_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_Raster.gif)
+</div>
+</center>
+
+<br><br>
+
+<p id="figcap"> Water temperature data example: 2006 daily chart animation</p>
+<center>
+<div id="fig">
+![](figures\anim_ChartIndus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_byCOUNTRY.gif)
+</div>
+</center>
+
+<br><br>
+
+<p id="figcap"> Water temperature data example: 2006 daily chart </p>
+<center>
+<div id="fig">
+![](figures\f_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_ChartbyCountry.png)
+</div>
+</center>
+
+<br><br>
+
+
+## Energy_transmission
+
+|	Energy transmission electric data files	|
+|	-----------------------------------------------------------------------------------------------------	|
+|	f_Map_Indus_IIASA_Edit_PakTrasmission_WB2017.pdf	|
+|	gis_shp_Indus_IIASA_Edit_WorldBankPakTransmission2017.dbf	|
+|	gis_shp_Indus_IIASA_Edit_WorldBankPakTransmission2017.prj	|
+|	gis_shp_Indus_IIASA_Edit_WorldBankPakTransmission2017.shp	|
+|	gis_shp_Indus_IIASA_Edit_WorldBankPakTransmission2017.shx	|
+|	t_Indus_WB_Edit_TransmissionLines_Pak_WB2017.csv	|
+|	t_Indus_WB_Orig_PP_Pak_WB2017.csv	|
+|	t_Indus_WB_Orig_TransmissionLines_Pak_WB2017.csv	|
+
+
+<p id="figcap"> Energy data example: Electricity transmission example</p>
+<center>
+<div id="fig">
+![](figures\f_Map_Indus_IIASA_energytransmissionelec.png)
+</div>
+</center>
+
+<br><br>

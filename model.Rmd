@@ -1,0 +1,277 @@
+---
+title: "Model"
+bibliography: bib_iswelindus.bib
+link-citations: true
+output:
+  html_document:
+    toc: true  
+    toc_float: true 
+---
+
+# MESSAGEix Guides
+
+The following user guides are available for the MESSAGEix framework and related models:
+
+<ul>
+<li> MESSAGEix IIASA private github repository: [https://github.com/iiasa/message_ix](https://github.com/iiasa/message_ix) </li>
+<li> MESSAGEix User guide (available from within IIASA network): [http://ienecat:8787/message_ix_doc/](http://ienecat:8787/message_ix_doc/) </li>
+<li>MESSAGEix Documentation – Available on IIASA pdrive: <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus%5Cmodel\Guides">pdrive\\is-wel\\indus\\model\\Guides\\MESSAGEixDocumentation</a></li>
+<li>MESSAGEV Math formulation – Available on IIASA pdrive:<a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus%5Cmodel\Guides">pdrive\\is-wel\\indus\\model\\Guides\\MESSAGEVMathFormulation</a></li>
+
+# Framework
+
+The MESSAGEix Indus basin model is run using R to read input data from various formats including .txt, .csv, .xls, .xlsx and .gdx files. R then interacts with GAMS to run the model code. These basic connections are shown in Figure 1. Figure 2 shows all the folders and files which are used to run the model. Figure 3 gives a summary of how the model is run using these different files.
+
+
+<p id="figcap"> Figure 1: ISWEL Indus Basin model software</p>
+<center>
+<div id="fig">
+![](figures\f_model_software.PNG)
+</div>
+</center>
+
+<br><br>
+
+<p id="figcap"> Figure 2: ISWEL Indus Basin model folders and files</p>
+<center>
+<div id="fig">
+![](figures\f_model_folders.PNG)
+</div>
+</center>
+
+<br><br>
+
+<p id="figcap"> Figure 3: Summary of ISWEL Indus Basin model run</p>
+<center>
+<div id="fig">
+![](figures\f_model_run.PNG)
+</div>
+</center>
+
+<br><br>
+
+# Sets
+
+## Base sets
+
+|	Sets	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	time	|	subannual time periods (seasons - days - hours)	|
+|	year_all	|	years (over entire model horizon)	|
+|	node	|	world - regions - countries - grid cells	|
+|	mode	|	modes of operation	|
+|	commodity	|	resources - electricity - water - land availability - etc.	|
+|	level	|	level ( primary - secondary - ... - useful )	|
+|	tec	|	technologies	|
+|	emission	|	greenhouse gases - pollutants - etc.	|
+|	lvl_spatial	|	hierarchical levels of spatial resolution	|
+|	lvl_temporal	|	hierarchical levels of temporal resolution	|
+|	grade	|	grades of extraction of raw materials	|
+|	relation	|	generic user-defined relations (included as legacy from MESSAGE V)	|
+|	level_resource(level)	|	subset of 'level' to mark all levels related to make hfossil resources 	|
+
+
+## Category type sets
+
+|	Sets	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	type_year	|	types of year aggregations 	|
+|	type_tec	|	types of technologies	|
+|	cat_tec(type_tec,tec)	|	mapping of technologies to respective categories	|
+|	cat_year(type_year,year_all)	|	mapping of years to respective categories 	|
+|	type_emission	|	types of emission aggregations	|
+|	cat_emission(type_emission,emission)	|	mapping of emissions to respective categories	|
+
+## Mapping sets
+
+|	Sets	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	map_spatial_hierarchy(lvl_spatial,node,node)	|	mapping of spatial resolution to nodes (last index is 'parent')	|
+|	map_temporal_hierarchy(lvl_temporal,time,time)	|	mapping of temporal resolution to time (last index is 'parent')	|
+|	map_node(node,location)	|	mapping of nodes across hierarchy levels (location is in node)	|
+|	map_time(time,time2)	|	mapping of time periods across hierarchy levels (time2 is in time)	|
+|	map_commodity(node,commodity,level,year_all,time)	|	mapping of commodity-level to node and time 	|
+|	map_tec(node,tec,year_all)	|	mapping of technology to node and years 	|
+|	map_tec_time(node,tec,year_all,time)	|	mapping of technology to temporal dissagregation (time)	|
+|	map_tec_mode(node,tec,year_all,mode)	|	mapping of technology to modes 	|
+|	map_resource(node,commodity,grade,year_all)	|	mapping of resources and grades to node over time	|
+|	map_stocks(node,commodity,level,year_all)	|	mapping of commodity-level to node and time	|
+|	map_relation(relation,node,year_all)	|	mapping of generic relations to nodes and years	|
+
+## Sets with flags for bounds
+
+|	Sets	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	is_bound_new_capacity_up(node,tec,year_all)	|	flag whether upper bound exists for new capacity	|
+|	is_bound_activity_up(node,tec,year_all,mode,time)	|	flag whether upper bound exists for a technology activity	|
+|	is_dynamic_activity_up(node,tec,year_all,time)	|	flag whether upper dynamic constraint exists for a technology (activity)	|
+|	is_bound_extraction_up(node,commodity,grade,year_all)	|	flag whether upper bound exists for extraction of commodity 	|
+|	is_bound_new_capacity_lo(node,tec,year_all)	|	flag whether lower bound exists for new capacity	|
+|	is_bound_total_capacity_up(node,tec,year_all)	|	flag whether upper bound exists for total installed capacity	|
+|	is_bound_total_capacity_lo(node,tec,year_all)	|	flag whether lower bound exists for total installed capacity	|
+|	is_dynamic_new_capacity_up(node,tec,year_all)	|	flag whether upper dynamic constraint exists for new capacity (investment)	|
+|	is_dynamic_new_capacity_lo(node,tec,year_all)	|	flag whether lower dynamic constraint exists for new capacity (investment)	|
+|	is_dynamic_activity_lo(node,tec,year_all,time)	|	flag whether lower dynamic constraint exists for a technology (activity)	|
+|	is_relation_upper(relation,node,year_all)	|	flag whether upper bounds exists for generic relation	|
+|	is_relation_lower(relation,node,year_all)	|	flag whether lower bounds exists for generic relation	|
+|	is_bound_emission(node,type_emission,type_tec,type_year)	|	flag whether emissions bound exists	|
+|	is_fixed_extraction(node,commodity,grade,year_all)	|	flag whether extraction variable is fixed	|
+|	is_fixed_stock(node,commodity,level,year_all)	|	flag whether stock variableis fixed	|
+|	is_fixed_new_capacity(node,tec,year_all)	|	flag whether new capacity variableis fixed	|
+|	is_fixed_capacity(node,tec,vintage,year_all)	|	flag whether maintained capacity variableis fixed	|
+|	is_fixed_activity(node,tec,vintage,year_all,mode,time)	|	flag whether activity variableis fixed	|
+
+## Water energy nexus sets
+
+|	Sets	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	pp_cooltech	|	Power plant cooling technologies	|
+
+
+# Scalars
+
+## General Scalars
+
+|	Scalars	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	s_beta	|	used for param demand calc	|
+|	s_elec_demand_per_year	|	GWa 55209 for 8760 # from IEA statistics	|
+|	s_light_demand_per_year	|	GWa 6134 for 8760 # from IEA statistics	|
+
+
+# Parameters
+
+## General parameters
+
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	duration_period(year_all)	|	duration of one multi-year period (in years)	|
+|	duration_time(time)	|	duration of one time slice (relative to 1)	|
+
+## Economic parameters
+
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	interestrate(year_all)	|	Area_km2	|
+|	p_GDP(year_all)	|	GDP	|
+
+## Resource and commodity parameters
+
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	resource_volume(node,commodity,grade)	|	volume of resources in-situ at start of the model horizon	|
+|	resource_cost(node,commodity,grade,year_all)	|	extraction costs for resource	|
+|	resource_remaining(node,commodity,grade,year_all)	|	maximum extraction relative to remaining resources (by year)	|
+|	commodity_stock(node,commodity,level,year_all)	|	exogenous (initial) quantity of commodity in stock	|
+
+## Demand parameters
+
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	demand(node,commodity,level,year_all,time)	|	s_commodity_demand_per_year*p_GDP**s_beta	|
+
+
+## Technology parameters
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	input(node,tec,vintage,year_all,mode,node,commodity,level,time,time)	|	relative share of input per unit of activity	|
+|	output(node,tec,vintage,year_all,mode,node,commodity,level,time,time)	|	relative share of input per unit of activity	|
+|	inv_cost(node,tec,year_all)	|	investment costs (per unit of new capacity)	|
+|	fix_cost(node,tec,vintage,year_all)	|	fixed costs per year (per unit of capacity maintained)	|
+|	var_cost(node,tec,vintage,year_all,mode,time)	|	variable costs of operation (per unit of capacity maintained)	|
+|	construction_time(node,tec,vintage)	|	duration of construction of new capacity (in years)	|
+|	operation_factor(node,tec,vintage,year_all)	|	yearly total operation factor	|
+|	min_utilization_factor(node,tec,vintage,year_all)	|	yearly minimum utilization factor	|
+|	emission_factor(node,tec,year_all,mode,emission)	|	emission intensity of activity	|
+|	technical_lifetime(node,tec,vintage)	|	maximum technical lifetime (from year of construction)  	|
+|	capacity_factor(node,tec,vintage,year_all,time)	|	capacity factor by subannual time slice 	|
+
+
+## Bounds on capacity and activity parameters
+
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	bound_new_capacity_up(node,tec,year_all)	|	upper bound on new capacity	|
+|	bound_activity_up(node,tec,year_all,mode,time)	|	upper bound on activity (aggregated over all vintages)	|
+|	bound_activity_lo(node,tec,year_all,mode,time)	|	lower bound on activity	|
+|	bound_extraction_up(node,commodity,grade,year_all)	|	upper bound on extraction of resources by grade	|
+|	bound_new_capacity_lo(node,tec,year_all)	|	lower bound on new capacity	|
+|	bound_total_capacity_up(node,tec,year_all)	|	upper bound on total installed capacity	|
+|	bound_total_capacity_lo(node,tec,year_all)	|	lower bound on total installed capacity	|
+
+
+## Dynamic constraints on capacity and activity
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	initial_activity_up(node,tec,year_all,time)	|	dynamic upper bound on activity (fixed initial term)	|
+|	growth_activity_up(node,tec,year_all,time)	|	dynamic upper bound on activity (growth rate)	|
+|	initial_new_capacity_up(node,tec,year_all)	|	dynamic upper bound on new capacity (fixed initial term)	|
+|	growth_new_capacity_up(node,tec,year_all)	|	dynamic upper bound on new capacity (growth rate)	|
+|	initial_new_capacity_lo(node,tec,year_all)	|	dynamic lower bound on new capacity (fixed initial term)	|
+|	growth_new_capacity_lo(node,tec,year_all)	|	dynamic lower bound on new capacity (growth rate)	|
+|	initial_activity_lo(node,tec,year_all,time)	|	dynamic lower bound on activity (fixed initial term)	|
+|	growth_activity_lo(node,tec,year_all,time)	|	dynamic lower bound on activity (growth rate)	|
+|	soft_new_capacity_up(node,tec,year_all)	|	soft relaxation of dynamic upper bound on new capacity (growth rate) 	|
+|	soft_new_capacity_lo(node,tec,year_all)	|	soft relaxation of dynamic lower bound on new capacity (growth rate)	|
+|	soft_activity_up(node,tec,year_all,time)	|	soft relaxation of dynamic upper bound on activity (growth rate)    	|
+|	soft_activity_lo(node,tec,year_all,time)	|	soft relaxation of dynamic lower bound on activity (growth rate) 	|
+
+## Soft relaxation of dynamic constraint parameters
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	abs_cost_new_capacity_soft_up(node,tec,year_all)	|	absolute cost of dynamic new capacity constraint relaxation (upwards)	|
+|	abs_cost_new_capacity_soft_lo(node,tec,year_all)	|	absolute cost of dynamic new capacity constraint relaxation (downwards)	|
+|	level_cost_new_capacity_soft_up(node,tec,year_all)	|	levelized cost multiplier of dynamic new capacity constraint relaxation (upwards)	|
+|	level_cost_new_capacity_soft_lo(node,tec,year_all)	|	levelized cost multiplier of dynamic new capacity constraint relaxation (downwards)	|
+|	abs_cost_activity_soft_up(node,tec,year_all,time)	|	absolute cost of dynamic activity constraint relaxation (upwards)	|
+|	abs_cost_activity_soft_lo(node,tec,year_all,time)	|	absolute cost of dynamic activity constraint relaxation (downwards)	|
+|	level_cost_activity_soft_up(node,tec,year_all,time)	|	levelized cost multiplier of dynamic activity constraint relaxation (upwards)	|
+|	level_cost_activity_soft_lo(node,tec,year_all,time)	|	levelized cost multiplier of dynamic activity constraint relaxation (downwards)	|
+
+
+## Historical and reference values of new capacity investment, activity and extraction
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	historical_new_capacity(node,tec,year_all)	|	historical new capacity	|
+|	historical_activity(node,tec,year_all,mode,time)	|	historical acitivity	|
+|	historical_extraction(node,commodity,grade,year_all)	|	historical extraction	|
+|	ref_new_capacity(node,tec,year_all)	|	reference new capacity levels	|
+|	ref_activity(node,tec,year_all,mode,time)	|	reference activity levels	|
+|	ref_extraction(node,commodity,grade,year_all)	|	reference value of extraction	|
+
+
+## Emissions parameters
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	emission_scaling(type_emission,emission)	|	scaling factor to harmonize bounds or taxes across tpes	|
+|	bound_emission(node,type_emission,type_tec,type_year)	|	upper bound on emissions	|
+|	tax_emission(node,type_emission,type_tec,year_all)	|	emission tax	|
+
+
+## Generic relation parameters (legacy from MESSAGE V)
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	relation_upper(relation,node,year_all)	|	upper bound of generic relation	|
+|	relation_lower(relation,node,year_all)	|	lower bound of generic relation	|
+|	relation_cost(relation,node,year_all)	|	cost of investment and activities included in generic relation	|
+|	relation_new_capacity(relation,node,year_all,tec)	|	new capacity factor (multiplier) of generic relation	|
+|	relation_total_capacity(relation,node,year_all,tec)	|	total capacity factor (multiplier) of generic relation	|
+|	relation_activity(relation,node,year_all,node,tec,year_all,mode)	|	activity factor (multiplier) of generic relation	|
+
+## Fixing variable parameters
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	fixed_extraction(node,commodity,grade,year_all)	|	fixed extraction level	|
+|	fixed_stock(node,commodity,level,year_all)	|	fixed stock level	|
+|	fixed_new_capacity(node,tec,year_all)	|	fixed new-built capacity	|
+|	fixed_capacity(node,tec,vintage,year_all)	|	fixed maintained capacity	|
+|	fixed_activity(node,tec,vintage,year_all,mode,time)	|	fixed activity level	|
+
+## Water energy nexus parameters
+|	Parameters	|	Label	|
+|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|	---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|
+|	water_consumption(tec)	|	Water consumed per energy produced	|
+
+
+# Variables
+# Equations

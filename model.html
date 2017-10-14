@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Model</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">IS-WEL Indus</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Overview</a>
+</li>
+<li>
+  <a href="sdgs.html">SDGs</a>
+</li>
+<li>
+  <a href="issues.html">Issues</a>
+</li>
+<li>
+  <a href="policy.html">Policy</a>
+</li>
+<li>
+  <a href="emergingtechs.html">Emerging Techs</a>
+</li>
+<li>
+  <a href="data.html">Data</a>
+</li>
+<li>
+  <a href="model.html">Model</a>
+</li>
+<li>
+  <a href="baseline.html">Baseline</a>
+</li>
+<li>
+  <a href="pathways.html">Pathways</a>
+</li>
+<li>
+  <a href="analysis.html">Analysis</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="library.html">
+    <span class="fa fa-book"></span>
+     
+    Library
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Model</h1>
+
+</div>
+
+
+<div id="messageix-guides" class="section level1">
+<h1>MESSAGEix Guides</h1>
+<p>The following user guides are available for the MESSAGEix framework and related models:</p>
+<ul>
+<li>
+MESSAGEix IIASA private github repository: <a href="https://github.com/iiasa/message_ix" class="uri">https://github.com/iiasa/message_ix</a>
+</li>
+<li>
+MESSAGEix User guide (available from within IIASA network): <a href="http://ienecat:8787/message_ix_doc/" class="uri">http://ienecat:8787/message_ix_doc/</a>
+</li>
+<li>
+MESSAGEix Documentation – Available on IIASA pdrive: <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus%5Cmodel\Guides">pdrive\is-wel\indus\model\Guides\MESSAGEixDocumentation</a>
+</li>
+<li>
+MESSAGEV Math formulation – Available on IIASA pdrive:<a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus%5Cmodel\Guides">pdrive\is-wel\indus\model\Guides\MESSAGEVMathFormulation</a>
+</li>
+</div>
+<div id="framework" class="section level1">
+<h1>Framework</h1>
+<p>The MESSAGEix Indus basin model is run using R to read input data from various formats including .txt, .csv, .xls, .xlsx and .gdx files. R then interacts with GAMS to run the model code. These basic connections are shown in Figure 1. Figure 2 shows all the folders and files which are used to run the model. Figure 3 gives a summary of how the model is run using these different files.</p>
+<p id="figcap">
+Figure 1: ISWEL Indus Basin model software
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_model_software.PNG" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="figcap">
+Figure 2: ISWEL Indus Basin model folders and files
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_model_folders.PNG" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="figcap">
+Figure 3: Summary of ISWEL Indus Basin model run
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_model_run.PNG" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+</div>
+<div id="sets" class="section level1">
+<h1>Sets</h1>
+<div id="base-sets" class="section level2">
+<h2>Base sets</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sets</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>time</td>
+<td>subannual time periods (seasons - days - hours)</td>
+</tr>
+<tr class="even">
+<td>year_all</td>
+<td>years (over entire model horizon)</td>
+</tr>
+<tr class="odd">
+<td>node</td>
+<td>world - regions - countries - grid cells</td>
+</tr>
+<tr class="even">
+<td>mode</td>
+<td>modes of operation</td>
+</tr>
+<tr class="odd">
+<td>commodity</td>
+<td>resources - electricity - water - land availability - etc.</td>
+</tr>
+<tr class="even">
+<td>level</td>
+<td>level ( primary - secondary - … - useful )</td>
+</tr>
+<tr class="odd">
+<td>tec</td>
+<td>technologies</td>
+</tr>
+<tr class="even">
+<td>emission</td>
+<td>greenhouse gases - pollutants - etc.</td>
+</tr>
+<tr class="odd">
+<td>lvl_spatial</td>
+<td>hierarchical levels of spatial resolution</td>
+</tr>
+<tr class="even">
+<td>lvl_temporal</td>
+<td>hierarchical levels of temporal resolution</td>
+</tr>
+<tr class="odd">
+<td>grade</td>
+<td>grades of extraction of raw materials</td>
+</tr>
+<tr class="even">
+<td>relation</td>
+<td>generic user-defined relations (included as legacy from MESSAGE V)</td>
+</tr>
+<tr class="odd">
+<td>level_resource(level)</td>
+<td>subset of ‘level’ to mark all levels related to make hfossil resources</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="category-type-sets" class="section level2">
+<h2>Category type sets</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sets</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>type_year</td>
+<td>types of year aggregations</td>
+</tr>
+<tr class="even">
+<td>type_tec</td>
+<td>types of technologies</td>
+</tr>
+<tr class="odd">
+<td>cat_tec(type_tec,tec)</td>
+<td>mapping of technologies to respective categories</td>
+</tr>
+<tr class="even">
+<td>cat_year(type_year,year_all)</td>
+<td>mapping of years to respective categories</td>
+</tr>
+<tr class="odd">
+<td>type_emission</td>
+<td>types of emission aggregations</td>
+</tr>
+<tr class="even">
+<td>cat_emission(type_emission,emission)</td>
+<td>mapping of emissions to respective categories</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="mapping-sets" class="section level2">
+<h2>Mapping sets</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sets</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>map_spatial_hierarchy(lvl_spatial,node,node)</td>
+<td>mapping of spatial resolution to nodes (last index is ‘parent’)</td>
+</tr>
+<tr class="even">
+<td>map_temporal_hierarchy(lvl_temporal,time,time)</td>
+<td>mapping of temporal resolution to time (last index is ‘parent’)</td>
+</tr>
+<tr class="odd">
+<td>map_node(node,location)</td>
+<td>mapping of nodes across hierarchy levels (location is in node)</td>
+</tr>
+<tr class="even">
+<td>map_time(time,time2)</td>
+<td>mapping of time periods across hierarchy levels (time2 is in time)</td>
+</tr>
+<tr class="odd">
+<td>map_commodity(node,commodity,level,year_all,time)</td>
+<td>mapping of commodity-level to node and time</td>
+</tr>
+<tr class="even">
+<td>map_tec(node,tec,year_all)</td>
+<td>mapping of technology to node and years</td>
+</tr>
+<tr class="odd">
+<td>map_tec_time(node,tec,year_all,time)</td>
+<td>mapping of technology to temporal dissagregation (time)</td>
+</tr>
+<tr class="even">
+<td>map_tec_mode(node,tec,year_all,mode)</td>
+<td>mapping of technology to modes</td>
+</tr>
+<tr class="odd">
+<td>map_resource(node,commodity,grade,year_all)</td>
+<td>mapping of resources and grades to node over time</td>
+</tr>
+<tr class="even">
+<td>map_stocks(node,commodity,level,year_all)</td>
+<td>mapping of commodity-level to node and time</td>
+</tr>
+<tr class="odd">
+<td>map_relation(relation,node,year_all)</td>
+<td>mapping of generic relations to nodes and years</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="sets-with-flags-for-bounds" class="section level2">
+<h2>Sets with flags for bounds</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sets</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>is_bound_new_capacity_up(node,tec,year_all)</td>
+<td>flag whether upper bound exists for new capacity</td>
+</tr>
+<tr class="even">
+<td>is_bound_activity_up(node,tec,year_all,mode,time)</td>
+<td>flag whether upper bound exists for a technology activity</td>
+</tr>
+<tr class="odd">
+<td>is_dynamic_activity_up(node,tec,year_all,time)</td>
+<td>flag whether upper dynamic constraint exists for a technology (activity)</td>
+</tr>
+<tr class="even">
+<td>is_bound_extraction_up(node,commodity,grade,year_all)</td>
+<td>flag whether upper bound exists for extraction of commodity</td>
+</tr>
+<tr class="odd">
+<td>is_bound_new_capacity_lo(node,tec,year_all)</td>
+<td>flag whether lower bound exists for new capacity</td>
+</tr>
+<tr class="even">
+<td>is_bound_total_capacity_up(node,tec,year_all)</td>
+<td>flag whether upper bound exists for total installed capacity</td>
+</tr>
+<tr class="odd">
+<td>is_bound_total_capacity_lo(node,tec,year_all)</td>
+<td>flag whether lower bound exists for total installed capacity</td>
+</tr>
+<tr class="even">
+<td>is_dynamic_new_capacity_up(node,tec,year_all)</td>
+<td>flag whether upper dynamic constraint exists for new capacity (investment)</td>
+</tr>
+<tr class="odd">
+<td>is_dynamic_new_capacity_lo(node,tec,year_all)</td>
+<td>flag whether lower dynamic constraint exists for new capacity (investment)</td>
+</tr>
+<tr class="even">
+<td>is_dynamic_activity_lo(node,tec,year_all,time)</td>
+<td>flag whether lower dynamic constraint exists for a technology (activity)</td>
+</tr>
+<tr class="odd">
+<td>is_relation_upper(relation,node,year_all)</td>
+<td>flag whether upper bounds exists for generic relation</td>
+</tr>
+<tr class="even">
+<td>is_relation_lower(relation,node,year_all)</td>
+<td>flag whether lower bounds exists for generic relation</td>
+</tr>
+<tr class="odd">
+<td>is_bound_emission(node,type_emission,type_tec,type_year)</td>
+<td>flag whether emissions bound exists</td>
+</tr>
+<tr class="even">
+<td>is_fixed_extraction(node,commodity,grade,year_all)</td>
+<td>flag whether extraction variable is fixed</td>
+</tr>
+<tr class="odd">
+<td>is_fixed_stock(node,commodity,level,year_all)</td>
+<td>flag whether stock variableis fixed</td>
+</tr>
+<tr class="even">
+<td>is_fixed_new_capacity(node,tec,year_all)</td>
+<td>flag whether new capacity variableis fixed</td>
+</tr>
+<tr class="odd">
+<td>is_fixed_capacity(node,tec,vintage,year_all)</td>
+<td>flag whether maintained capacity variableis fixed</td>
+</tr>
+<tr class="even">
+<td>is_fixed_activity(node,tec,vintage,year_all,mode,time)</td>
+<td>flag whether activity variableis fixed</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="water-energy-nexus-sets" class="section level2">
+<h2>Water energy nexus sets</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Sets</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>pp_cooltech</td>
+<td>Power plant cooling technologies</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="scalars" class="section level1">
+<h1>Scalars</h1>
+<div id="general-scalars" class="section level2">
+<h2>General Scalars</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Scalars</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>s_beta</td>
+<td>used for param demand calc</td>
+</tr>
+<tr class="even">
+<td>s_elec_demand_per_year</td>
+<td>GWa 55209 for 8760 # from IEA statistics</td>
+</tr>
+<tr class="odd">
+<td>s_light_demand_per_year</td>
+<td>GWa 6134 for 8760 # from IEA statistics</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="parameters" class="section level1">
+<h1>Parameters</h1>
+<div id="general-parameters" class="section level2">
+<h2>General parameters</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>duration_period(year_all)</td>
+<td>duration of one multi-year period (in years)</td>
+</tr>
+<tr class="even">
+<td>duration_time(time)</td>
+<td>duration of one time slice (relative to 1)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="economic-parameters" class="section level2">
+<h2>Economic parameters</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>interestrate(year_all)</td>
+<td>Area_km2</td>
+</tr>
+<tr class="even">
+<td>p_GDP(year_all)</td>
+<td>GDP</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="resource-and-commodity-parameters" class="section level2">
+<h2>Resource and commodity parameters</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>resource_volume(node,commodity,grade)</td>
+<td>volume of resources in-situ at start of the model horizon</td>
+</tr>
+<tr class="even">
+<td>resource_cost(node,commodity,grade,year_all)</td>
+<td>extraction costs for resource</td>
+</tr>
+<tr class="odd">
+<td>resource_remaining(node,commodity,grade,year_all)</td>
+<td>maximum extraction relative to remaining resources (by year)</td>
+</tr>
+<tr class="even">
+<td>commodity_stock(node,commodity,level,year_all)</td>
+<td>exogenous (initial) quantity of commodity in stock</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="demand-parameters" class="section level2">
+<h2>Demand parameters</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>demand(node,commodity,level,year_all,time)</td>
+<td>s_commodity_demand_per_year*p_GDP**s_beta</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="technology-parameters" class="section level2">
+<h2>Technology parameters</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>input(node,tec,vintage,year_all,mode,node,commodity,level,time,time)</td>
+<td>relative share of input per unit of activity</td>
+</tr>
+<tr class="even">
+<td>output(node,tec,vintage,year_all,mode,node,commodity,level,time,time)</td>
+<td>relative share of input per unit of activity</td>
+</tr>
+<tr class="odd">
+<td>inv_cost(node,tec,year_all)</td>
+<td>investment costs (per unit of new capacity)</td>
+</tr>
+<tr class="even">
+<td>fix_cost(node,tec,vintage,year_all)</td>
+<td>fixed costs per year (per unit of capacity maintained)</td>
+</tr>
+<tr class="odd">
+<td>var_cost(node,tec,vintage,year_all,mode,time)</td>
+<td>variable costs of operation (per unit of capacity maintained)</td>
+</tr>
+<tr class="even">
+<td>construction_time(node,tec,vintage)</td>
+<td>duration of construction of new capacity (in years)</td>
+</tr>
+<tr class="odd">
+<td>operation_factor(node,tec,vintage,year_all)</td>
+<td>yearly total operation factor</td>
+</tr>
+<tr class="even">
+<td>min_utilization_factor(node,tec,vintage,year_all)</td>
+<td>yearly minimum utilization factor</td>
+</tr>
+<tr class="odd">
+<td>emission_factor(node,tec,year_all,mode,emission)</td>
+<td>emission intensity of activity</td>
+</tr>
+<tr class="even">
+<td>technical_lifetime(node,tec,vintage)</td>
+<td>maximum technical lifetime (from year of construction)</td>
+</tr>
+<tr class="odd">
+<td>capacity_factor(node,tec,vintage,year_all,time)</td>
+<td>capacity factor by subannual time slice</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="bounds-on-capacity-and-activity-parameters" class="section level2">
+<h2>Bounds on capacity and activity parameters</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>bound_new_capacity_up(node,tec,year_all)</td>
+<td>upper bound on new capacity</td>
+</tr>
+<tr class="even">
+<td>bound_activity_up(node,tec,year_all,mode,time)</td>
+<td>upper bound on activity (aggregated over all vintages)</td>
+</tr>
+<tr class="odd">
+<td>bound_activity_lo(node,tec,year_all,mode,time)</td>
+<td>lower bound on activity</td>
+</tr>
+<tr class="even">
+<td>bound_extraction_up(node,commodity,grade,year_all)</td>
+<td>upper bound on extraction of resources by grade</td>
+</tr>
+<tr class="odd">
+<td>bound_new_capacity_lo(node,tec,year_all)</td>
+<td>lower bound on new capacity</td>
+</tr>
+<tr class="even">
+<td>bound_total_capacity_up(node,tec,year_all)</td>
+<td>upper bound on total installed capacity</td>
+</tr>
+<tr class="odd">
+<td>bound_total_capacity_lo(node,tec,year_all)</td>
+<td>lower bound on total installed capacity</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="dynamic-constraints-on-capacity-and-activity" class="section level2">
+<h2>Dynamic constraints on capacity and activity</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>initial_activity_up(node,tec,year_all,time)</td>
+<td>dynamic upper bound on activity (fixed initial term)</td>
+</tr>
+<tr class="even">
+<td>growth_activity_up(node,tec,year_all,time)</td>
+<td>dynamic upper bound on activity (growth rate)</td>
+</tr>
+<tr class="odd">
+<td>initial_new_capacity_up(node,tec,year_all)</td>
+<td>dynamic upper bound on new capacity (fixed initial term)</td>
+</tr>
+<tr class="even">
+<td>growth_new_capacity_up(node,tec,year_all)</td>
+<td>dynamic upper bound on new capacity (growth rate)</td>
+</tr>
+<tr class="odd">
+<td>initial_new_capacity_lo(node,tec,year_all)</td>
+<td>dynamic lower bound on new capacity (fixed initial term)</td>
+</tr>
+<tr class="even">
+<td>growth_new_capacity_lo(node,tec,year_all)</td>
+<td>dynamic lower bound on new capacity (growth rate)</td>
+</tr>
+<tr class="odd">
+<td>initial_activity_lo(node,tec,year_all,time)</td>
+<td>dynamic lower bound on activity (fixed initial term)</td>
+</tr>
+<tr class="even">
+<td>growth_activity_lo(node,tec,year_all,time)</td>
+<td>dynamic lower bound on activity (growth rate)</td>
+</tr>
+<tr class="odd">
+<td>soft_new_capacity_up(node,tec,year_all)</td>
+<td>soft relaxation of dynamic upper bound on new capacity (growth rate)</td>
+</tr>
+<tr class="even">
+<td>soft_new_capacity_lo(node,tec,year_all)</td>
+<td>soft relaxation of dynamic lower bound on new capacity (growth rate)</td>
+</tr>
+<tr class="odd">
+<td>soft_activity_up(node,tec,year_all,time)</td>
+<td>soft relaxation of dynamic upper bound on activity (growth rate)</td>
+</tr>
+<tr class="even">
+<td>soft_activity_lo(node,tec,year_all,time)</td>
+<td>soft relaxation of dynamic lower bound on activity (growth rate)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="soft-relaxation-of-dynamic-constraint-parameters" class="section level2">
+<h2>Soft relaxation of dynamic constraint parameters</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>abs_cost_new_capacity_soft_up(node,tec,year_all)</td>
+<td>absolute cost of dynamic new capacity constraint relaxation (upwards)</td>
+</tr>
+<tr class="even">
+<td>abs_cost_new_capacity_soft_lo(node,tec,year_all)</td>
+<td>absolute cost of dynamic new capacity constraint relaxation (downwards)</td>
+</tr>
+<tr class="odd">
+<td>level_cost_new_capacity_soft_up(node,tec,year_all)</td>
+<td>levelized cost multiplier of dynamic new capacity constraint relaxation (upwards)</td>
+</tr>
+<tr class="even">
+<td>level_cost_new_capacity_soft_lo(node,tec,year_all)</td>
+<td>levelized cost multiplier of dynamic new capacity constraint relaxation (downwards)</td>
+</tr>
+<tr class="odd">
+<td>abs_cost_activity_soft_up(node,tec,year_all,time)</td>
+<td>absolute cost of dynamic activity constraint relaxation (upwards)</td>
+</tr>
+<tr class="even">
+<td>abs_cost_activity_soft_lo(node,tec,year_all,time)</td>
+<td>absolute cost of dynamic activity constraint relaxation (downwards)</td>
+</tr>
+<tr class="odd">
+<td>level_cost_activity_soft_up(node,tec,year_all,time)</td>
+<td>levelized cost multiplier of dynamic activity constraint relaxation (upwards)</td>
+</tr>
+<tr class="even">
+<td>level_cost_activity_soft_lo(node,tec,year_all,time)</td>
+<td>levelized cost multiplier of dynamic activity constraint relaxation (downwards)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="historical-and-reference-values-of-new-capacity-investment-activity-and-extraction" class="section level2">
+<h2>Historical and reference values of new capacity investment, activity and extraction</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>historical_new_capacity(node,tec,year_all)</td>
+<td>historical new capacity</td>
+</tr>
+<tr class="even">
+<td>historical_activity(node,tec,year_all,mode,time)</td>
+<td>historical acitivity</td>
+</tr>
+<tr class="odd">
+<td>historical_extraction(node,commodity,grade,year_all)</td>
+<td>historical extraction</td>
+</tr>
+<tr class="even">
+<td>ref_new_capacity(node,tec,year_all)</td>
+<td>reference new capacity levels</td>
+</tr>
+<tr class="odd">
+<td>ref_activity(node,tec,year_all,mode,time)</td>
+<td>reference activity levels</td>
+</tr>
+<tr class="even">
+<td>ref_extraction(node,commodity,grade,year_all)</td>
+<td>reference value of extraction</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="emissions-parameters" class="section level2">
+<h2>Emissions parameters</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>emission_scaling(type_emission,emission)</td>
+<td>scaling factor to harmonize bounds or taxes across tpes</td>
+</tr>
+<tr class="even">
+<td>bound_emission(node,type_emission,type_tec,type_year)</td>
+<td>upper bound on emissions</td>
+</tr>
+<tr class="odd">
+<td>tax_emission(node,type_emission,type_tec,year_all)</td>
+<td>emission tax</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="generic-relation-parameters-legacy-from-message-v" class="section level2">
+<h2>Generic relation parameters (legacy from MESSAGE V)</h2>
+<table>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>relation_upper(relation,node,year_all)</td>
+<td>upper bound of generic relation</td>
+</tr>
+<tr class="even">
+<td>relation_lower(relation,node,year_all)</td>
+<td>lower bound of generic relation</td>
+</tr>
+<tr class="odd">
+<td>relation_cost(relation,node,year_all)</td>
+<td>cost of investment and activities included in generic relation</td>
+</tr>
+<tr class="even">
+<td>relation_new_capacity(relation,node,year_all,tec)</td>
+<td>new capacity factor (multiplier) of generic relation</td>
+</tr>
+<tr class="odd">
+<td>relation_total_capacity(relation,node,year_all,tec)</td>
+<td>total capacity factor (multiplier) of generic relation</td>
+</tr>
+<tr class="even">
+<td>relation_activity(relation,node,year_all,node,tec,year_all,mode)</td>
+<td>activity factor (multiplier) of generic relation</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="fixing-variable-parameters" class="section level2">
+<h2>Fixing variable parameters</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>fixed_extraction(node,commodity,grade,year_all)</td>
+<td>fixed extraction level</td>
+</tr>
+<tr class="even">
+<td>fixed_stock(node,commodity,level,year_all)</td>
+<td>fixed stock level</td>
+</tr>
+<tr class="odd">
+<td>fixed_new_capacity(node,tec,year_all)</td>
+<td>fixed new-built capacity</td>
+</tr>
+<tr class="even">
+<td>fixed_capacity(node,tec,vintage,year_all)</td>
+<td>fixed maintained capacity</td>
+</tr>
+<tr class="odd">
+<td>fixed_activity(node,tec,vintage,year_all,mode,time)</td>
+<td>fixed activity level</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="water-energy-nexus-parameters" class="section level2">
+<h2>Water energy nexus parameters</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Parameters</th>
+<th>Label</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>water_consumption(tec)</td>
+<td>Water consumed per energy produced</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="variables" class="section level1">
+<h1>Variables</h1>
+</div>
+<div id="equations" class="section level1">
+<h1>Equations</h1>
+</div>
+
+<p id="footer">Copyright &copy; 2017 IIASA All rights reserved.</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

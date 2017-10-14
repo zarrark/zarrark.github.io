@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>IS-WEL Indus Basin</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">IS-WEL Indus</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Overview</a>
+</li>
+<li>
+  <a href="sdgs.html">SDGs</a>
+</li>
+<li>
+  <a href="issues.html">Issues</a>
+</li>
+<li>
+  <a href="policy.html">Policy</a>
+</li>
+<li>
+  <a href="emergingtechs.html">Emerging Techs</a>
+</li>
+<li>
+  <a href="data.html">Data</a>
+</li>
+<li>
+  <a href="model.html">Model</a>
+</li>
+<li>
+  <a href="baseline.html">Baseline</a>
+</li>
+<li>
+  <a href="pathways.html">Pathways</a>
+</li>
+<li>
+  <a href="analysis.html">Analysis</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="library.html">
+    <span class="fa fa-book"></span>
+     
+    Library
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">IS-WEL Indus Basin</h1>
+
+</div>
+
+
+<div id="project" class="section level1">
+<h1>Project</h1>
+<p>This website is used to host the outcomes of the “IS-WEL Indus Basin”&quot; sub-project, which is part of the larger Integrated Solutions for Water, Energy and Land <a href="http://www.iiasa.ac.at/web/home/research/researchProjects/Nexus_Solutions.html">(IS-WEL)</a> project launched by IIASA, together with the Global Environment Facility (GEF) and the United Nations Industrial Development Organization (UNIDO). This new project aims to identify integrated solutions to energy, water, food, and ecosystem security in selected regions of the world. These are regions facing multiple energy and land use challenges and rapid demographic and economic changes, and are hardest hit by increasing climate variability and change. The new project aims to answer questions about how to achieve the new sustainable development goals (SDGs) that were set in 2015 with respect to climate change and sustainable development, including:</p>
+<ol style="list-style-type: decimal">
+<li>How these goals can be jointly addressed</li>
+<li>The costs of inaction</li>
+<li>How problems in one area may exacerbate or mitigate problems in other areas</li>
+</ol>
+<p>A global integrated systems model, MESSAGEix, is being developed at IIASA to analyze the issues at a larger scale. The current sub-project aims to develop a more detailed river basin level model, for the Indus Basin, which can be integrated into the larger IIASA MESSAGEix global model.</p>
+</div>
+<div id="indus-basin" class="section level1">
+<h1>Indus Basin</h1>
+<p>The Indus Basin is shown in Figure 1 using the basin boundaries from the HydroBASINS data set (<span class="citation">Lehner and Grill (<a href="#ref-lehner2013_HYDROBASINS">2013</a>)</span>). The basin area is shared between Pakistan, India, Afghanistan and China. Some basic statistics are shown in the table below.</p>
+<p id="figcap">
+Figure 1: Indus basin administrative boundaries
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_Map_Indus_IIASA_Orig_HYDROBASINS_fromPresent.png" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="tabcap">
+Table 1: Indus Basin area and population distribution by country
+</p>
+<table>
+<colgroup>
+<col width="11%" />
+<col width="12%" />
+<col width="12%" />
+<col width="14%" />
+<col width="16%" />
+<col width="15%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center"></th>
+<th align="center">Country Area</th>
+<th align="center">Area in Basin</th>
+<th align="center">% of Basin Area</th>
+<th align="center">% of Country Area</th>
+<th align="center">Total Population</th>
+<th align="center">Population in Indus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center"></td>
+<td align="center">km<sup>2</sup></td>
+<td align="center">km<sup>2</sup></td>
+<td align="center">%</td>
+<td align="center">%</td>
+<td align="center">Million</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Pakistan</td>
+<td align="center">796,095</td>
+<td align="center">520,000</td>
+<td align="center">46.4</td>
+<td align="center">65.3</td>
+<td align="center">182.1</td>
+<td align="center">&gt;150</td>
+</tr>
+<tr class="odd">
+<td align="center">India</td>
+<td align="center">3,287,000</td>
+<td align="center">440,000</td>
+<td align="center">39.3</td>
+<td align="center">13.4</td>
+<td align="center">1,252</td>
+<td align="center">-</td>
+</tr>
+<tr class="even">
+<td align="center">China</td>
+<td align="center">9,597,000</td>
+<td align="center">88,000</td>
+<td align="center">7.9</td>
+<td align="center">0.9</td>
+<td align="center">1,357</td>
+<td align="center">-</td>
+</tr>
+<tr class="odd">
+<td align="center">Afghanistan</td>
+<td align="center">652,864</td>
+<td align="center">72,000</td>
+<td align="center">6.4</td>
+<td align="center">11</td>
+<td align="center">30.55</td>
+<td align="center">-</td>
+</tr>
+<tr class="even">
+<td align="center">Indus Total</td>
+<td align="center">-</td>
+<td align="center">1,120,000</td>
+<td align="center">100</td>
+<td align="center">-</td>
+<td align="center">2,822</td>
+<td align="center">300</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="goal" class="section level1">
+<h1>Goal</h1>
+<center>
+<div id="box">
+<p>How to achieve water, energy and landuse related SDGs in the Indus Basin</p>
+</div>
+</center>
+Considering:
+<ul>
+<li>
+How to jointly address the various goals.
+</li>
+<li>
+The costs of inaction.
+</li>
+<li>
+Impacts of actions in one area on other areas
+</li>
+</ul>
+</div>
+<div id="implementation-strategy" class="section level1">
+<h1>Implementation Strategy</h1>
+<p>The implementation strategy for the ISWEL Indus basin project is shown in Figure 2. The work has been divided into three broad categories: Preparation, Themes and Outputs. Preparation involves data collection, model development, maintenance of the project library and engagement with stakeholders for feedback. All these activities will focus on several key themes aimed to address the main project Goal. These themes include analysis of the SDGs, national and international policies, emerging technologies, creating a baseline and identification of future pathways. Project outputs will comprise four different formats: reports, presentations, a website and journal publications.</p>
+<p id="figcap">
+Figure 2: ISWEL Indus Basin work plan
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_workplan_presentOverview.PNG" />
+
+</div>
+</div>
+</center>
+</div>
+<div id="sub-themes" class="section level1">
+<h1>Sub-themes</h1>
+<p>The themes dsicussed in the workplan can be further sub-divided into energy, water, landuse as well as socio-economic and climate change sub-themes as shown in Figure 3. These are further divided into the relevant details. These categories serves as the guideline for the organization of the library, data collection and parameter definition for the model.</p>
+<p id="figcap">
+Figure 3: ISWEL Indus Basin sub-theme
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_subthemes_presentOverview.PNG" />
+
+</div>
+</div>
+</center>
+</div>
+<div id="data-management" class="section level1">
+<h1>Data Management</h1>
+<p>Table 2 shows the distribution of folders and data storage location for the ISWEL Indus Basin project.</p>
+<p id="tabcap">
+Table 2: ISWEL Indus basin project data and folder management
+</p>
+<table style="width:100%;">
+<colgroup>
+<col width="11%" />
+<col width="25%" />
+<col width="63%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Data Management</th>
+<th>Shared</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Website</td>
+<td><a href="https://zarrarkhan.github.io/" class="uri">https://zarrarkhan.github.io/</a></td>
+<td>Overview, Stakeholders, SDGs, Policies, Data, Model, Baseline, Pathways, Analysis, Library, Summary</td>
+</tr>
+<tr class="even">
+<td>Reports</td>
+<td><a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\reports">pdrive\is-wel\indus\reports</a></td>
+<td>Overview, Stakeholders, SDGs, Policies, Emerging Techs, Data, Model, Baseline, Pathways, Analysis, Library, Summary</td>
+</tr>
+<tr class="odd">
+<td>Publications</td>
+<td><a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\publications">pdrive\is-wel\indus\publications</a></td>
+<td>SDGs, Policies, Emerging Techs, Data, Model, Baseline, Pathways, Analysis</td>
+</tr>
+<tr class="even">
+<td>Presentations</td>
+<td><a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\presentations">pdrive\is-wel\indus\presentations</a></td>
+<td>Overview, Stakeholders, SDGs, Policies, Emerging Techs, Data, Model, Baseline, Pathways, Analysis, Library, Summary</td>
+</tr>
+<tr class="odd">
+<td>DataGis</td>
+<td><a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\datagis">pdrive\is-wel\indus\datagis</a></td>
+<td>Raw data, shapefiles, outputs</td>
+</tr>
+<tr class="even">
+<td>Library</td>
+<td><a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\library">pdrive\is-wel\indus\library</a></td>
+<td>Collection of sources</td>
+</tr>
+<tr class="odd">
+<td>Model</td>
+<td><a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\model">pdrive\is-wel\indus\model</a></td>
+<td>GAMS, R, Excel</td>
+</tr>
+<tr class="even">
+<td>Stakeholders</td>
+<td><a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\stakeholders">pdrive\is-wel\indus\stakeholders</a></td>
+<td>Meeting minutes, Emails, List, etc.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="references" class="section level1 unnumbered">
+<h1>References</h1>
+<div id="refs" class="references">
+<div id="ref-lehner2013_HYDROBASINS">
+<p>Lehner, Bernhard, and Günther Grill. 2013. “Global River Hydrography and Network Routing: Baseline Data and New Approaches to Study the World’s Large River Systems.” <em>Hydrological Processes</em> 27 (15). Wiley Online Library: 2171–86. <a href="http://www.hydrosheds.org" class="uri">http://www.hydrosheds.org</a>.</p>
+</div>
+</div>
+</div>
+
+<p id="footer">Copyright &copy; 2017 IIASA All rights reserved.</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

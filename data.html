@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Data</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs && document.readyState && document.readyState === "complete") {
+   window.setTimeout(function() {
+      hljs.initHighlighting();
+   }, 0);
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">IS-WEL Indus</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Overview</a>
+</li>
+<li>
+  <a href="sdgs.html">SDGs</a>
+</li>
+<li>
+  <a href="issues.html">Issues</a>
+</li>
+<li>
+  <a href="policy.html">Policy</a>
+</li>
+<li>
+  <a href="emergingtechs.html">Emerging Techs</a>
+</li>
+<li>
+  <a href="data.html">Data</a>
+</li>
+<li>
+  <a href="model.html">Model</a>
+</li>
+<li>
+  <a href="baseline.html">Baseline</a>
+</li>
+<li>
+  <a href="pathways.html">Pathways</a>
+</li>
+<li>
+  <a href="analysis.html">Analysis</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="library.html">
+    <span class="fa fa-book"></span>
+     
+    Library
+  </a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Data</h1>
+
+</div>
+
+
+<div id="data-folders" class="section level1">
+<h1>Data Folders</h1>
+<p>Project data is categorized and kept in three folders in the shared ISWEL project folder <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&amp;v=resource_1304000562.324190.2&amp;si=0&amp;ri=0&amp;pi=0&amp;sb=name&amp;so=asc&amp;dir=is-wel%5Cindus\datagis">pdrive\is-wel\indus\datagis</a></p>
+<ul>
+<li>
+raw – Contains unprocessed data from various sources.
+</li>
+<li>
+processed – Contains data which has been prepared for the ISWEL models.
+</li>
+<li>
+code – Contains code used to process raw data.
+</li>
+</ul>
+</div>
+<div id="data-formats" class="section level1">
+<h1>Data Formats</h1>
+<p>Data used in this project is available in several different formats. Some of these are:</p>
+<ul>
+<li>
+Spatial polygons – By boundaries
+</li>
+<li>
+Spatial grid cells – By X,Y coordinates and cell size
+</li>
+<li>
+Flow/directional data – For flow or connecting lines
+</li>
+<li>
+Parameters for processes – Individual processes
+</li>
+<li>
+Temporal ranges – Annual, monthly, daily etc.
+</li>
+</ul>
+<div id="spatial-data" class="section level2">
+<h2>Spatial data</h2>
+<p>Spatial data can be either polygon data or gridded data as shown in Figure 1 below.</p>
+<p id="figcap">
+Figure 1: Polygon and gridded spatial data examples
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_data_formatsSpatial.PNG" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+</div>
+<div id="flow-or-directional-data" class="section level2">
+<h2>Flow or directional data</h2>
+<p>Data can also indicate infrastructure or flow paths from one spatial to another as shown in Figure 2 below.</p>
+<p id="figcap">
+Figure 2: Directional data examples
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_data_formatsFlow.PNG" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+</div>
+<div id="temporal-data-ranges" class="section level2">
+<h2>Temporal data ranges</h2>
+<p>Data can also vary by temporal scales as shown in Figure 3 below.</p>
+<p id="figcap">
+Figure 3: Temporal data range examples
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_data_formatsTemporal.PNG" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+</div>
+</div>
+<div id="expected-data" class="section level1">
+<h1>Expected Data</h1>
+<p>Data from the different disciplines involved in the ISWEL project are broadly categorized as shown below. As the particular data is gathered and processed it will be further classified.</p>
+<p id="tabcap">
+Table 1: Expected energy data examples
+</p>
+<table>
+<thead>
+<tr class="header">
+<th>Energy</th>
+<th>Data examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Energy - Quality</td>
+<td>Grades</td>
+</tr>
+<tr class="even">
+<td>Energy - Primary</td>
+<td>Coal, Oil, Gas, Nuclear</td>
+</tr>
+<tr class="odd">
+<td>Energy - Extraction</td>
+<td>Mining</td>
+</tr>
+<tr class="even">
+<td>Energy - Conversion</td>
+<td>Powerplants</td>
+</tr>
+<tr class="odd">
+<td>Energy - Storage</td>
+<td>Hydropower</td>
+</tr>
+<tr class="even">
+<td>Energy - Imports</td>
+<td>Coal, Oil, Gas, Nuclear, Electricity</td>
+</tr>
+<tr class="odd">
+<td>Energy - Exports</td>
+<td>Coal, Oil, Gas, Nuclear, Electricity</td>
+</tr>
+<tr class="even">
+<td>Energy - Transmission</td>
+<td>Voltage</td>
+</tr>
+<tr class="odd">
+<td>Energy - Distribution</td>
+<td>Voltage</td>
+</tr>
+<tr class="even">
+<td>Energy - Demands</td>
+<td>Industry, Services, Agriculture, Residential</td>
+</tr>
+</tbody>
+</table>
+<p id="tabcap">
+Table 2: Expected water data examples
+</p>
+<table>
+<thead>
+<tr class="header">
+<th>Water</th>
+<th>Data examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Water - Quality</td>
+<td>Grades</td>
+</tr>
+<tr class="even">
+<td>Water - Primary</td>
+<td>Rain, Snow/Ice, Aquifers, Soil</td>
+</tr>
+<tr class="odd">
+<td>Water - Extraction</td>
+<td>Pumping</td>
+</tr>
+<tr class="even">
+<td>Water - Conversion</td>
+<td>Desalination, Purification, Wastewater Treatment</td>
+</tr>
+<tr class="odd">
+<td>Water - Storage</td>
+<td>Reservoirs, Rainwater Harvesting</td>
+</tr>
+<tr class="even">
+<td>Water - Imports</td>
+<td>Water</td>
+</tr>
+<tr class="odd">
+<td>Water - Exports</td>
+<td>Water</td>
+</tr>
+<tr class="even">
+<td>Water - Transmission</td>
+<td>Canals, Pipes</td>
+</tr>
+<tr class="odd">
+<td>Water - Distribution</td>
+<td>Pipes</td>
+</tr>
+<tr class="even">
+<td>Water - Demands</td>
+<td>Industry, Services, Agriculture, Residential</td>
+</tr>
+</tbody>
+</table>
+<p id="tabcap">
+Table 3: Expected agricultural data examples
+</p>
+<table>
+<thead>
+<tr class="header">
+<th>Agriculture</th>
+<th>Data examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agriculture - Quality</td>
+<td>Grades</td>
+</tr>
+<tr class="even">
+<td>Agriculture - Primary</td>
+<td>Wheat, Rice, Cotton</td>
+</tr>
+<tr class="odd">
+<td>Agriculture - Extraction</td>
+<td>Harvesting</td>
+</tr>
+<tr class="even">
+<td>Agriculture - Conversion</td>
+<td>Tillage, Irrigation, Fertilizers</td>
+</tr>
+<tr class="odd">
+<td>Agriculture - Storage</td>
+<td>Silos, graineries</td>
+</tr>
+<tr class="even">
+<td>Agriculture - Imports</td>
+<td>Wheat, Rice, Cotton</td>
+</tr>
+<tr class="odd">
+<td>Agriculture - Exports</td>
+<td>Wheat, Rice, Cotton</td>
+</tr>
+<tr class="even">
+<td>Agriculture - Transmission</td>
+<td>Land, Air, Sea</td>
+</tr>
+<tr class="odd">
+<td>Agriculture - Distribution</td>
+<td>Land, Air, Sea</td>
+</tr>
+<tr class="even">
+<td>Agriculture - Demands</td>
+<td>Consumption, Fodder, Industry</td>
+</tr>
+</tbody>
+</table>
+<p id="tabcap">
+Table 4: Expected land data examples
+</p>
+<table>
+<thead>
+<tr class="header">
+<th>Land</th>
+<th>Data examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Land - Quality</td>
+<td>Grades</td>
+</tr>
+<tr class="even">
+<td>Land - Primary</td>
+<td>Forest, Residential, Commerical, Agricultural</td>
+</tr>
+<tr class="odd">
+<td>Land - Conversion</td>
+<td>Deforestation, commercialization</td>
+</tr>
+</tbody>
+</table>
+<p id="tabcap">
+Table 5: Expected administration data examples
+</p>
+<table>
+<thead>
+<tr class="header">
+<th>Admin</th>
+<th>Data examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Admin - Boundaries</td>
+<td>Country, Province, River basin, County etc.</td>
+</tr>
+<tr class="even">
+<td>Admin - Econ</td>
+<td>GDP, Income, Interest rates</td>
+</tr>
+<tr class="odd">
+<td>Admin - Demographics</td>
+<td>Urban, Rural, Male, Female, Education</td>
+</tr>
+</tbody>
+</table>
+<p><br><br></p>
+</div>
+<div id="processed-data-summary" class="section level1">
+<h1>Processed Data Summary</h1>
+<p>The following table gives a summary of the data sets that have been processed.</p>
+<p id="tabcap">
+Table 6: Data sets processed
+</p>
+<table>
+<colgroup>
+<col width="4%" />
+<col width="12%" />
+<col width="11%" />
+<col width="4%" />
+<col width="13%" />
+<col width="10%" />
+<col width="15%" />
+<col width="9%" />
+<col width="17%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Sector</th>
+<th>Sub-sector</th>
+<th>Detail</th>
+<th>Region</th>
+<th>Map, Chart, Table, gif</th>
+<th>Spatial Type</th>
+<th>Spatial Scale</th>
+<th>Temproal Scale</th>
+<th>Folder name</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Admin</td>
+<td>Admin_boundaries</td>
+<td>Admin boundaries</td>
+<td>Indus</td>
+<td>Maps</td>
+<td>Polygons</td>
+<td>Country, Basin, Sub-basin</td>
+<td>-</td>
+<td>processed_admin_boundaries</td>
+</tr>
+<tr class="even">
+<td>Admin</td>
+<td>Admin_population</td>
+<td>Population</td>
+<td>Indus</td>
+<td>Map, Chart, Table, Gif</td>
+<td>Polygons, Raster</td>
+<td>Country, Basin, Sub-basin</td>
+<td>Annual</td>
+<td>processed_admin_population</td>
+</tr>
+<tr class="odd">
+<td>Water</td>
+<td>Water_temp</td>
+<td>Water temperature</td>
+<td>Indus</td>
+<td>Map, Chart, Table, Gif</td>
+<td>Polygons, Raster</td>
+<td>Country, Basin, Sub-basin</td>
+<td>Daily</td>
+<td>processed_water_temp</td>
+</tr>
+<tr class="even">
+<td>Energy</td>
+<td>Energy_transmission</td>
+<td>Transmission lines</td>
+<td>Indus</td>
+<td>Maps, Table</td>
+<td>Polygons</td>
+<td>Country, Basin, Sub-basin</td>
+<td>-</td>
+<td>processed_energy_transmission</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="processed-data-details" class="section level1">
+<h1>Processed Data Details</h1>
+<p>Processed data is available in the ISWEL project folder <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&amp;v=resource_1304000562.324190.2&amp;si=0&amp;ri=0&amp;pi=0&amp;sb=name&amp;so=asc&amp;dir=is-wel%5Cindus\datagis">pdrive\is-wel\indus\datagis</a>.</p>
+<div id="admin_boundaries" class="section level2">
+<h2>Admin_boundaries</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Admin boundary data files</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_Orig_HYDROBASINS.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_Orig_HYDROBASINS.png</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_Orig_subbasin_by_country.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_Orig_subbasin_by_country.png</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_Orig_subbasinByCountryPIDs.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_Orig_subbasinByCountryPIDs.png</td>
+</tr>
+<tr class="odd">
+<td>t_Indus_IIASA_Orig_subbasinByCountryPIDsDetails.csv</td>
+</tr>
+<tr class="even">
+<td>t_Indus_IIASA_Orig_subbasinByCountryPIDsSummary.csv</td>
+</tr>
+</tbody>
+</table>
+<p id="figcap">
+Admin boundary data example 1
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_Map_Indus_IIASA_Orig_HYDROBASINS.png" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="figcap">
+Admin boundary data example 2
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_Map_Indus_IIASA_Orig_subbasinByCountryPIDs.png" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="tabcap">
+Table 1: Indus Basin spatial polygon unit IDs and locations. For more details on the elevations, centroids and outlets go to <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&amp;v=resource_1304000562.324190.2&amp;si=0&amp;ri=0&amp;pi=0&amp;sb=name&amp;so=asc&amp;dir=is-wel%5Cindus%5Cdatagis%5Cprocessed\processed_admin_boundaries">pdrive\is-wel\indus\datagis\processed\processed_admin_boundaries</a>
+</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">No.</th>
+<th align="center">Polygon ID (PID)</th>
+<th align="center">Basin</th>
+<th align="center">Country</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">2213</td>
+<td align="center">Indus</td>
+<td align="center">Afghanistan</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">2214</td>
+<td align="center">Indus</td>
+<td align="center">Afghanistan</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">2215</td>
+<td align="center">Indus</td>
+<td align="center">China</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">2216</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">2217</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">2218</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">2219</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">2220</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">2221</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">2222</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="odd">
+<td align="center">11</td>
+<td align="center">2223</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="even">
+<td align="center">12</td>
+<td align="center">2224</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">13</td>
+<td align="center">2225</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="even">
+<td align="center">14</td>
+<td align="center">2226</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="center">2227</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="even">
+<td align="center">16</td>
+<td align="center">2228</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">17</td>
+<td align="center">2229</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="even">
+<td align="center">18</td>
+<td align="center">2230</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">19</td>
+<td align="center">2231</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="even">
+<td align="center">20</td>
+<td align="center">2232</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">21</td>
+<td align="center">2233</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="even">
+<td align="center">22</td>
+<td align="center">2234</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">23</td>
+<td align="center">2235</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="even">
+<td align="center">24</td>
+<td align="center">2236</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">25</td>
+<td align="center">2237</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="even">
+<td align="center">26</td>
+<td align="center">2238</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">27</td>
+<td align="center">2239</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="even">
+<td align="center">28</td>
+<td align="center">2240</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">29</td>
+<td align="center">2241</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="even">
+<td align="center">30</td>
+<td align="center">2242</td>
+<td align="center">Indus</td>
+<td align="center">China</td>
+</tr>
+<tr class="odd">
+<td align="center">31</td>
+<td align="center">2243</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="even">
+<td align="center">32</td>
+<td align="center">2244</td>
+<td align="center">Indus</td>
+<td align="center">China</td>
+</tr>
+<tr class="odd">
+<td align="center">33</td>
+<td align="center">2245</td>
+<td align="center">Indus</td>
+<td align="center">China</td>
+</tr>
+<tr class="even">
+<td align="center">34</td>
+<td align="center">2246</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="odd">
+<td align="center">35</td>
+<td align="center">2247</td>
+<td align="center">Indus</td>
+<td align="center">China</td>
+</tr>
+<tr class="even">
+<td align="center">36</td>
+<td align="center">2248</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">37</td>
+<td align="center">2249</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="even">
+<td align="center">38</td>
+<td align="center">2250</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="odd">
+<td align="center">39</td>
+<td align="center">2251</td>
+<td align="center">Indus</td>
+<td align="center">Afghanistan</td>
+</tr>
+<tr class="even">
+<td align="center">40</td>
+<td align="center">2252</td>
+<td align="center">Indus</td>
+<td align="center">Afghanistan</td>
+</tr>
+<tr class="odd">
+<td align="center">41</td>
+<td align="center">2253</td>
+<td align="center">Indus</td>
+<td align="center">Pakistan</td>
+</tr>
+<tr class="even">
+<td align="center">42</td>
+<td align="center">2254</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+<tr class="odd">
+<td align="center">43</td>
+<td align="center">2255</td>
+<td align="center">Indus</td>
+<td align="center">India</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="admin_population" class="section level2">
+<h2>Admin_population</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Admin population data files</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>anim_ChartIndus_IIASA_total_pop_2010to2090_byCOUNTRY.gif</td>
+</tr>
+<tr class="even">
+<td>anim_ChartIndus_IIASA_urban_pop_2010to2090_byCOUNTRY.gif</td>
+</tr>
+<tr class="odd">
+<td>anim_Map_Indus_IIASA_rural_pop_2010to2090_PolygonsbyPID.gif</td>
+</tr>
+<tr class="even">
+<td>anim_Map_Indus_IIASA_rural_pop_2010to2090_Raster.gif</td>
+</tr>
+<tr class="odd">
+<td>anim_Map_Indus_IIASA_total_pop_2010to2090_PolygonsbyPID.gif</td>
+</tr>
+<tr class="even">
+<td>anim_Map_Indus_IIASA_total_pop_2010to2090_Raster.gif</td>
+</tr>
+<tr class="odd">
+<td>anim_Map_Indus_IIASA_urban_pop_2010to2090_PolygonsbyPID.gif</td>
+</tr>
+<tr class="even">
+<td>anim_Map_Indus_IIASA_urban_pop_2010to2090_Raster.gif</td>
+</tr>
+<tr class="odd">
+<td>f_Chart_Indus_IIASA_rural_pop_2010to2090_ChartbyCountry.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Chart_Indus_IIASA_rural_pop_2010to2090_ChartbyCountry.png</td>
+</tr>
+<tr class="odd">
+<td>f_Chart_Indus_IIASA_total_pop_2010to2090_ChartbyCountry.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Chart_Indus_IIASA_total_pop_2010to2090_ChartbyCountry.png</td>
+</tr>
+<tr class="odd">
+<td>f_Chart_Indus_IIASA_urban_pop_2010to2090_ChartbyCountry.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Chart_Indus_IIASA_urban_pop_2010to2090_ChartbyCountry.png</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_Orig_HYDROBASINS.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_Orig_HYDROBASINS.png</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_Orig_subbasin_by_country.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_Orig_subbasin_by_country.png</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_rural_pop_2010to2090_PolygonsbyPID.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_rural_pop_2010to2090_PolygonsbyPID.png</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_rural_pop_2010to2090_Raster.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_rural_pop_2010to2090_Raster.png</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_total_pop_2010to2090_PolygonsbyPID.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_total_pop_2010to2090_PolygonsbyPID.png</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_total_pop_2010to2090_Raster.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_total_pop_2010to2090_Raster.png</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_urban_pop_2010to2090_PolygonsbyPID.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_urban_pop_2010to2090_PolygonsbyPID.png</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_urban_pop_2010to2090_Raster.pdf</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_urban_pop_2010to2090_Raster.png</td>
+</tr>
+<tr class="odd">
+<td>t_GLOBAL_IIASA_edit_SSP2_Population2010to2090_byXY.csv</td>
+</tr>
+<tr class="even">
+<td>t_Indus_IIASA_edit_SSP2_Population_rural_pop_2010to2090_byPIDCOUNTRY.csv</td>
+</tr>
+<tr class="odd">
+<td>t_Indus_IIASA_edit_SSP2_Population_total_pop_2010to2090_byPIDCOUNTRY.csv</td>
+</tr>
+<tr class="even">
+<td>t_Indus_IIASA_edit_SSP2_Population_urban_pop_2010to2090_byPIDCOUNTRY.csv</td>
+</tr>
+<tr class="odd">
+<td>t_Indus_IIASA_edit_SSP2_Population2010to2090_byXY.csv</td>
+</tr>
+</tbody>
+</table>
+<p id="figcap">
+Admin population data example: rural population gridded animation
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/anim_Map_Indus_IIASA_rural_pop_2010to2090_Raster.gif" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="figcap">
+Admin population data example: urban population gridded animation
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/anim_Map_Indus_IIASA_urban_pop_2010to2090_Raster.gif" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="figcap">
+Admin population example: rural population maps
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_Map_Indus_IIASA_rural_pop_2010to2090_PolygonsbyPID.png" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="figcap">
+Admin population example: rural population charts
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_Chart_Indus_IIASA_rural_pop_2010to2090_ChartbyCountry.png" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+</div>
+<div id="water_temp" class="section level2">
+<h2>Water_temp</h2>
+<table>
+<colgroup>
+<col width="100%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Water temperature</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>anim_ChartIndus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_byCOUNTRY.gif</td>
+</tr>
+<tr class="even">
+<td>anim_ChartIndus_IIASA_waterTemp_2007_Jan_01_2006toJul_21_2008_byCOUNTRY.gif</td>
+</tr>
+<tr class="odd">
+<td>anim_ChartIndus_IIASA_waterTemp_2008_Jan_01_2006toJul_21_2008_byCOUNTRY.gif</td>
+</tr>
+<tr class="even">
+<td>anim_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_PolygonsbyPID.gif</td>
+</tr>
+<tr class="odd">
+<td>anim_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_Raster.gif</td>
+</tr>
+<tr class="even">
+<td>anim_Map_Indus_IIASA_waterTemp_2007_Jan_01_2006toJul_21_2008_PolygonsbyPID.gif</td>
+</tr>
+<tr class="odd">
+<td>anim_Map_Indus_IIASA_waterTemp_2007_Jan_01_2006toJul_21_2008_Raster.gif</td>
+</tr>
+<tr class="even">
+<td>anim_Map_Indus_IIASA_waterTemp_2008_Jan_01_2006toJul_21_2008_PolygonsbyPID.gif</td>
+</tr>
+<tr class="odd">
+<td>anim_Map_Indus_IIASA_waterTemp_2008_Jan_01_2006toJul_21_2008_Raster.gif</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_Orig_HYDROBASINS.pdf</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_Orig_HYDROBASINS.png</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_Orig_subbasin_by_country.pdf</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_Orig_subbasin_by_country.png</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_ChartbyCountry.pdf</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_ChartbyCountry.png</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_waterTemp_2007_Jan_01_2006toJul_21_2008_ChartbyCountry.pdf</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_waterTemp_2007_Jan_01_2006toJul_21_2008_ChartbyCountry.png</td>
+</tr>
+<tr class="even">
+<td>f_Map_Indus_IIASA_waterTemp_2008_Jan_01_2006toJul_21_2008_ChartbyCountry.pdf</td>
+</tr>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_waterTemp_2008_Jan_01_2006toJul_21_2008_ChartbyCountry.png</td>
+</tr>
+<tr class="even">
+<td>t_Indus_IIASA_edit_waterTemp_2006_Jan_01_2006toJul_21_2008_byPIDCOUNTRY.csv</td>
+</tr>
+<tr class="odd">
+<td>t_Indus_IIASA_edit_waterTemp_2007_Jan_01_2006toJul_21_2008_byPIDCOUNTRY.csv</td>
+</tr>
+<tr class="even">
+<td>t_Indus_IIASA_edit_waterTemp_2008_Jan_01_2006toJul_21_2008_byPIDCOUNTRY.csv</td>
+</tr>
+<tr class="odd">
+<td>t_Indus_IIASA_edit_waterTemp_Jan_01_2006toJul_21_2008_byXY.csv</td>
+</tr>
+</tbody>
+</table>
+<p id="figcap">
+Water temperature data example: 2006 daily polygon animation
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/anim_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_PolygonsbyPID.gif" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="figcap">
+Water temperature data example: 2006 weekly gridded animation
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/anim_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_Raster.gif" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="figcap">
+Water temperature data example: 2006 daily chart animation
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/anim_ChartIndus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_byCOUNTRY.gif" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+<p id="figcap">
+Water temperature data example: 2006 daily chart
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_Map_Indus_IIASA_waterTemp_2006_Jan_01_2006toJul_21_2008_ChartbyCountry.png" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+</div>
+<div id="energy_transmission" class="section level2">
+<h2>Energy_transmission</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Energy transmission electric data files</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>f_Map_Indus_IIASA_Edit_PakTrasmission_WB2017.pdf</td>
+</tr>
+<tr class="even">
+<td>gis_shp_Indus_IIASA_Edit_WorldBankPakTransmission2017.dbf</td>
+</tr>
+<tr class="odd">
+<td>gis_shp_Indus_IIASA_Edit_WorldBankPakTransmission2017.prj</td>
+</tr>
+<tr class="even">
+<td>gis_shp_Indus_IIASA_Edit_WorldBankPakTransmission2017.shp</td>
+</tr>
+<tr class="odd">
+<td>gis_shp_Indus_IIASA_Edit_WorldBankPakTransmission2017.shx</td>
+</tr>
+<tr class="even">
+<td>t_Indus_WB_Edit_TransmissionLines_Pak_WB2017.csv</td>
+</tr>
+<tr class="odd">
+<td>t_Indus_WB_Orig_PP_Pak_WB2017.csv</td>
+</tr>
+<tr class="even">
+<td>t_Indus_WB_Orig_TransmissionLines_Pak_WB2017.csv</td>
+</tr>
+</tbody>
+</table>
+<p id="figcap">
+Energy data example: Electricity transmission example
+</p>
+<center>
+<div id="fig">
+<div class="figure">
+<img src="figures/f_Map_Indus_IIASA_energytransmissionelec.png" />
+
+</div>
+</div>
+</center>
+<p><br><br></p>
+</div>
+</div>
+
+<p id="footer">Copyright &copy; 2017 IIASA All rights reserved.</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+---
+title: "IS-WEL Indus Basin"
+bibliography: bib_iswelindus.bib
+link-citations: true
+output:
+  html_document:
+    toc: true  
+    toc_float: true 
+---
+
+# Project
+This website is used to host the outcomes of the "IS-WEL Indus Basin"" sub-project, which is part of the larger Integrated Solutions for Water, Energy and Land [(IS-WEL)](http://www.iiasa.ac.at/web/home/research/researchProjects/Nexus_Solutions.html) project launched by IIASA, together with the Global Environment Facility (GEF) and the United Nations Industrial Development Organization (UNIDO). This new project aims to identify integrated solutions to energy, water, food, and ecosystem security in selected regions of the world. These are regions facing multiple energy and land use challenges and rapid demographic and economic changes, and are hardest hit by increasing climate variability and change. The new project aims to answer questions about how to achieve the new sustainable development goals (SDGs) that were set in 2015 with respect to climate change and sustainable development, including: 
+
+1. How these goals can be jointly addressed 
+2. The costs of inaction
+3. How problems in one area may exacerbate or mitigate problems in other areas
+
+A global integrated systems model, MESSAGEix, is being developed at IIASA to analyze the issues at a larger scale. The current sub-project aims to develop a more detailed river basin level model, for the Indus Basin, which can be integrated into the larger IIASA MESSAGEix global model. 
+
+# Indus Basin
+The Indus Basin is shown in Figure 1 using the basin boundaries from the HydroBASINS data set (@lehner2013_HYDROBASINS). The basin area is shared between Pakistan, India, Afghanistan and China. Some basic statistics are shown in the table below.
+
+
+<p id="figcap"> Figure 1: Indus basin administrative boundaries</p>
+<center>
+<div id="fig">
+![](figures\f_Map_Indus_IIASA_Orig_HYDROBASINS_fromPresent.png)
+</div>
+</center>
+
+<br><br>
+
+<p id="tabcap">Table 1: Indus Basin area and population distribution by country</p> 
+
+|  	| Country Area 	| Area in Basin 	| % of Basin Area 	| % of Country Area 	| Total Population 	| Population in Indus 	|
+|:-----------:	|:------------:	|:-------------:	|:---------------:	|:-----------------:	|:----------------:	|:-------------------:	|
+|  	| km<sup>2</sup> 	| km<sup>2</sup>  	| % 	| % 	| Million 	|  	|
+| Pakistan 	| 796,095 	| 520,000 	| 46.4 	| 65.3 	| 182.1 	| >150 	|
+| India 	| 3,287,000 	| 440,000 	| 39.3 	| 13.4 	| 1,252 	| - 	|
+| China 	| 9,597,000 	| 88,000 	| 7.9 	| 0.9 	| 1,357 	|  -	|
+| Afghanistan 	| 652,864 	| 72,000 	| 6.4 	| 11 	| 30.55 	| - 	|
+| Indus Total 	| - 	| 1,120,000 	| 100 	| - 	| 2,822 	| 300 	|
+
+# Goal
+
+<center>
+<div id="box">
+How to achieve water, energy and landuse related SDGs in the Indus Basin
+</div>
+</center>
+
+Considering:
+<ul>
+<li> How to jointly address the various goals.</li>
+<li> The costs of inaction.</li>
+<li> Impacts of actions in one area on other areas</li>
+</ul>
+
+# Implementation Strategy
+
+The implementation strategy for the ISWEL Indus basin project is shown in Figure 2. The work has been divided into three broad categories: Preparation, Themes and Outputs. Preparation involves data collection, model development, maintenance of the project library and engagement with stakeholders for feedback. All these activities will focus on several key themes aimed to address the main project Goal. These themes include analysis of the SDGs, national and international policies, emerging technologies, creating a baseline and identification of future pathways. Project outputs will comprise four different formats: reports, presentations, a website and journal publications.
+
+<p id="figcap"> Figure 2: ISWEL Indus Basin work plan</p>
+<center>
+<div id="fig">
+![](figures\f_workplan_presentOverview.PNG)
+</div>
+</center>
+
+# Sub-themes
+
+The themes dsicussed in the workplan can be further sub-divided into energy, water, landuse as well as socio-economic and climate change sub-themes as shown in Figure 3. These are further divided into the relevant details. These categories serves as the guideline for the organization of the library, data collection and parameter definition for the model. 
+
+<p id="figcap"> Figure 3: ISWEL Indus Basin sub-theme</p>
+<center>
+<div id="fig">
+![](figures\f_subthemes_presentOverview.PNG)
+</div>
+</center>
+
+# Data Management
+
+Table 2 shows the distribution of folders and data storage location for the ISWEL Indus Basin project.
+
+<p id="tabcap">Table 2: ISWEL Indus basin project data and folder management</p> 
+
+| Data Management | Shared                                | Contents                                                                                           |
+|-----------------|---------------------------------------|----------------------------------------------------------------------------------------------------|
+| Website         | https://zarrarkhan.github.io/         | Overview, Stakeholders, SDGs, Policies, Data, Model, Baseline, Pathways, Analysis, Library, Summary |
+| Reports         | <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\reports">pdrive\\is-wel\\indus\\reports</a>       | Overview, Stakeholders, SDGs, Policies, Emerging Techs, Data, Model, Baseline, Pathways, Analysis, Library, Summary |
+| Publications    | <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\publications">pdrive\\is-wel\\indus\\publications</a>  | SDGs, Policies, Emerging Techs, Data, Model, Baseline, Pathways, Analysis                                          |
+| Presentations   | <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\presentations">pdrive\\is-wel\\indus\\presentations</a> | Overview, Stakeholders, SDGs, Policies, Emerging Techs, Data, Model, Baseline, Pathways, Analysis, Library, Summary |
+| DataGis         | <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\datagis">pdrive\\is-wel\\indus\\datagis</a>       | Raw data, shapefiles, outputs                                                                      |
+| Library         | <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\library">pdrive\\is-wel\\indus\\library</a>       | Collection of sources                                                                              |
+| Model           | <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\model">pdrive\\is-wel\\indus\\model</a>       | GAMS, R, Excel                                                                                     |
+| Stakeholders    | <a href="https://portal.iiasa.ac.at/dana/fb/smb/wfb.cgi?t=p&v=resource_1304000562.324190.2&si=0&ri=0&pi=0&sb=name&so=asc&dir=is-wel%5Cindus\stakeholders">pdrive\\is-wel\\indus\\stakeholders</a>   | Meeting minutes, Emails, List, etc.                                                                                 |
+
+# References

@@ -1,0 +1,38 @@
+name: "my-website"
+navbar:
+  title: "IS-WEL Indus"
+  left:
+    - text: "Overview"
+      href: index.html
+#    - text: "Stakeholders"
+#      href: stakeholders.html
+    - text: "SDGs"
+      href: sdgs.html
+    - text: "Issues"
+      href: issues.html
+    - text: "Policy"
+      href: policy.html
+    - text: "Emerging Techs"
+      href: emergingtechs.html
+    - text: "Data"
+      href: data.html
+    - text: "Model"
+      href: model.html
+    - text: "Baseline"
+      href: baseline.html
+    - text: "Pathways"
+      href: pathways.html
+    - text: "Analysis"
+      href: analysis.html
+  right:
+    - text: "Library"
+      icon: fa-book
+      href: library.html
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    include:
+      after_body: footer.html
+    css: styles.css
+output_dir: "."
