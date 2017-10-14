@@ -1,28 +1,26 @@
 name: "my-website"
 navbar:
-  title: "IS-WEL Indus"
+  title: "Zarrar Khan"
   left:
     - text: "Overview"
       href: index.html
-#    - text: "Stakeholders"
-#      href: stakeholders.html
-    - text: "SDGs"
+    - text: "Art"
       href: sdgs.html
-    - text: "Issues"
+    - text: "Music"
       href: issues.html
-    - text: "Policy"
+    - text: "Training"
       href: policy.html
-    - text: "Emerging Techs"
+    - text: "Spirit"
       href: emergingtechs.html
-    - text: "Data"
+    - text: "Read"
       href: data.html
-    - text: "Model"
+    - text: "Chess"
       href: model.html
-    - text: "Baseline"
+    - text: "Science"
       href: baseline.html
-    - text: "Pathways"
+    - text: "Math"
       href: pathways.html
-    - text: "Analysis"
+    - text: "Travel"
       href: analysis.html
   right:
     - text: "Library"
