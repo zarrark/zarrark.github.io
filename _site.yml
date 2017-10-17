@@ -2,7 +2,7 @@ name: "my-website"
 navbar:
   title: "Zarrar Khan"
   left:
-    - text: "Overview"
+    - text: "Plan"
       href: index.html
     - text: "Art"
       href: sdgs.html
@@ -12,21 +12,21 @@ navbar:
       href: policy.html
     - text: "Spirit"
       href: emergingtechs.html
-    - text: "Read"
+    - text: "Books"
       href: data.html
     - text: "Chess"
       href: model.html
+    - text: "Financial"
+      href: analysis.html
     - text: "Science"
       href: baseline.html
     - text: "Math"
       href: pathways.html
-    - text: "Programming"
+    - text: "Program"
       href: pathways.html
     - text: "Travel"
       href: analysis.html
     - text: "Adventure"
-      href: analysis.html
-    - text: "Financial"
       href: analysis.html
 #  right:
 #    - text: "Library"
