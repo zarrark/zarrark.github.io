@@ -20,12 +20,18 @@ navbar:
       href: baseline.html
     - text: "Math"
       href: pathways.html
+    - text: "Programming"
+      href: pathways.html
     - text: "Travel"
       href: analysis.html
-  right:
-    - text: "Library"
-      icon: fa-book
-      href: library.html
+    - text: "Adventure"
+      href: analysis.html
+    - text: "Financial"
+      href: analysis.html
+#  right:
+#    - text: "Library"
+#      icon: fa-book
+#      href: library.html
 output:
   html_document:
     theme: sandstone
