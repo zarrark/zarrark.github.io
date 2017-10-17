@@ -8,7 +8,7 @@ navbar:
       href: sdgs.html
     - text: "Music"
       href: issues.html
-    - text: "Training"
+    - text: "Train"
       href: policy.html
     - text: "Spirit"
       href: emergingtechs.html
@@ -16,7 +16,7 @@ navbar:
       href: data.html
     - text: "Chess"
       href: model.html
-    - text: "Financial"
+    - text: "Finance"
       href: analysis.html
     - text: "Science"
       href: baseline.html
@@ -27,6 +27,8 @@ navbar:
     - text: "Travel"
       href: analysis.html
     - text: "Adventure"
+      href: analysis.html
+    - text: "Language"
       href: analysis.html
 #  right:
 #    - text: "Library"
