@@ -28,7 +28,7 @@ navbar:
       href: library.html
 output:
   html_document:
-    theme: cosmo
+    theme: sandstone
     highlight: textmate
     include:
       after_body: footer.html
