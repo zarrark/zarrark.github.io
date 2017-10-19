@@ -5,31 +5,31 @@ navbar:
     - text: "Plan"
       href: index.html
     - text: "Art"
-      href: sdgs.html
+      href: art.html
     - text: "Music"
-      href: issues.html
+      href: music.html
     - text: "Train"
-      href: policy.html
+      href: train.html
     - text: "Spirit"
-      href: emergingtechs.html
+      href: spirit.html
     - text: "Books"
-      href: data.html
+      href: books.html
     - text: "Chess"
-      href: model.html
+      href: chess.html
     - text: "Finance"
-      href: analysis.html
+      href: finance.html
     - text: "Science"
-      href: baseline.html
+      href: science.html
     - text: "Math"
-      href: pathways.html
+      href: math.html
     - text: "Program"
-      href: pathways.html
+      href: program.html
     - text: "Travel"
-      href: analysis.html
+      href: travel.html
     - text: "Adventure"
-      href: analysis.html
+      href: adventure.html
     - text: "Language"
-      href: analysis.html
+      href: language.html
 #  right:
 #    - text: "Library"
 #      icon: fa-book

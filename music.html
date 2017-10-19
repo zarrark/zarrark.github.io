@@ -11,7 +11,7 @@
 
 
 
-<title>Background</title>
+<title>Issues</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,9 +19,6 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
-<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
-<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-1.1/highlight.js"></script>
@@ -165,101 +162,6 @@ $(document).ready(function () {
 
 
 
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
-
-<style type="text/css">
-
-#TOC {
-  margin: 25px 0px 20px 0px;
-}
-@media (max-width: 768px) {
-#TOC {
-  position: relative;
-  width: 100%;
-}
-}
-
-
-.toc-content {
-  padding-left: 30px;
-  padding-right: 40px;
-}
-
-div.main-container {
-  max-width: 1200px;
-}
-
-div.tocify {
-  width: 20%;
-  max-width: 260px;
-  max-height: 85%;
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  div.tocify {
-    width: 25%;
-  }
-}
-
-@media (max-width: 767px) {
-  div.tocify {
-    width: 100%;
-    max-width: none;
-  }
-}
-
-.tocify ul, .tocify li {
-  line-height: 20px;
-}
-
-.tocify-subheader .tocify-item {
-  font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
-}
-
-.tocify .list-group-item {
-  border-radius: 0px;
-}
-
-
-</style>
-
-<!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
-<div class="col-xs-12 col-sm-4 col-md-3">
-<div id="TOC" class="tocify">
-</div>
-</div>
-
-<div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -278,43 +180,43 @@ div.tocify {
   <a href="index.html">Plan</a>
 </li>
 <li>
-  <a href="sdgs.html">Art</a>
+  <a href="art.html">Art</a>
 </li>
 <li>
-  <a href="issues.html">Music</a>
+  <a href="music.html">Music</a>
 </li>
 <li>
-  <a href="policy.html">Train</a>
+  <a href="train.html">Train</a>
 </li>
 <li>
-  <a href="emergingtechs.html">Spirit</a>
+  <a href="spirit.html">Spirit</a>
 </li>
 <li>
-  <a href="data.html">Books</a>
+  <a href="books.html">Books</a>
 </li>
 <li>
-  <a href="model.html">Chess</a>
+  <a href="chess.html">Chess</a>
 </li>
 <li>
-  <a href="analysis.html">Finance</a>
+  <a href="finance.html">Finance</a>
 </li>
 <li>
-  <a href="baseline.html">Science</a>
+  <a href="science.html">Science</a>
 </li>
 <li>
-  <a href="pathways.html">Math</a>
+  <a href="math.html">Math</a>
 </li>
 <li>
-  <a href="pathways.html">Program</a>
+  <a href="program.html">Program</a>
 </li>
 <li>
-  <a href="analysis.html">Travel</a>
+  <a href="travel.html">Travel</a>
 </li>
 <li>
-  <a href="analysis.html">Adventure</a>
+  <a href="adventure.html">Adventure</a>
 </li>
 <li>
-  <a href="analysis.html">Language</a>
+  <a href="language.html">Language</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -328,38 +230,16 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Background</h1>
+<h1 class="title toc-ignore">Issues</h1>
 
 </div>
 
 
-<div id="left">
-<p>Left stuff</p>
-</div>
-<div id="right">
-<p id="KeySources">
-Key Sources
-</p>
-<p><span class="citation"><a href="#ref-AQUASTAT2011_Indus">1</a></span><br />
-<span class="citation"><a href="#ref-malik2014_UNHDR">2</a></span></p>
-</div>
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-<div id="refs" class="references">
-<div id="ref-AQUASTAT2011_Indus">
-<p>[1] UNFAO, <em>Indus river basin</em>. United Nations Water Food; Argirculture Orginization (UN-FAO), 2007 [Online]. Available: <a href="http://www.fao.org/nr/water/aquastat/basins/indus/index.stm" class="uri">http://www.fao.org/nr/water/aquastat/basins/indus/index.stm</a></p>
-</div>
-<div id="ref-malik2014_UNHDR">
-<p>[2] K. Malik and others, <em>Human development report 2014. sustaining human progress: Reducing vulnerabilities and building resilience</em>. New York,NY: United Nations Development Programme (UNDP), 2014 [Online]. Available: <a href="http://hdr.undp.org/sites/default/files/hdr14-report-en-1.pdf" class="uri">http://hdr.undp.org/sites/default/files/hdr14-report-en-1.pdf</a></p>
-</div>
-</div>
-</div>
+<p>More about this website.</p>
 
 <p id="footer">Copyright &copy; 2017 Zarrar Khan All rights reserved.</p>
 
 
-</div>
-</div>
 
 </div>
 
