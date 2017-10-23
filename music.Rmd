@@ -13,13 +13,13 @@ output:
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
-| [Thank you](##thankyou) | Alanis | X | 5 	| G G D C 	| x,x 	|
+| [Thank you](## Thank you) | Alanis | X | 5 	| G G D C 	| x,x 	|
 
 ## Classical
 
 # Popular
 
-## Thank you {##thankyou}
+## Thank you
 
 # Classical
 
