@@ -14,12 +14,21 @@ output:
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
 | [Thank you](## Thank you) | Alanis | X | 5 	| G G D C 	| x,x 	|
+| [Dangerous](## Dangerous) | David Guetta | X | x 	| x 	| x,x 	|
+| [Maps](## Maps) | Maroon 5 | X | x 	| x 	| x,x 	|
+| [I'm yours](## I'm yours) | Jason Mraz | X | x 	| x 	| x,x 	|
+| [Father & son](## Father & son) | Cat Stevens | X | x 	| x 	| x,x 	|
+| [While my guitar gently weeps](## While my guitar gently weeps) | George Harrison | X | x 	| x 	| x,x 	|
 
 ## Classical
 
 # Popular
 
 ## Thank you
+## Dangerous
+## Maps
+## I'm yours
+## Father & son
 
 # Classical
 
