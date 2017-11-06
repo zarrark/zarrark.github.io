@@ -18,8 +18,25 @@ output:
 | [Maps](#maps) | Maroon 5 | X | x 	| x 	| x,x 	|
 | [I'm yours](#imyours) | Jason Mraz | X | x 	| x 	| x,x 	|
 | [Father & son](#fatherson) | Cat Stevens | X | x 	| x 	| x,x 	|
+| [Can't keep it in](#cantkeepitin) | Cat Stevens | X | x 	| x 	| x,x 	|
+| [The Wind](#thewind) | Cat Stevens | X | x 	| x 	| x,x 	|
 | [While my guitar gently weeps](#whilemyguitargentlyweeps) | George Harrison | X | x 	| x 	| x,x 	|
-
+| [Ain't nobody loves me better](#aintnobody) | Chaka khan | X | 5 	| G G D C 	| x,x 	|
+| [You belong to me](#youbelongtome) | Jason Wade | X | x 	| x 	| x,x 	|
+| [Lovesong](#lovesong) | Adele | X | x 	| x 	| x,x 	|
+| [Fast Car](#fastcar) | Tracy Chapman | X | x 	| x 	| x,x 	|
+| [Dream on](#dreamon) | Aerosmith | X | x 	| x 	| x,x 	|
+| [Sail Away](#sailaway) | David Gray | X | x 	| x 	| x,x 	|
+| [No woman no cry](#nowomannocry) | Bob Marley | X | x 	| x 	| x,x 	|
+| [Fortunate Son](#fortunateson) | CCR | X | x 	| x 	| x,x 	|
+| [Hurt](#hurt) | Johnny Cash | X | x 	| x 	| x,x 	|
+| [Hey hey my my](#heyheymymy) | Rolling Stones | X | x 	| x 	| x,x 	|
+| [I see fire](#iseefire) | Ed Sheeran | X | x 	| x 	| x,x 	|
+| [La masa](#lamasa) | Silvio Rodriguez | X | x 	| x 	| x,x 	|
+| [Rosa Maria](#rosamaria) | Chambao | X | x 	| x 	| x,x 	|
+| [Ooncha](#ooncha) | Noori | X | x 	| x 	| x,x 	|
+| [Ajnabi](#ajnabi) | Aaroh | X | x 	| x 	| x,x 	|
+| [Khudi](#khudi) | Junoon | X | x 	| x 	| x,x 	|
 
 ## Classical
 
@@ -31,6 +48,23 @@ output:
 ## I'm yours{#imyours}
 ## Father & son{#fatherson}
 ## While my guitar gently weeps{#whilemyguitargentlyweeps}
+## Ain't nobody loves me better{#aintnobody}
+## You belong to me{#youbelongtome}
+## Lovesong{#lovesong}
+## Fast Car{#fastcar}
+## Dream on{#dreamon}
+## Sail Away{#sailaway}
+## No woman no cry{#nowomannocry}
+## Fortunate Son{#fortunateson}
+## Hurt{#hurt}
+## Hey hey my my{#heyheymymy} 
+## I see fire{#iseefire}
+## La masa{#lamasa}
+## Rosa Maria{#rosamaria}
+## Ooncha{#ooncha}
+## Ajnabi{#ajnabi}
+## Khudi{#khudi}
+
 
 # Classical
 
