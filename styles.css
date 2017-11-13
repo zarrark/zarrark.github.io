@@ -44,6 +44,17 @@ blockquote {
     margin-bottom:0;
 }
 
+#backbutton{
+    position:fixed;
+    height:30px;
+    top:100px;
+    left:0;
+    right:30px;
+    text-align: right;
+    background-color:transparent;
+    margin-bottom:0;
+}
+
 #KeySources{
     font-size:150%;
     color:#717D7E;

@@ -333,6 +333,35 @@ div.tocify {
 </div>
 
 
+<p id="backbutton">
+<a href="music.html#thankyou">Go to Thank you</a>
+</p>
+<SCRIPT>
+function passWord() {
+var testV = 1;
+var pass1 = prompt('Please Enter the Password "password"',' ');
+while (testV < 3) {
+if (!pass1) 
+history.go(-1);
+if (pass1.toLowerCase() == "password") {
+alert('Correct!');
+window.open("language.html");
+break;
+} 
+testV+=1;
+var pass1 = 
+prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+}
+if (pass1.toLowerCase()!="password" & testV ==3) 
+history.go(-1);
+return " ";
+} 
+</SCRIPT>
+<CENTER>
+<FORM>
+<input type="button" value="Enter Protected Area" onClick="passWord()">
+</FORM>
+</CENTER>
 <div id="project" class="section level1">
 <h1>Project</h1>
 <p>This website is used to host the outcomes of the “IS-WEL Indus Basin”&quot; sub-project, which is part of the larger Integrated Solutions for Water, Energy and Land <a href="http://www.iiasa.ac.at/web/home/research/researchProjects/Nexus_Solutions.html">(IS-WEL)</a> project launched by IIASA, together with the Global Environment Facility (GEF) and the United Nations Industrial Development Organization (UNIDO). This new project aims to identify integrated solutions to energy, water, food, and ecosystem security in selected regions of the world. These are regions facing multiple energy and land use challenges and rapid demographic and economic changes, and are hardest hit by increasing climate variability and change. The new project aims to answer questions about how to achieve the new sustainable development goals (SDGs) that were set in 2015 with respect to climate change and sustainable development, including:</p>
@@ -346,6 +375,9 @@ div.tocify {
 <div id="indus-basin" class="section level1">
 <h1>Indus Basin</h1>
 <p>The Indus Basin is shown in Figure 1 using the basin boundaries from the HydroBASINS data set (<span class="citation">Lehner and Grill (<a href="#ref-lehner2013_HYDROBASINS">2013</a>)</span>). The basin area is shared between Pakistan, India, Afghanistan and China. Some basic statistics are shown in the table below.</p>
+<p>Text 1 <audio controls><source src="audio\pashto\PashtoDrill1Eg.m4a" type="audio/mp4">Your browser does not support the audio element. </audio> <br></p>
+<p>Text 2 <audio controls><source src="audio\pashto\PashtoDrill1Eg.m4a" type="audio/mp4">Your browser does not support the audio element. </audio> <br></p>
+<p style="clear: both;">
 <p style="float: left; font-size: 9pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
 <a href="music.html#thankyou"><img src="figures/f_Map_Indus_IIASA_Orig_HYDROBASINS_fromPresent.png" style="width: 100%"></a><a href="music.html#thankyou">Caption 1: Link to thankyou</a>
 </p>
