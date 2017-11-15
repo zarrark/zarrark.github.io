@@ -9,7 +9,7 @@ output:
 # Plan
 
 | Theme 	| Daily Target (30 mins) | 
-|:----:	|:------:|:---:|
+|:----:|:----:|
 |Sight reading | 10 mins |
 |Theory (Scales, Keys, Circle of Fifth, Improv etc.)| 10 mins |
 |Pieces (classical, popular)| 10 mins |

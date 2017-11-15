@@ -17,6 +17,15 @@ blockquote {
   font-style: italic;
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+  background-color: #DCDCDC;
+}
+
 #figcap{
     font-size:100%;
     color:#717D7E;
