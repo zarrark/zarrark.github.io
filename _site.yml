@@ -26,8 +26,6 @@ navbar:
       href: program.html
     - text: "Travel"
       href: travel.html
-    - text: "Adventure"
-      href: adventure.html
     - text: "Language"
       href: language.html
 #  right:

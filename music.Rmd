@@ -6,10 +6,28 @@ output:
     toc_float: true 
 ---
 
+# Plan
 
-# Summary of Songs
+| Theme 	| Daily Target (30 mins) | 
+|:----:	|:------:|:---:|
+|Sight reading | 10 mins |
+|Theory (Scales, Keys, Circle of Fifth, Improv etc.)| 10 mins |
+|Pieces (classical, popular)| 10 mins |
 
-## Popular
+
+# Sight Reading
+
+# Theory
+
+# Pieces
+
+<b>Classical</b>
+
+| Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
+|:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
+| [Asturias](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
+
+<b>Classical</b> 
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
@@ -37,8 +55,6 @@ output:
 | [Ooncha](#ooncha) | Noori | X | x 	| x 	| x,x 	|
 | [Ajnabi](#ajnabi) | Aaroh | X | x 	| x 	| x,x 	|
 | [Khudi](#khudi) | Junoon | X | x 	| x 	| x,x 	|
-
-## Classical
 
 # Popular
 
