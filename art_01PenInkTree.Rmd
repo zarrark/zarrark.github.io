@@ -1,0 +1,18 @@
+---
+title: "Pen & Ink Tree Study 16Nov2017"
+output:
+  html_document:
+#    toc: true  
+#    toc_float: true 
+---
+
+<p id="backbutton"><a href="art.html">Back to Art</a></p>
+
+
+<p style="float: left; font-size: 9pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="figures\art\PenInkTree_01_16Nov2017.jpeg" style="width: 100%">Pen & Ink Tree Study Progress_01_16Nov2017</p>
+
+<p style="float: left; font-size: 9pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="figures\art\PenInkTree_01_16Nov2017.jpeg" style="width: 100%">Pen & Ink Tree Study Progress_02_16Nov2017</p>
+
+<p style="float: left; font-size: 9pt; text-align: center; width: 30%; margin-right: 1%; margin-bottom: 0.5em;"><img src="figures\art\PenInkTree_01_16Nov2017.jpeg" style="width: 100%">Pen & Ink Tree Study Progress_03_16Nov2017</p>
+
+<p style="clear: both;">
