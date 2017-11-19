@@ -12,7 +12,7 @@ output:
 |:----:|:----:|
 |Sight reading | 10 mins |
 |Theory (Scales, Keys, Circle of Fifth, Improv etc.)| 10 mins |
-|Pieces (classical, popular)| 10 mins |
+|Pieces (classical, unplugged, electric)| 10 mins |
 
 # Sight Reading
 
@@ -25,8 +25,56 @@ output:
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
 | [Asturias](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
+| [Cadiz](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
+| [Cordoba](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
+| [Granada](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
+| [Mallorca](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
+| [Serenata Arabe](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
+| [Sevilla](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
+| [Tango in D](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
+| [Torre Bermeja](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
+| [Abri la puerta mi China](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [Danze paraguaya](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [Julia florida](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [La catedral I](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [La catedral II](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [La catedral III](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [Las abejas](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [Limonsa el ultimo tremolo](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [Preludio in G](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [Un sueño en la floresta](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [Vals no3](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
+| [BWV 565 Toccata in dm](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
+| [BWV 578 Fugue in gm](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
+| [BWV 1001 Violin Sonata Adagio](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
+| [BWV 1001 Violin Sonata Fugue](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
+| [BWV 1001 Violin Sonata Presto](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
+| [BWV 1007 Cello Suite 1](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
+| [BWV 997 Lute Suite](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
+| [Moonlight Sonata](#thankyou) | Beethoven | X | 5 	| G G D C 	| x,x 	|
+| [Fur Elise](#thankyou) | Beethoven | X | 5 	| G G D C 	| x,x 	|
+| [Canarios](#thankyou) | Gaspar Sanz | X | 5 	| G G D C 	| x,x 	|
+| [Espanoleta](#thankyou) | Gaspar Sanz | X | 5 	| G G D C 	| x,x 	|
+| [Babel](#thankyou) | Gustavo Santaolalla | X | 5 	| G G D C 	| x,x 	|
+| [Usuahia a la quiaca](#thankyou) | Gustavo Santaolalla | X | 5 	| G G D C 	| x,x 	|
+| [Bachianas Aria](#thankyou) | Hietor Villa Lobos | X | 5 	| G G D C 	| x,x 	|
+| [Prelude 1](#thankyou) | Hietor Villa Lobos | X | 5 	| G G D C 	| x,x 	|
+| [Sound of Bells](#thankyou) | Joao Texeira Guimaraes | X | 5 	| G G D C 	| x,x 	|
+| [Evocation](#thankyou) | Jose Luis Merlin | X | 5 	| G G D C 	| x,x 	|
+| [Rio Ancho](#thankyou) | Paco de Lucia | X | 5 	| G G D C 	| x,x 	|
+| [Estudio Remembranza](#thankyou) | Segovia | X | 5 	| G G D C 	| x,x 	|
+| [Cavatina](#thankyou) | Stanley Myers | X | 5 	| G G D C 	| x,x 	|
+| [Adelita](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	|
+| [Alhambra](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	|
+| [El Columpio](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	|
+| [Lagrima](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	|
+| [Torija](#thankyou) | Torroba | X | 5 	| G G D C 	| x,x 	|
+| [Zapateado](#thankyou) | Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	|
+| [Green Sleeves](#thankyou) | Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	|
 
-<b>Classical</b> 
+
+
+<b>Unplugged</b> 
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
