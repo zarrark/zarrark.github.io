@@ -17,9 +17,10 @@ output:
 |Update Page | 5 mins |
 
 <strong>Current Piece/Lesson</strong>
+
 | Mon 	| Tue | Wed | Thur | Fri |
 |:----:|:----:|:----:|:----:|:----:|
-| Classical | Rock | Flamenco | Opt | Fri |
+| Classical | Rock | Rock | Flamenco | Flamenco |
 
 
 # Sight Reading

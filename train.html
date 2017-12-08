@@ -282,17 +282,17 @@ kable(summary(out)$coef, digits=2)</code></pre>
 <tbody>
 <tr class="odd">
 <td>(Intercept)</td>
-<td align="right">0.09</td>
-<td align="right">0.12</td>
-<td align="right">0.81</td>
-<td align="right">0.42</td>
+<td align="right">-0.07</td>
+<td align="right">0.1</td>
+<td align="right">-0.67</td>
+<td align="right">0.5</td>
 </tr>
 <tr class="even">
 <td>x</td>
-<td align="right">1.88</td>
-<td align="right">0.13</td>
-<td align="right">13.92</td>
-<td align="right">0.00</td>
+<td align="right">1.94</td>
+<td align="right">0.1</td>
+<td align="right">20.44</td>
+<td align="right">0.0</td>
 </tr>
 </tbody>
 </table>
@@ -305,7 +305,7 @@ library(xtable)
 tab &lt;- xtable(summary(out)$coef, digits=c(0, 2, 2, 1, 2))
 print(tab, type=&quot;html&quot;)</code></pre>
 <!-- html table generated in R 3.3.3 by xtable 1.8-2 package -->
-<!-- Fri Dec 08 22:46:55 2017 -->
+<!-- Fri Dec 08 22:57:28 2017 -->
 <table border="1">
 <tr>
 <th>
@@ -328,16 +328,16 @@ Pr(&gt;|t|)
 (Intercept)
 </td>
 <td align="right">
--0.00
+-0.13
 </td>
 <td align="right">
-0.11
+0.10
 </td>
 <td align="right">
--0.0
+-1.3
 </td>
 <td align="right">
-0.97
+0.20
 </td>
 </tr>
 <tr>
@@ -345,13 +345,13 @@ Pr(&gt;|t|)
 x
 </td>
 <td align="right">
-1.90
+1.91
 </td>
 <td align="right">
-0.11
+0.10
 </td>
 <td align="right">
-17.6
+18.9
 </td>
 <td align="right">
 0.00
