@@ -8,69 +8,79 @@ output:
 
 # Plan
 
-| Theme 	| Daily Target (30 mins) | 
+| Theme 	| Daily Time (1 hr) | 
 |:----:|:----:|
 |Sight reading | 10 mins |
 |Theory (Scales, Keys, Circle of Fifth, Improv etc.)| 10 mins |
-|Pieces (classical, unplugged, electric)| 10 mins |
+|Ear training| 10 mins |
+|Piece/Lesson| 25 mins |
+|Update Page | 5 mins |
+
+<strong>Current Piece/Lesson</strong>
+| Mon 	| Tue | Wed | Thur | Fri |
+|:----:|:----:|:----:|:----:|:----:|
+| Classical | Rock | Flamenco | Opt | Fri |
+
 
 # Sight Reading
 
 # Theory
 
-# Pieces
+# Ear Training
+
+# Pieces/Lessons
 
 <b>Classical</b>
 
-| Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
+| Song 	| Artist | Key | Capo	| Chords 	| Scales 	| Status	| Notes	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
-| [Asturias](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
-| [Cadiz](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
-| [Cordoba](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
-| [Granada](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
-| [Mallorca](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
-| [Serenata Arabe](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
-| [Sevilla](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
-| [Tango in D](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
-| [Torre Bermeja](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	|
-| [Abri la puerta mi China](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [Danze paraguaya](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [Julia florida](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [La catedral I](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [La catedral II](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [La catedral III](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [Las abejas](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [Limonsa el ultimo tremolo](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [Preludio in G](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [Un sueño en la floresta](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [Vals no3](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	|
-| [BWV 565 Toccata in dm](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
-| [BWV 578 Fugue in gm](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
-| [BWV 1001 Violin Sonata Adagio](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
-| [BWV 1001 Violin Sonata Fugue](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
-| [BWV 1001 Violin Sonata Presto](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
-| [BWV 1007 Cello Suite 1](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
-| [BWV 997 Lute Suite](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	|
-| [Moonlight Sonata](#thankyou) | Beethoven | X | 5 	| G G D C 	| x,x 	|
-| [Fur Elise](#thankyou) | Beethoven | X | 5 	| G G D C 	| x,x 	|
-| [Canarios](#thankyou) | Gaspar Sanz | X | 5 	| G G D C 	| x,x 	|
-| [Espanoleta](#thankyou) | Gaspar Sanz | X | 5 	| G G D C 	| x,x 	|
-| [Babel](#thankyou) | Gustavo Santaolalla | X | 5 	| G G D C 	| x,x 	|
-| [Usuahia a la quiaca](#thankyou) | Gustavo Santaolalla | X | 5 	| G G D C 	| x,x 	|
-| [Bachianas Aria](#thankyou) | Hietor Villa Lobos | X | 5 	| G G D C 	| x,x 	|
-| [Prelude 1](#thankyou) | Hietor Villa Lobos | X | 5 	| G G D C 	| x,x 	|
-| [Sound of Bells](#thankyou) | Joao Texeira Guimaraes | X | 5 	| G G D C 	| x,x 	|
-| [Evocation](#thankyou) | Jose Luis Merlin | X | 5 	| G G D C 	| x,x 	|
-| [Rio Ancho](#thankyou) | Paco de Lucia | X | 5 	| G G D C 	| x,x 	|
-| [Estudio Remembranza](#thankyou) | Segovia | X | 5 	| G G D C 	| x,x 	|
-| [Cavatina](#thankyou) | Stanley Myers | X | 5 	| G G D C 	| x,x 	|
-| [Adelita](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	|
-| [Alhambra](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	|
-| [El Columpio](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	|
-| [Lagrima](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	|
-| [Torija](#thankyou) | Torroba | X | 5 	| G G D C 	| x,x 	|
-| [Zapateado](#thankyou) | Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	|
-| [Green Sleeves](#thankyou) | Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	|
+| [Asturias](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Cadiz](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Cordoba](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Granada](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Mallorca](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Serenata Arabe](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Sevilla](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Tango in D](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Torre Bermeja](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Abri la puerta mi China](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Danze paraguaya](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Julia florida](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [La catedral I](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [La catedral II](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [La catedral III](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Las abejas](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Limonsa el ultimo tremolo](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Preludio in G](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Un sueño en la floresta](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Vals no3](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [BWV 565 Toccata in dm](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [BWV 578 Fugue in gm](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [BWV 1001 Violin Sonata Adagio](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [BWV 1001 Violin Sonata Fugue](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [BWV 1001 Violin Sonata Presto](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [BWV 1007 Cello Suite 1](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [BWV 997 Lute Suite](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Moonlight Sonata](#thankyou) | Beethoven | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Fur Elise](#thankyou) | Beethoven | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Canarios](#thankyou) | Gaspar Sanz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Espanoleta](#thankyou) | Gaspar Sanz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Babel](#thankyou) | Gustavo Santaolalla | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Usuahia a la quiaca](#thankyou) | Gustavo Santaolalla | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Bachianas Aria](#thankyou) | Hietor Villa Lobos | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Prelude 1](#thankyou) | Hietor Villa Lobos | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Sound of Bells](#thankyou) | Joao Texeira Guimaraes | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Evocation](#thankyou) | Jose Luis Merlin | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Rio Ancho](#thankyou) | Paco de Lucia | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Estudio Remembranza](#thankyou) | Segovia | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Cavatina](#thankyou) | Stanley Myers | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Adelita](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Alhambra](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [El Columpio](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Lagrima](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Torija](#thankyou) | Torroba | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Zapateado](#thankyou) | Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+| [Green Sleeves](#thankyou) | Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
 
 
 
@@ -103,32 +113,32 @@ output:
 | [Ajnabi](#ajnabi) | Aaroh | X | x 	| x 	| x,x 	|
 | [Khudi](#khudi) | Junoon | X | x 	| x 	| x,x 	|
 
-# Popular
+## Unplugged
 
-## Thank you{#thankyou}
-## Dangerous{#dangerous}
-## Maps{#maps}
-## I'm yours{#imyours}
-## Father & son{#fatherson}
-## While my guitar gently weeps{#whilemyguitargentlyweeps}
-## Ain't nobody loves me better{#aintnobody}
-## You belong to me{#youbelongtome}
-## Lovesong{#lovesong}
-## Fast Car{#fastcar}
-## Dream on{#dreamon}
-## Sail Away{#sailaway}
-## No woman no cry{#nowomannocry}
-## Fortunate Son{#fortunateson}
-## Hurt{#hurt}
-## Hey hey my my{#heyheymymy} 
-## I see fire{#iseefire}
-## La masa{#lamasa}
-## Rosa Maria{#rosamaria}
-## Ooncha{#ooncha}
-## Ajnabi{#ajnabi}
-## Khudi{#khudi}
+### Thank you{#thankyou}
+### Dangerous{#dangerous}
+### Maps{#maps}
+### I'm yours{#imyours}
+### Father & son{#fatherson}
+### While my guitar gently weeps{#whilemyguitargentlyweeps}
+### Ain't nobody loves me better{#aintnobody}
+### You belong to me{#youbelongtome}
+### Lovesong{#lovesong}
+### Fast Car{#fastcar}
+### Dream on{#dreamon}
+### Sail Away{#sailaway}
+### No woman no cry{#nowomannocry}
+### Fortunate Son{#fortunateson}
+### Hurt{#hurt}
+### Hey hey my my{#heyheymymy} 
+### I see fire{#iseefire}
+### La masa{#lamasa}
+### Rosa Maria{#rosamaria}
+### Ooncha{#ooncha}
+### Ajnabi{#ajnabi}
+### Khudi{#khudi}
 
 
-# Classical
+## Classical
 
 

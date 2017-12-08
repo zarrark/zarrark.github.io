@@ -9,15 +9,10 @@ output:
     toc_float: true 
 ---
 
+# Climate Change
 
-<div id="left">
-Left stuff
-</div>
+# Energy
 
-<div id="right">
-<p id="KeySources">Key Sources</p>
-@AQUASTAT2011_Indus  
-@malik2014_UNHDR
-</div>
+# Water
 
-#References
+# Food
