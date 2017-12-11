@@ -8,9 +8,29 @@ output:
 
 # Theory
 
+From "Music Theory For Flamenco" by "Flamenco Chuck" Keyser 1998.
+
+<br><br>
+
+Natural scale (without any sharps or flats): C D E F G A B C
+
+## Flamenco Modes & Scales
+
+![](figures\music\flamenco\f_music_flamenco_theory_modesScales.PNG)
+
+<br><br>
+
 # Techniques
 
+# Toques
+
 # Lessons
+
+## Graf Martinez - Flamenco Guitar Method
+## Juan Martin - El arte de flamenco
+## Aaron Gilmartin - Learn to play flamenco guitar
+## Manuel Granados - Manual Guitarra Flamenca
+## Paco Pena - Toques Flamenco
 
 # Reportoire
 

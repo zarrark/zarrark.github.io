@@ -22,10 +22,15 @@ output:
 |:----:|:----:|:----:|:----:|:----:|
 | Classical | Rock | Rock | Flamenco | Flamenco |
 
-#Style Pages
+#Lesson Pages
 
-<a href="music_flamenco.html">Flamenco</a>
-
+* Sight Reading
+* Theory
+* Ear training
+* <a href="music_flamenco.html">Flamenco</a>
+* Classical
+* Uplugged/Finger style
+* Rock
 
 # Reportoire
 
