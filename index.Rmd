@@ -8,6 +8,7 @@ output:
     toc_float: true 
 ---
 
+# Summary
 
 |	Theme	|	Weekday Hours	|	Weekend Hours	|
 |	:----:	|	:----:	|	:----:	|
@@ -23,7 +24,7 @@ output:
 |	Math	|		|		| 1 |
 |	Books	|		|	0.5	| |
 
-<strong>Weekdays</strong>
+# Weekly Breakdown
 
 |	Time	|	Weekdays	|	Weekends	|
 |:----:|:----:|:----:|

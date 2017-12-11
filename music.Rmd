@@ -16,14 +16,15 @@ output:
 |Piece/Lesson| 25 mins |
 |Update Page | 5 mins |
 
-<strong>Current Piece/Lesson</strong>
+#Current Piece/Lesson
 
 | Mon 	| Tue | Wed | Thur | Fri |
 |:----:|:----:|:----:|:----:|:----:|
 | Classical | Rock | Rock | Flamenco | Flamenco |
 
-<strong>Lesson Pages</strong>
-<a href="music_flamenco.html">Flamenco</a><
+#Style Pages
+
+<a href="music_flamenco.html">Flamenco</a>
 
 
 # Reportoire
