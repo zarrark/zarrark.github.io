@@ -11,7 +11,7 @@
 
 
 
-<title>Stakeholders &amp; Partners</title>
+<title>Music</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-1.1/highlight.js"></script>
@@ -162,6 +165,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -198,19 +296,13 @@ $(document).ready(function () {
   <a href="chess.html">Chess</a>
 </li>
 <li>
-  <a href="finance.html">Finance</a>
-</li>
-<li>
-  <a href="science.html">Science</a>
+  <a href="sustainability.html">Sustainability</a>
 </li>
 <li>
   <a href="math.html">Math</a>
 </li>
 <li>
   <a href="program.html">Program</a>
-</li>
-<li>
-  <a href="travel.html">Travel</a>
 </li>
 <li>
   <a href="language.html">Language</a>
@@ -227,75 +319,32 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Stakeholders &amp; Partners</h1>
+<h1 class="title toc-ignore">Music</h1>
 
 </div>
 
 
-<table>
-<colgroup>
-<col width="4%" />
-<col width="8%" />
-<col width="5%" />
-<col width="7%" />
-<col width="22%" />
-<col width="42%" />
-<col width="10%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="center">Region</th>
-<th align="center">Type</th>
-<th align="center">Organization</th>
-<th align="center">Contact</th>
-<th align="center">Details</th>
-<th align="center">Discipline</th>
-<th align="center"></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="center">Pakistan</td>
-<td align="center">Research University</td>
-<td align="center"><a href="https://lums.edu.pk/"> LUMS</a></td>
-<td align="center"><a href="https://lums.edu.pk/lums_employee/2126"> Muhammad Abubakr</a></td>
-<td align="center">Professor, Director WIT</td>
-<td align="center">Systems engineering, applied mathematics/physics, robotics, distributed sensing, network dynamics</td>
-<td align="center"></td>
-</tr>
-<tr class="even">
-<td align="center">Pakistan</td>
-<td align="center">Research University</td>
-<td align="center"><a href="https://lums.edu.pk/"> LUMS</a></td>
-<td align="center"><a href="https://lums.edu.pk/lums_employee/4846">Sanval Nasim</a></td>
-<td align="center">Assistant Professor</td>
-<td align="center">Environmental and natural resource economics, water management, sustainability and conservation, climate change</td>
-<td align="center"></td>
-</tr>
-<tr class="odd">
-<td align="center">Pakistan</td>
-<td align="center">Research University</td>
-<td align="center"><a href="https://lums.edu.pk/"> LUMS</a></td>
-<td align="center"><a href="https://cyphynets.lums.edu.pk/index.php/Talha_Manzoor">Talha Manzoor</a></td>
-<td align="center">PhD Student</td>
-<td align="center">Complex systems, game theory, natural resource governance</td>
-<td align="center"></td>
-</tr>
-<tr class="even">
-<td align="center">Pakistan</td>
-<td align="center">Research University</td>
-<td align="center"><a href="https://lums.edu.pk/"> LUMS</a>/<a href="http://www.uetpeshawar.edu.pk/"> UET Peshawar</a></td>
-<td align="center"><a href="https://lums.edu.pk/lums_employee/5293">Asif Khan</a></td>
-<td align="center">Research Director (LUMS - WIT), Assistant Professor (UET)</td>
-<td align="center">Hydrology, integrated systems</td>
-<td align="center"></td>
-</tr>
-</tbody>
-</table>
+<div id="theory" class="section level1">
+<h1>Theory</h1>
+</div>
+<div id="techniques" class="section level1">
+<h1>Techniques</h1>
+</div>
+<div id="lessons" class="section level1">
+<h1>Lessons</h1>
+</div>
+<div id="reportoire" class="section level1">
+<h1>Reportoire</h1>
+</div>
+<div id="listening" class="section level1">
+<h1>Listening</h1>
+</div>
 
 <p id="footer">Copyright &copy; 2017 Zarrar Khan All rights reserved.</p>
 
 
+</div>
+</div>
 
 </div>
 

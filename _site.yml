@@ -16,16 +16,12 @@ navbar:
       href: books.html
     - text: "Chess"
       href: chess.html
-    - text: "Finance"
-      href: finance.html
-    - text: "Science"
-      href: science.html
+    - text: "Sustainability"
+      href: sustainability.html
     - text: "Math"
       href: math.html
     - text: "Program"
       href: program.html
-    - text: "Travel"
-      href: travel.html
     - text: "Language"
       href: language.html
 #  right:

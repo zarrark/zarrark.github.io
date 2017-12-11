@@ -22,16 +22,13 @@ output:
 |:----:|:----:|:----:|:----:|:----:|
 | Classical | Rock | Rock | Flamenco | Flamenco |
 
+<strong>Lesson Pages</strong>
+<a href="music_flamenco.html">Flamenco</a><
 
-# Sight Reading
 
-# Theory
+# Reportoire
 
-# Ear Training
-
-# Pieces/Lessons
-
-<b>Classical</b>
+## Classical
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| Status	| Notes	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
@@ -84,8 +81,14 @@ output:
 | [Green Sleeves](#thankyou) | Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
 
 
+## Flamenco
 
-<b>Unplugged</b> 
+| Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
+|:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
+| [Thank you](#thankyou) | Alanis | X | 5 	| G G D C 	| x,x 	|
+
+
+## Unplugged
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
@@ -114,32 +117,10 @@ output:
 | [Ajnabi](#ajnabi) | Aaroh | X | x 	| x 	| x,x 	|
 | [Khudi](#khudi) | Junoon | X | x 	| x 	| x,x 	|
 
-## Unplugged
 
-### Thank you{#thankyou}
-### Dangerous{#dangerous}
-### Maps{#maps}
-### I'm yours{#imyours}
-### Father & son{#fatherson}
-### While my guitar gently weeps{#whilemyguitargentlyweeps}
-### Ain't nobody loves me better{#aintnobody}
-### You belong to me{#youbelongtome}
-### Lovesong{#lovesong}
-### Fast Car{#fastcar}
-### Dream on{#dreamon}
-### Sail Away{#sailaway}
-### No woman no cry{#nowomannocry}
-### Fortunate Son{#fortunateson}
-### Hurt{#hurt}
-### Hey hey my my{#heyheymymy} 
-### I see fire{#iseefire}
-### La masa{#lamasa}
-### Rosa Maria{#rosamaria}
-### Ooncha{#ooncha}
-### Ajnabi{#ajnabi}
-### Khudi{#khudi}
+## Rock
 
-
-## Classical
-
+| Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
+|:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
+| [Thank you](#thankyou) | Alanis | X | 5 	| G G D C 	| x,x 	|
 

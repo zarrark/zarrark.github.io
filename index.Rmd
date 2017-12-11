@@ -20,8 +20,9 @@ output:
 |	Meditate	|	1	|		|
 |	Sustainability	|		|	1	|
 |	Community	|		|	1	|
-|	Chess	|		|	1	|
-
+|	Chess	|		|	1	| |
+|	Math	|		|		| 1 |
+|	Books	|		|	0.5	| |
 
 <strong>Weekdays</strong>
 
@@ -36,7 +37,7 @@ output:
 |	12	|	Lunch	|	Hiking+Travel	|
 |	13	|	Project	|	Relax	|
 |	14	|	Develop deliverables	|	Chess	|
-|	15	|	Manage programs	|		|
+|	15	|	Manage programs	|	Math	|
 |	16	|	Train (Box, Gym, Calesthenics, Climb)	|		|
 |	17	|	Train (Box, Gym, Calesthenics, Climb)	|		|
 |	18	|	Study Art (30 mins) Study Music (30 mins)	|		|
