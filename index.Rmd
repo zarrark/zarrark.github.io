@@ -1,14 +1,13 @@
 ---
-title: "Zarrar Khan"
+title: ""
 bibliography: bib_iswelindus.bib
 link-citations: true
 output:
   html_document:
-    toc: true  
+    toc: false 
     toc_float: true 
 ---
 
-# Plan
 
 |	Theme	|	Weekday Hours	|	Weekend Hours	|
 |	:----:	|	:----:	|	:----:	|
