@@ -22,12 +22,13 @@ Natural scale (without any sharps or flats): C D E F G A B C
 
 # Techniques
 
-```{r xtable, results="asis", echo=FALSE}
+```{r results="asis", echo=FALSE}
 Technique <- c("Rasgueado - 3 finger","Rasgueado - 4 finger")
 BMP <- c(85,80)
 Minutes <- c(1,1)
 tab<-data.frame(Technique,BMP,Minutes)
-print(tab, type="html")
+library(knitr)
+kable(tab)
 ```
 
 
