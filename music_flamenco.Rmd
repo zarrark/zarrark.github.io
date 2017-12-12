@@ -22,7 +22,7 @@ Natural scale (without any sharps or flats): C D E F G A B C
 
 # Techniques
 
-```{r xtable, results="asis", echo="false"}
+```{r xtable, results="asis", echo=FALSE}
 Technique <- c("Rasgueado - 3 finger","Rasgueado - 4 finger")
 BMP <- c(85,80)
 Minutes <- c(1,1)
@@ -31,7 +31,7 @@ print(tab, type="html")
 ```
 
 
-```{r bunch_o_figs_svg, fig.height=4, fig.width=8, dev='svg'}
+```{r bunch_o_figs_svg, fig.height=4, fig.width=8, dev='svg',echo=FALSE}
 x<-data.frame(
   Date=c("16Dec2007","17Dec2007","18Dec2007"),
   Rasgueado_3Finger=c(1,2,3),
