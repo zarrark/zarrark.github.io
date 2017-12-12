@@ -5,12 +5,13 @@ body{
 
 /* Headers */
 h1{
-  font-size: 14pt;
+  font-size: 16pt;
   font-weight: bold;
 }
 
 h2,h3,h4,h5,h6{
-  font-size: 12pt;
+  font-size: 14pt;
+  font-weight: bold;
 }
 
 blockquote {

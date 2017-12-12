@@ -340,6 +340,28 @@ div.tocify {
 </div>
 <div id="techniques" class="section level1">
 <h1>Techniques</h1>
+<pre class="r"><code>Technique &lt;- c(&quot;Rasgueado - 3 finger&quot;,&quot;Rasgueado - 4 finger&quot;)
+BMP &lt;- c(85,80)
+Minutes &lt;- c(1,1)
+tab&lt;-data.frame(Technique,BMP,Minutes)
+print(tab, type=&quot;html&quot;)</code></pre>
+<pre><code>         Technique BMP Minutes</code></pre>
+<p>1 Rasgueado - 3 finger 85 1 2 Rasgueado - 4 finger 80 1</p>
+<pre class="r"><code>x&lt;-data.frame(
+  Date=c(&quot;16Dec2007&quot;,&quot;17Dec2007&quot;,&quot;18Dec2007&quot;),
+  Rasgueado_3Finger=c(1,2,3),
+  Rasgueado_4Finger=c(3,4,5))
+x$Date&lt;-as.Date(x$Date,format=&quot;%d%b%Y&quot;)
+par(mfrow=c(1,2), las=1)
+for(i in 2:ncol(x)) {
+  plot(x[[1]], x[[i]], main=names(x)[[i]],xaxt=&quot;n&quot;,type=&quot;l&quot;)
+  axis.Date(1, at=seq(min(x$Date), max(x$Date), by=&quot;1 week&quot;), format=&quot;%d%b%Y&quot;)
+  text(min(x$Date), 0.8*max(x[[i]]), paste(&quot;Best BMP =&quot;,sep=&quot;&quot;),cex = .8)
+}</code></pre>
+<p><img src="music_flamenco_files/figure-html/bunch_o_figs_svg-1.svg" width="768" /></p>
+<ul>
+<li>Rasgueado</li>
+</ul>
 </div>
 <div id="toques" class="section level1">
 <h1>Toques</h1>

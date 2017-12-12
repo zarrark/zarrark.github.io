@@ -22,6 +22,32 @@ Natural scale (without any sharps or flats): C D E F G A B C
 
 # Techniques
 
+```{r xtable, results="asis", echo="false"}
+Technique <- c("Rasgueado - 3 finger","Rasgueado - 4 finger")
+BMP <- c(85,80)
+Minutes <- c(1,1)
+tab<-data.frame(Technique,BMP,Minutes)
+print(tab, type="html")
+```
+
+
+```{r bunch_o_figs_svg, fig.height=4, fig.width=8, dev='svg'}
+x<-data.frame(
+  Date=c("16Dec2007","17Dec2007","18Dec2007"),
+  Rasgueado_3Finger=c(1,2,3),
+  Rasgueado_4Finger=c(3,4,5))
+x$Date<-as.Date(x$Date,format="%d%b%Y")
+par(mfrow=c(1,2), las=1)
+for(i in 2:ncol(x)) {
+  plot(x[[1]], x[[i]], main=names(x)[[i]],xaxt="n",type="l")
+  axis.Date(1, at=seq(min(x$Date), max(x$Date), by="1 week"), format="%d%b%Y")
+  text(min(x$Date), 0.8*max(x[[i]]), paste("Best BMP =",sep=""),cex = .8)
+}
+```
+
+* Rasgueado
+
+
 # Toques
 
 # Lessons
