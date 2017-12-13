@@ -23,8 +23,8 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -33,10 +33,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -344,20 +346,23 @@ div.tocify {
 <thead>
 <tr class="header">
 <th align="left">Technique</th>
-<th align="right">BMP</th>
-<th align="right">Minutes</th>
+<th align="center">BMP</th>
+<th align="center">Minutes</th>
+<th align="center">Date</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">Rasgueado - 3 finger</td>
-<td align="right">85</td>
-<td align="right">1</td>
+<td align="center">70</td>
+<td align="center">1</td>
+<td align="center">13Dec2017</td>
 </tr>
 <tr class="even">
 <td align="left">Rasgueado - 4 finger</td>
-<td align="right">80</td>
-<td align="right">1</td>
+<td align="center">80</td>
+<td align="center">0</td>
+<td align="center">x</td>
 </tr>
 </tbody>
 </table>
@@ -373,6 +378,33 @@ div.tocify {
 <h1>Lessons</h1>
 <div id="graf-martinez---flamenco-guitar-method" class="section level2">
 <h2>Graf Martinez - Flamenco Guitar Method</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Lesson</th>
+<th align="left">Technique</th>
+<th align="center">BMP</th>
+<th align="center">Minutes</th>
+<th align="center">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">T1 - Sencillos 1 (Tangos)</td>
+<td align="left">1 Finger Rasgueado</td>
+<td align="center">100</td>
+<td align="center">1</td>
+<td align="center">13Dec2017</td>
+</tr>
+<tr class="even">
+<td align="left">T2 - Estudio por Solea</td>
+<td align="left">3 Finger Rasgueado</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">x</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div id="juan-martin---el-arte-de-flamenco" class="section level2">
 <h2>Juan Martin - El arte de flamenco</h2>

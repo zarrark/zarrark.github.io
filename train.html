@@ -20,8 +20,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-1.1/textmate.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-1.1/highlight.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -30,10 +30,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -276,17 +278,17 @@ kable(summary(out)$coef, digits=2)</code></pre>
 <tbody>
 <tr class="odd">
 <td>(Intercept)</td>
-<td align="right">-0.12</td>
-<td align="right">0.11</td>
-<td align="right">-1.05</td>
-<td align="right">0.3</td>
+<td align="right">0.08</td>
+<td align="right">0.09</td>
+<td align="right">0.83</td>
+<td align="right">0.41</td>
 </tr>
 <tr class="even">
 <td>x</td>
-<td align="right">2.03</td>
-<td align="right">0.11</td>
-<td align="right">18.67</td>
-<td align="right">0.0</td>
+<td align="right">1.88</td>
+<td align="right">0.09</td>
+<td align="right">21.10</td>
+<td align="right">0.00</td>
 </tr>
 </tbody>
 </table>
@@ -299,7 +301,7 @@ library(xtable)
 tab &lt;- xtable(summary(out)$coef, digits=c(0, 2, 2, 1, 2))
 print(tab, type=&quot;html&quot;)</code></pre>
 <!-- html table generated in R 3.3.3 by xtable 1.8-2 package -->
-<!-- Tue Dec 12 21:48:10 2017 -->
+<!-- Wed Dec 13 21:33:12 2017 -->
 <table border="1">
 <tr>
 <th>
@@ -322,16 +324,16 @@ Pr(&gt;|t|)
 (Intercept)
 </td>
 <td align="right">
--0.06
+-0.00
 </td>
 <td align="right">
-0.09
+0.11
 </td>
 <td align="right">
--0.7
+-0.0
 </td>
 <td align="right">
-0.51
+0.98
 </td>
 </tr>
 <tr>
@@ -339,13 +341,13 @@ Pr(&gt;|t|)
 x
 </td>
 <td align="right">
-2.02
+2.16
 </td>
 <td align="right">
-0.10
+0.12
 </td>
 <td align="right">
-20.7
+17.4
 </td>
 <td align="right">
 0.00

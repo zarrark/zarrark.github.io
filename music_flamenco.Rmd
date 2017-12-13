@@ -25,7 +25,7 @@ Natural scale (without any sharps or flats): C D E F G A B C
 ```{r results="asis", echo=FALSE}
 Technique <- c("Rasgueado - 3 finger","Rasgueado - 4 finger")
 BMP <- c(70,80)
-Minutes <- c(1,x)
+Minutes <- c(1,0)
 Date <- c("13Dec2017","x")
 tab<-data.frame(Technique,BMP,Minutes,Date)
 library(knitr)
@@ -59,8 +59,8 @@ for(i in 2:ncol(x)) {
 ```{r results="asis", echo=FALSE}
 Lesson <- c("T1 - Sencillos 1 (Tangos)","T2 - Estudio por Solea")
 Technique <- c("1 Finger Rasgueado","3 Finger Rasgueado")
-BMP <- c(100,x)
-Minutes <- c(1,x)
+BMP <- c(100,0)
+Minutes <- c(1,0)
 Date <- c("13Dec2017","x")
 tab<-data.frame(Lesson,Technique,BMP,Minutes,Date)
 library(knitr)
