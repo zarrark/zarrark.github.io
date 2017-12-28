@@ -16,18 +16,17 @@ Natural scale (without any sharps or flats): C D E F G A B C
 
 ## Flamenco Modes & Scales
 
-![](figures\music\flamenco\f_music_flamenco_theory_modesScales.PNG)
 
-<br><br>
 
 # Techniques
 
 ```{r results="asis", echo=FALSE}
-Technique <- c("Rasgueado - 3 finger","Rasgueado - 4 finger")
-BMP <- c(70,80)
-Minutes <- c(1,0)
-Date <- c("13Dec2017","x")
-tab<-data.frame(Technique,BMP,Minutes,Date)
+Technique <- c("Picado","Tremolo","Alzapua","Arpeggio","Pulgar","Rasgueado - 3 finger","Rasgueado - 4 finger")
+BMP <-       c(80      ,       80,       80,        80,      80,                    80,                    80)
+Beats <-     c(4       ,        4,        4,         4,       4,                     4,                     4)
+Minutes <-   c(1       ,        1,        1,         1,       1,                     1,                     1)
+Date <- c("14Dec2017"  ,      "x",      "x",      "x",      "x",                   "x",                   "x")
+tab<-data.frame(Technique,BMP,Beats,Minutes,Date)
 library(knitr)
 kable(tab,align='lccc')
 ```
@@ -37,11 +36,11 @@ kable(tab,align='lccc')
 x<-data.frame(
   Date=c("16Dec2007","17Dec2007","18Dec2007"),
   Rasgueado_3Finger=c(1,2,3),
-  Rasgueado_4Finger=c(3,4,5))
+  Rasgueado_4Finger=c(3,NA,5))
 x$Date<-as.Date(x$Date,format="%d%b%Y")
 par(mfrow=c(1,2), las=1)
 for(i in 2:ncol(x)) {
-  plot(x[[1]], x[[i]], main=names(x)[[i]],xaxt="n",type="l")
+  plot(x[[1]], x[[i]], main=names(x)[[i]],xaxt="n",type="o")
   axis.Date(1, at=seq(min(x$Date), max(x$Date), by="1 week"), format="%d%b%Y")
   text(min(x$Date), 0.8*max(x[[i]]), paste("Best BMP =",sep=""),cex = .8)
 }
@@ -59,14 +58,15 @@ for(i in 2:ncol(x)) {
 ```{r results="asis", echo=FALSE}
 Lesson <- c("T1 - Sencillos 1 (Tangos)","T2 - Estudio por Solea")
 Technique <- c("1 Finger Rasgueado","3 Finger Rasgueado")
-BMP <- c(100,0)
+BMP <- c(120,0)
 Minutes <- c(1,0)
-Date <- c("13Dec2017","x")
+Date <- c("14Dec2017","x")
 tab<-data.frame(Lesson,Technique,BMP,Minutes,Date)
 library(knitr)
 kable(tab,align='llccc')
 ```
 
+## Atrafana School - 
 
 ## Juan Martin - El arte de flamenco
 ## Aaron Gilmartin - Learn to play flamenco guitar
