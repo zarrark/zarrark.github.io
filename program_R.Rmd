@@ -1,0 +1,25 @@
+---
+title: "Programs - R"
+output:
+  html_document:
+    toc: true 
+    toc_float: true
+---
+
+# R reshape
+
+```{r}
+require(reshape2);library(reshape2)
+# Create Dummy Data
+df<-data.frame(names=c("Z","A","X"),freq=c(10,12,2),color=c("blue","red","red"));print(df)
+# Go from Long to Wide format using dcast
+#dcast(data,row1+row2~col1+col2,value.var="value", fun.aggregate=functions (e.g. sum or mean))
+df_wide<-dcast(df,names~color,value.var="freq",fun.aggregate=sum,na.rm=T);print(df_wide)
+#Go from Wide to Long using melt can ignore measure.vars if want all of them to collapse
+#dt3<-melt(dt2, id.vars=c("year","month"), measure.vars=c(""), value.name="",variable.name="Level_m")
+df_long<-melt(df_wide, id.vars=c("names"), value.name="freq",variable.name="color");print(df_long)
+# Aggregate long data to summarize
+df_agg<-aggregate(freq~names, data=df_long, sum, na.rm=TRUE); print(df_agg)
+```
+
+# R XX

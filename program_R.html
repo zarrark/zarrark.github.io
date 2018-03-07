@@ -11,7 +11,7 @@
 
 
 
-<title>Program</title>
+<title>Programs - R</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -321,17 +321,47 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Program</h1>
+<h1 class="title toc-ignore">Programs - R</h1>
 
 </div>
 
 
-<div id="lesson-pages" class="section level1">
-<h1>Lesson Pages</h1>
-<ul>
-<li><a href="program_R.html">R</a></li>
-<li><a href="program_GCAM.html">GCAM</a></li>
-</ul>
+<div id="r-reshape" class="section level1">
+<h1>R reshape</h1>
+<pre class="r"><code>require(reshape2);library(reshape2)</code></pre>
+<pre><code>## Loading required package: reshape2</code></pre>
+<pre class="r"><code># Create Dummy Data
+df&lt;-data.frame(names=c(&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;),freq=c(10,12,2),color=c(&quot;blue&quot;,&quot;red&quot;,&quot;red&quot;));print(df)</code></pre>
+<pre><code>##   names freq color
+## 1     Z   10  blue
+## 2     A   12   red
+## 3     X    2   red</code></pre>
+<pre class="r"><code># Go from Long to Wide format using dcast
+#dcast(data,row1+row2~col1+col2,value.var=&quot;value&quot;, fun.aggregate=functions (e.g. sum or mean))
+df_wide&lt;-dcast(df,names~color,value.var=&quot;freq&quot;,fun.aggregate=sum,na.rm=T);print(df_wide)</code></pre>
+<pre><code>##   names blue red
+## 1     A    0  12
+## 2     X    0   2
+## 3     Z   10   0</code></pre>
+<pre class="r"><code>#Go from Wide to Long using melt can ignore measure.vars if want all of them to collapse
+#dt3&lt;-melt(dt2, id.vars=c(&quot;year&quot;,&quot;month&quot;), measure.vars=c(&quot;&quot;), value.name=&quot;&quot;,variable.name=&quot;Level_m&quot;)
+df_long&lt;-melt(df_wide, id.vars=c(&quot;names&quot;), value.name=&quot;freq&quot;,variable.name=&quot;color&quot;);print(df_long)</code></pre>
+<pre><code>##   names color freq
+## 1     A  blue    0
+## 2     X  blue    0
+## 3     Z  blue   10
+## 4     A   red   12
+## 5     X   red    2
+## 6     Z   red    0</code></pre>
+<pre class="r"><code># Aggregate long data to summarize
+df_agg&lt;-aggregate(freq~names, data=df_long, sum, na.rm=TRUE); print(df_agg)</code></pre>
+<pre><code>##   names freq
+## 1     A   12
+## 2     X    2
+## 3     Z   10</code></pre>
+</div>
+<div id="r-xx" class="section level1">
+<h1>R XX</h1>
 </div>
 
 <p id="footer">Copyright &copy; 2017 Zarrar Khan All rights reserved.</p>
