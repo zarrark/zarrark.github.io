@@ -1,6 +1,6 @@
 ---
 title: "Background"
-bibliography: bib_iswelindus.bib
+bibliography: bib_science_8Mar2018.bib
 link-citations: true
 csl: ieee-with-url.csl
 output:
@@ -9,6 +9,11 @@ output:
     toc_float: true 
 ---
 
+# SSP - RCP
+
+@riahi2017_SSP
+
+
 # Climate Change
 
 # Energy
@@ -16,3 +21,5 @@ output:
 # Water
 
 # Food
+
+# References

@@ -16,8 +16,8 @@ navbar:
       href: books.html
     - text: "Chess"
       href: chess.html
-    - text: "Sustainability"
-      href: sustainability.html
+    - text: "Science"
+      href: science.html
     - text: "Math"
       href: math.html
     - text: "Program"
