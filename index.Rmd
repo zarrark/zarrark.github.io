@@ -10,38 +10,16 @@ output:
 
 # Summary
 
-|	Theme	        |	Weekday Hours	|	Weekend Hours	    | Goals | In Progress | 
-|:-------------:|:-------------:|:-----------------:|:-----------------------------------------:|:-----------------------------------------:|
-|	Art	          |	1	            |		                | Work Daily, Exhibition | Pen & Ink M Portrait, Carved Spoon |
-|	Music	        |	1	            |		                | Practice Daily, Band, Concert |Graf Martinez, Asturias, Back in Black, I see fire |
-|	Language      |	1	            |		                | Daily, read, write, listen, speak |   |
-|	Program	      |	1	            |		                | Manage/clean code C++, R | GCAM |
-|	Training	    |	2	            |	1	                | Run, climb, gym, box, calisthenics | 10k, HSP/Planche, 5c, Advc. |
-|	Meditate	    |	1	            |		                | 3 x 10 min daily | |
-|	Sustainability|		            |	1	                | Read/update CC, New techs, Resources| |
-|	Community	    |		            |	1	                | Find Community work        | |
-|	Chess	        |		            |	1	                | Steps levels, 2000  | |
-|	Books	        |		            |	0.5	              | Read Daily, Note ideas, list | Garrett Hardin |
+|	Theme	        |	Goals | In Progress | 
+|:-------------:|:-----------------------------------------:|:-----------------------------------------:|
+|	Art	          |	 Work Daily, Exhibition | Pen & Ink M Portrait, Carved Spoon |
+|	Music	        |	Practice Daily, Band, Concert |Graf Martinez, Asturias, Back in Black, I see fire |
+|	Language      |	Daily, read, write, listen, speak |   |
+|	Program	      |	Manage/clean code C++, R | GCAM |
+|	Training	    |	Run, climb, gym, box, calisthenics | 10k, HSP/Planche, 5c, Advc. |
+|	Meditate	    |	 3 x 10 min daily | |
+|	Sustainability|	 Read/update CC, New techs, Resources| |
+|	Community	    |	 Find Community work        | |
+|	Chess	        |	 Steps levels, 2000  | |
+|	Books	        |	 Read Daily, Note ideas, list | Garrett Hardin |
 
-# Weekly Breakdown
-
-|	Time	|	Weekdays	|	Weekends	|
-|:----:|:----:|:----:|
-|	6	|	Language 1 (30 mins) + Language 2 (30 mins)	|		|
-|	7	|	Breakfast + Emails + Planning	|		|
-|	8	|	Read other work, Cite and build library	|		|
-|	9	|	Project	|	Run 10 km	|
-|	10	|	Project	|	Read/Write Sustainability	|
-|	11	|	Project	|	Community Work	|
-|	12	|	Lunch	|	Hiking+Travel	|
-|	13	|	Project	|	Relax	|
-|	14	|	Develop deliverables	|	Chess	|
-|	15	|	Manage programs	|	Math	|
-|	16	|	Train (Box, Gym, Calesthenics, Climb)	|		|
-|	17	|	Train (Box, Gym, Calesthenics, Climb)	|		|
-|	18	|	Study Art (30 mins) Study Music (30 mins)	|		|
-|	19	|	Dinner	|		|
-|	20	|	Make Art (30 mins) + Play Music (30 mins)	|		|
-|	21	|	Meditate	|		|
-|	22	|	Chill/Read	|		|
-|	23	|	Chill/Read	|		|
