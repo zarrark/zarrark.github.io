@@ -9,17 +9,22 @@ output:
     toc_float: true 
 ---
 
-# SSP - RCP
+# SSP/RCP
 
 @riahi2017_SSP
 
-
 # Climate Change
+
+# Emissions
 
 # Energy
 
 # Water
 
-# Food
+# Agriculture-Land
+
+# Technologies
+
+# Region Details
 
 # References
