@@ -1,6 +1,6 @@
 ---
-title: "Background"
-bibliography: bib_science_8Mar2018.bib
+title: "Science"
+bibliography: bib_science_9Mar2018.bib
 link-citations: true
 csl: ieee-with-url.csl
 output:
@@ -26,5 +26,9 @@ output:
 # Technologies
 
 # Region Details
+
+# Nexus
+
+@Burger2017_MThesis
 
 # References
