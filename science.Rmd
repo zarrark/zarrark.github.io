@@ -25,10 +25,10 @@ output:
 
 # Technologies
 
-# Region Details
-
 # Nexus
 
 @Burger2017_MThesis
+
+# Region Details
 
 # References
