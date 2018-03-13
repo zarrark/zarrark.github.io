@@ -9,7 +9,7 @@ output:
     toc_float: true 
 ---
 
-# SSP/RCP
+# SSP/RCP/SPA
 
 @riahi2017_SSP
 
@@ -27,7 +27,7 @@ output:
 
 # Nexus
 
-@Burger2017_MThesis
+- Burger 2017 @Burger2017_MThesis: MAXUS model, Ghana/Burkina Faso, Choosing important interactions between different sectors 
 
 # Region Details
 

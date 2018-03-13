@@ -1,33 +1,29 @@
-name: "my-website"
+name: my-website
 navbar:
-  title: "Zarrar Khan"
+  title: Zarrar Khan
   left:
-    - text: "Plan"
-      href: index.html
-    - text: "Art"
-      href: art.html
-    - text: "Music"
-      href: music.html
-    - text: "Train"
-      href: train.html
-    - text: "Spirit"
-      href: spirit.html
-    - text: "Books"
-      href: books.html
-    - text: "Chess"
-      href: chess.html
-    - text: "Science"
-      href: science.html
-    - text: "Math"
-      href: math.html
-    - text: "Program"
-      href: program.html
-    - text: "Language"
-      href: language.html
-#  right:
-#    - text: "Library"
-#      icon: fa-book
-#      href: library.html
+  - text: Plan
+    href: index.html
+  - text: Art
+    href: art.html
+  - text: Music
+    href: music.html
+  - text: Train
+    href: train.html
+  - text: Spirit
+    href: spirit.html
+  - text: Books
+    href: books.html
+  - text: Chess
+    href: chess.html
+  - text: Science
+    href: science.html
+  - text: Math
+    href: math.html
+  - text: Program
+    href: program.html
+  - text: Language
+    href: language.html
 output:
   html_document:
     theme: yeti
@@ -35,4 +31,7 @@ output:
     include:
       after_body: footer.html
     css: styles.css
-output_dir: "."
+    lib_dir: site_libs
+    self_contained: no
+output_dir: '.'
+
