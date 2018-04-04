@@ -6,10 +6,33 @@ output:
     toc_float: true
 ---
 
+# R Initial
+
+- To display R code chunks with code and output use: ```{r} x=2 ```
+- To display R code output without code use ```{r,echo=F} x=2 ```
+- To display R code without output use ```{r,eval=F} x=2 ```
+
+```{r,eval=F}
+rm(list=ls()) # Clear variables
+if(!require(tables)){install.packages("tables")};library(tables) # Load packages
+```
+
+# R Directories and File Manipulation
+
+```{r, eval=F}
+wd0 <- getwd() # Get current dirctory
+dirname(wd0)  # Gives parent directory of the current one
+dir.create("x") # creates directory x in working dir
+dir.create(paste(getwd(),"/x/y",sep="")) # creates directory y within x
+file.create(paste(getwd(),"/x/y/example.txt",sep="")) # create a text file
+file.remove(paste(getwd(),"/x/y/example.txt",sep="")) # remove a file
+unlink("x",recursive=T) # delete entire folders
+```
+
 # R reshape
 
 ```{r}
-require(reshape2);library(reshape2)
+if(!require(reshape2)){install.packages("reshape2")};library(reshape2) # Load packages
 # Create Dummy Data
 df<-data.frame(names=c("Z","A","X"),freq=c(10,12,2),color=c("blue","red","red"));print(df)
 # Go from Long to Wide format using dcast
@@ -22,4 +45,40 @@ df_long<-melt(df_wide, id.vars=c("names"), value.name="freq",variable.name="colo
 df_agg<-aggregate(freq~names, data=df_long, sum, na.rm=TRUE); print(df_agg)
 ```
 
-# R XX
+# R Colors
+
+[https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf)
+
+[http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
+
+
+```{r}
+# Load Packages
+if(!require(graphics)){install.packages("graphics")};library(graphics)
+if(!require(graphics)){install.packages("graphics")};library(graphics)
+
+# View a single color quickly
+x<-adjustcolor("red", alpha.f = 0.2)
+pie(rep(1,12),label=x,col=x)
+
+# R colors
+myPalette1<- rainbow(n=12,alpha=0.9)
+myPalette2<- heat.colors(n=12,alpha=0.7)
+myPalette3<- terrain.colors(n=12,alpha=1)
+myPalette4<- topo.colors(n=12,alpha=0.5)
+myPalette5<- cm.colors(n=12,alpha=0.6)
+
+# Custom
+myPalette6<- c("red","#fdd67b")
+myPalette7<- colorRampPalette(c("blue", "yellow","red"))(8) 
+
+pie(rep(1,length(myPalette1)),labels=myPalette1,col=myPalette1)
+pie(rep(1,length(myPalette2)),labels=myPalette2,col=myPalette2)
+pie(rep(1,length(myPalette3)),labels=myPalette3,col=myPalette3)
+pie(rep(1,length(myPalette4)),labels=myPalette4,col=myPalette4)
+pie(rep(1,length(myPalette5)),labels=myPalette5,col=myPalette5)
+pie(rep(1,length(myPalette6)),labels=myPalette6,col=myPalette6)
+pie(rep(1,length(myPalette7)),labels=myPalette7,col=myPalette7)
+```
+
+
