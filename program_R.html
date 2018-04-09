@@ -373,8 +373,25 @@ write.csv(df,file=paste(&quot;XXX.csv&quot;,sep=&quot;&quot;),row.names=F)</code
 </div>
 <div id="r-manipulate-data" class="section level1">
 <h1>R Manipulate Data</h1>
-<pre class="r"><code>if(!require(reshape2)){install.packages(&quot;reshape2&quot;)};library(reshape2) # Load packages</code></pre>
+<pre class="r"><code>rm(list=ls())
+
+if(!require(reshape2)){install.packages(&quot;reshape2&quot;)};library(reshape2) # Load packages</code></pre>
 <pre><code>## Loading required package: reshape2</code></pre>
+<pre class="r"><code>if(!require(dplyr)){install.packages(&quot;dplyr&quot;)};library(dplyr) # Load packages</code></pre>
+<pre><code>## Loading required package: dplyr</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     vars</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>if(!require(tibble)){install.packages(&quot;tibble&quot;)};library(tibble) # Load packages</code></pre>
+<pre><code>## Loading required package: tibble</code></pre>
 <pre class="r"><code># Create Dummy Data
 df&lt;-data.frame(names=c(&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;,&quot;W&quot;),freq=c(10,12,2,5),color=c(&quot;blue&quot;,&quot;red&quot;,&quot;red&quot;,&quot;green&quot;));print(df)</code></pre>
 <pre><code>##   names freq color
@@ -382,15 +399,6 @@ df&lt;-data.frame(names=c(&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;,&quot;W&quot
 ## 2     A   12   red
 ## 3     X    2   red
 ## 4     W    5 green</code></pre>
-<pre class="r"><code># Load pre-loaded data
-data(iris);head(iris)</code></pre>
-<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
-## 1          5.1         3.5          1.4         0.2  setosa
-## 2          4.9         3.0          1.4         0.2  setosa
-## 3          4.7         3.2          1.3         0.2  setosa
-## 4          4.6         3.1          1.5         0.2  setosa
-## 5          5.0         3.6          1.4         0.2  setosa
-## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <pre class="r"><code># Go from Long to Wide format using dcast
 #dcast(data,row1+row2~col1+col2,value.var=&quot;value&quot;, fun.aggregate=functions (e.g. sum or mean))
 df_wide&lt;-dcast(df,names~color,value.var=&quot;freq&quot;,fun.aggregate=sum,na.rm=T);print(df_wide)</code></pre>
@@ -422,12 +430,24 @@ df_agg&lt;-aggregate(freq~names, data=df_long, sum, na.rm=TRUE); print(df_agg)</
 ## 2     W    5
 ## 3     X    2
 ## 4     Z   10</code></pre>
-</div>
-<div id="r-charts" class="section level1">
-<h1>R Charts</h1>
-</div>
-<div id="r-maps---spatial" class="section level1">
-<h1>R Maps - Spatial</h1>
+<pre class="r"><code># Load pre-loaded data
+data(mtcars);head(mtcars)</code></pre>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<pre class="r"><code># Add rownames as a column
+df_mtcars&lt;-as.data.frame(rownames_to_column(mtcars,&quot;model&quot;));head(df_mtcars)</code></pre>
+<pre><code>##               model  mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## 1         Mazda RX4 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## 2     Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## 3        Datsun 710 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## 4    Hornet 4 Drive 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## 5 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## 6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
 </div>
 <div id="r-colors" class="section level1">
 <h1>R Colors</h1>
@@ -466,6 +486,111 @@ pie(rep(1,length(myPalette1)),labels=myPalette1,col=myPalette1)</code></pre>
 <p><img src="program_R_files/figure-html/unnamed-chunk-5-7.png" width="672" /></p>
 <pre class="r"><code>pie(rep(1,length(myPalette7)),labels=myPalette7,col=myPalette7)</code></pre>
 <p><img src="program_R_files/figure-html/unnamed-chunk-5-8.png" width="672" /></p>
+</div>
+<div id="r-charts" class="section level1">
+<h1>R Charts</h1>
+<pre class="r"><code>rm(list=ls())
+
+if(!require(reshape2)){install.packages(&quot;reshape2&quot;)};library(reshape2) 
+if(!require(dplyr)){install.packages(&quot;dplyr&quot;)};library(dplyr) 
+if(!require(tibble)){install.packages(&quot;tibble&quot;)};library(tibble)
+if(!require(ggplot2)){install.packages(&quot;ggplot2&quot;)};library(ggplot2) 
+if(!require(RColorBrewer)){install.packages(&quot;RColorBrewer&quot;)};library(RColorBrewer) </code></pre>
+<pre><code>## Loading required package: RColorBrewer</code></pre>
+<pre class="r"><code>if(!require(scales)){install.packages(&quot;scales&quot;)};library(scales) # For pretty_breaks</code></pre>
+<pre><code>## Loading required package: scales</code></pre>
+<pre class="r"><code># Load pre-loaded data
+data(mtcars);head(mtcars)</code></pre>
+<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<pre class="r"><code># Add rownames as a column
+df_mtcars&lt;-as.data.frame(rownames_to_column(mtcars,&quot;model&quot;));head(df_mtcars)</code></pre>
+<pre><code>##               model  mpg cyl disp  hp drat    wt  qsec vs am gear carb
+## 1         Mazda RX4 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+## 2     Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+## 3        Datsun 710 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+## 4    Hornet 4 Drive 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+## 5 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+## 6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
+<pre class="r"><code># Custom theme
+z_theme &lt;&lt;- theme_bw() + 
+  theme(text = element_text(family = NULL, face = &quot;plain&quot;,colour = &quot;black&quot;, 
+                             size = 16 ,hjust = 0.5, vjust = 0.5, angle = 0, lineheight = 0.9)
+        , axis.text.x =       element_text(size=12)
+        , axis.text.y =       element_text(size=12)
+        ,axis.title.x =       element_text(vjust = -1, margin=margin(t=1,unit=&quot;line&quot;))
+        ,axis.title.y =       element_text(angle = 90, vjust = 2, margin=margin(r=1,unit=&quot;line&quot;))
+        ,legend.key =         element_blank()
+        ,legend.text =        element_text(size = rel(1.0), colour = &quot;black&quot;)
+        ,legend.title =       element_text(size = rel(1.2), face = NULL, hjust = 0, colour = &quot;black&quot;)
+        ,strip.background =   element_rect(fill = NA, colour = &quot;black&quot;)
+        ,plot.margin =        unit(c(1, 1, 1, 1), &quot;lines&quot;)
+        ,plot.title=          element_text(face=&quot;bold&quot;, hjust=0,size=18,margin = margin(b=20))
+        )
+
+#---------------
+# Line Chart 
+#---------------
+
+# Data Prep
+l1&lt;-df_mtcars
+l1$gear&lt;-as.factor(l1$gear)
+
+# Figure options
+titleOn&lt;-1
+figWidth_Inch&lt;-10
+figHeight_Inch&lt;-8
+range_x&lt;-range(l1$wt)
+range_y&lt;-range(l1$mpg)
+breakx_maj&lt;-0.5
+breakx_min&lt;-0.25
+
+# Colors
+# Using a Palette Ramp
+n = length(levels(l1$gear))
+getcol = colorRampPalette(brewer.pal(9, &quot;Set1&quot;)) #Palettes (Spectral, Set1, RdYlBl)
+#colorRampPalette(c(&quot;blue&quot;, &quot;red&quot;))( 4) 
+
+# Or predefined for variables gear
+colorsX &lt;- c( &quot;3&quot; = &quot;red&quot;,&quot;4&quot; = &quot;blue&quot;,&quot;5&quot; = &quot;green&quot;)  # Must have all levels from data colomun &quot;gear&quot;
+l1$NewLabel&lt;-paste(&quot;Gear &quot;,l1$gear,sep=&quot;&quot;)
+colorsX1&lt;-rownames_to_column(as.data.frame(colorsX),&quot;gear&quot;)
+l1&lt;-merge(l1,colorsX1,by=&quot;gear&quot;);
+
+p&lt;-ggplot(l1,aes(x=wt,y=mpg,group=gear))
+p &lt;- p + z_theme
+p &lt;- p + geom_line(aes(color=gear),stat=&quot;identity&quot;,position=&quot;identity&quot;,size=1.5) 
+#p &lt;- p + geom_line(aes(),color=&quot;red&quot;,stat=&quot;identity&quot;,position=&quot;identity&quot;,size=1.5) 
+#p &lt;- p + scale_color_manual(values=getcol(n),name=&quot;Gear&quot;) # using Palette Ramp
+p &lt;- p + scale_color_manual(values=unique(as.character(l1$colorsX)),label=unique(as.character(l1$NewLabel)))
+p &lt;- p + facet_grid(.~cyl, scales=&quot;fixed&quot;)
+p &lt;- p + guides(fill = guide_legend(override.aes = list(colour = NULL)))
+p &lt;- p + if(titleOn==1){ggtitle (paste(&quot;mpg by wt for different cyl&quot;,sep=&quot;&quot;))}else{ggtitle(NULL)} 
+p &lt;- p + xlab(&quot;wt&quot;) + ylab(&quot;mpg&quot;)
+p &lt;- p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+p &lt;- p + scale_x_continuous (breaks=(seq(signif((min(range_x)-breakx_maj),2),signif((max(range_x)+breakx_maj),2)
+                                         ,by=breakx_maj)), 
+                             minor_breaks=(seq(signif((min(range_x)-breakx_maj),2),signif((max(range_x)+breakx_maj),2)
+                                         ,by=breakx_min)),expand=c(0,breakx_min))
+p &lt;- p +  scale_y_continuous(breaks = pretty_breaks(n = 10))
+plot(p)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code># To print to PDF or PNG
+#pdf(&quot;figure.pdf&quot;,width=figWidth_Inch,height=figHeight_Inch)
+#    print(p)
+#dev.off()
+
+#png(paste(dir,&quot;/&quot;,filename,&quot;.png&quot;,sep=&quot;&quot;),width=png_Width, height=png_Width*figHeight_Inch/figWidth_Inch, units=&quot;px&quot;)
+#   print(figure)
+#dev.off()</code></pre>
+</div>
+<div id="r-maps---spatial" class="section level1">
+<h1>R Maps - Spatial</h1>
 </div>
 
 <p id="footer">Copyright &copy; 2017 Zarrar Khan All rights reserved.</p>
