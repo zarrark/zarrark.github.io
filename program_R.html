@@ -334,7 +334,8 @@ div.tocify {
 <li>To display R code without output use <code>{r,eval=F} x=2</code></li>
 </ul>
 <pre class="r"><code>rm(list=ls()) # Clear variables
-if(!require(tables)){install.packages(&quot;tables&quot;)};library(tables) # Load packages</code></pre>
+if(&quot;ggplot2&quot; %in% rownames(installed.packages()) == FALSE) {install.packages(&quot;ggplot2&quot;)};library(ggplot2)
+# Load packages</code></pre>
 </div>
 <div id="r-directories-and-file-manipulation" class="section level1">
 <h1>R Directories and File Manipulation</h1>
@@ -346,39 +347,87 @@ file.create(paste(getwd(),&quot;/x/y/example.txt&quot;,sep=&quot;&quot;)) # crea
 file.remove(paste(getwd(),&quot;/x/y/example.txt&quot;,sep=&quot;&quot;)) # remove a file
 unlink(&quot;x&quot;,recursive=T) # delete entire folders</code></pre>
 </div>
-<div id="r-reshape" class="section level1">
-<h1>R reshape</h1>
+<div id="r-reading-and-saving-files" class="section level1">
+<h1>R Reading and Saving Files</h1>
+<pre class="r"><code># Function to save figures as pdf or png
+pdfOnly&lt;-1;
+
+if(pdfOnly==1){pdf(paste(dir,&quot;/&quot;,filename,&quot;.pdf&quot;,sep=&quot;&quot;),width=figWidth_Inch,height=figHeight_Inch)
+    print(figure)
+    dev.off()} else{
+  
+    pdf(paste(dir,&quot;/&quot;,filename,&quot;.pdf&quot;,sep=&quot;&quot;),width=figWidth_Inch,height=figHeight_Inch)
+    print(figure)
+    dev.off()
+    
+    png(paste(dir,&quot;/&quot;,filename,&quot;.png&quot;,sep=&quot;&quot;),width=png_Width, height=png_Width*figHeight_Inch/figWidth_Inch, units=&quot;px&quot;)
+    print(figure)
+    dev.off()
+  }
+}
+
+# csv files
+
+read.csv(paste(&quot;XXX.csv&quot;,sep=&quot;&quot;), stringsAsFactors = F, header=F)
+write.csv(df,file=paste(&quot;XXX.csv&quot;,sep=&quot;&quot;),row.names=F)</code></pre>
+</div>
+<div id="r-manipulate-data" class="section level1">
+<h1>R Manipulate Data</h1>
 <pre class="r"><code>if(!require(reshape2)){install.packages(&quot;reshape2&quot;)};library(reshape2) # Load packages</code></pre>
 <pre><code>## Loading required package: reshape2</code></pre>
 <pre class="r"><code># Create Dummy Data
-df&lt;-data.frame(names=c(&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;),freq=c(10,12,2),color=c(&quot;blue&quot;,&quot;red&quot;,&quot;red&quot;));print(df)</code></pre>
+df&lt;-data.frame(names=c(&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;,&quot;W&quot;),freq=c(10,12,2,5),color=c(&quot;blue&quot;,&quot;red&quot;,&quot;red&quot;,&quot;green&quot;));print(df)</code></pre>
 <pre><code>##   names freq color
 ## 1     Z   10  blue
 ## 2     A   12   red
-## 3     X    2   red</code></pre>
+## 3     X    2   red
+## 4     W    5 green</code></pre>
+<pre class="r"><code># Load pre-loaded data
+data(iris);head(iris)</code></pre>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa</code></pre>
 <pre class="r"><code># Go from Long to Wide format using dcast
 #dcast(data,row1+row2~col1+col2,value.var=&quot;value&quot;, fun.aggregate=functions (e.g. sum or mean))
 df_wide&lt;-dcast(df,names~color,value.var=&quot;freq&quot;,fun.aggregate=sum,na.rm=T);print(df_wide)</code></pre>
-<pre><code>##   names blue red
-## 1     A    0  12
-## 2     X    0   2
-## 3     Z   10   0</code></pre>
+<pre><code>##   names blue green red
+## 1     A    0     0  12
+## 2     W    0     5   0
+## 3     X    0     0   2
+## 4     Z   10     0   0</code></pre>
 <pre class="r"><code>#Go from Wide to Long using melt can ignore measure.vars if want all of them to collapse
 #dt3&lt;-melt(dt2, id.vars=c(&quot;year&quot;,&quot;month&quot;), measure.vars=c(&quot;&quot;), value.name=&quot;&quot;,variable.name=&quot;Level_m&quot;)
 df_long&lt;-melt(df_wide, id.vars=c(&quot;names&quot;), value.name=&quot;freq&quot;,variable.name=&quot;color&quot;);print(df_long)</code></pre>
-<pre><code>##   names color freq
-## 1     A  blue    0
-## 2     X  blue    0
-## 3     Z  blue   10
-## 4     A   red   12
-## 5     X   red    2
-## 6     Z   red    0</code></pre>
+<pre><code>##    names color freq
+## 1      A  blue    0
+## 2      W  blue    0
+## 3      X  blue    0
+## 4      Z  blue   10
+## 5      A green    0
+## 6      W green    5
+## 7      X green    0
+## 8      Z green    0
+## 9      A   red   12
+## 10     W   red    0
+## 11     X   red    2
+## 12     Z   red    0</code></pre>
 <pre class="r"><code># Aggregate long data to summarize
 df_agg&lt;-aggregate(freq~names, data=df_long, sum, na.rm=TRUE); print(df_agg)</code></pre>
 <pre><code>##   names freq
 ## 1     A   12
-## 2     X    2
-## 3     Z   10</code></pre>
+## 2     W    5
+## 3     X    2
+## 4     Z   10</code></pre>
+</div>
+<div id="r-charts" class="section level1">
+<h1>R Charts</h1>
+</div>
+<div id="r-maps---spatial" class="section level1">
+<h1>R Maps - Spatial</h1>
 </div>
 <div id="r-colors" class="section level1">
 <h1>R Colors</h1>
@@ -391,7 +440,7 @@ if(!require(graphics)){install.packages(&quot;graphics&quot;)};library(graphics)
 # View a single color quickly
 x&lt;-adjustcolor(&quot;red&quot;, alpha.f = 0.2)
 pie(rep(1,12),label=x,col=x)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="program_R_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
 <pre class="r"><code># R colors
 myPalette1&lt;- rainbow(n=12,alpha=0.9)
 myPalette2&lt;- heat.colors(n=12,alpha=0.7)
@@ -403,38 +452,20 @@ myPalette5&lt;- cm.colors(n=12,alpha=0.6)
 myPalette6&lt;- c(&quot;red&quot;,&quot;#fdd67b&quot;)
 myPalette7&lt;- colorRampPalette(c(&quot;blue&quot;, &quot;yellow&quot;,&quot;red&quot;))(8) 
 
-pie(rep(1,length(myPalette1)),labels=myPalette1,col=myPalette1); print(myPalette1)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-4-2.png" width="672" /></p>
-<pre><code>##  [1] &quot;#FF0000E6&quot; &quot;#FF8000E6&quot; &quot;#FFFF00E6&quot; &quot;#80FF00E6&quot; &quot;#00FF00E6&quot;
-##  [6] &quot;#00FF80E6&quot; &quot;#00FFFFE6&quot; &quot;#0080FFE6&quot; &quot;#0000FFE6&quot; &quot;#8000FFE6&quot;
-## [11] &quot;#FF00FFE6&quot; &quot;#FF0080E6&quot;</code></pre>
-<pre class="r"><code>pie(rep(1,length(myPalette2)),labels=myPalette2,col=myPalette2); print(myPalette2)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-4-3.png" width="672" /></p>
-<pre><code>##  [1] &quot;#FF0000B3&quot; &quot;#FF2000B3&quot; &quot;#FF4000B3&quot; &quot;#FF6000B3&quot; &quot;#FF8000B3&quot;
-##  [6] &quot;#FF9F00B3&quot; &quot;#FFBF00B3&quot; &quot;#FFDF00B3&quot; &quot;#FFFF00B3&quot; &quot;#FFFF2AB3&quot;
-## [11] &quot;#FFFF80B3&quot; &quot;#FFFFD5B3&quot;</code></pre>
-<pre class="r"><code>pie(rep(1,length(myPalette3)),labels=myPalette3,col=myPalette3); print(myPalette3)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-4-4.png" width="672" /></p>
-<pre><code>##  [1] &quot;#00A600FF&quot; &quot;#24B300FF&quot; &quot;#4CBF00FF&quot; &quot;#7ACC00FF&quot; &quot;#ADD900FF&quot;
-##  [6] &quot;#E6E600FF&quot; &quot;#E8C727FF&quot; &quot;#EAB64EFF&quot; &quot;#ECB176FF&quot; &quot;#EEB99FFF&quot;
-## [11] &quot;#F0CFC8FF&quot; &quot;#F2F2F2FF&quot;</code></pre>
-<pre class="r"><code>pie(rep(1,length(myPalette4)),labels=myPalette4,col=myPalette4); print(myPalette4)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-4-5.png" width="672" /></p>
-<pre><code>##  [1] &quot;#4C00FF80&quot; &quot;#0019FF80&quot; &quot;#0080FF80&quot; &quot;#00E5FF80&quot; &quot;#00FF4D80&quot;
-##  [6] &quot;#1AFF0080&quot; &quot;#80FF0080&quot; &quot;#E6FF0080&quot; &quot;#FFFF0080&quot; &quot;#FFE53B80&quot;
-## [11] &quot;#FFDB7780&quot; &quot;#FFE0B380&quot;</code></pre>
-<pre class="r"><code>pie(rep(1,length(myPalette5)),labels=myPalette5,col=myPalette5); print(myPalette5)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-4-6.png" width="672" /></p>
-<pre><code>##  [1] &quot;#80FFFF99&quot; &quot;#95FFFF99&quot; &quot;#AAFFFF99&quot; &quot;#BFFFFF99&quot; &quot;#D5FFFF99&quot;
-##  [6] &quot;#EAFFFF99&quot; &quot;#FFEAFF99&quot; &quot;#FFD5FF99&quot; &quot;#FFBFFF99&quot; &quot;#FFAAFF99&quot;
-## [11] &quot;#FF95FF99&quot; &quot;#FF80FF99&quot;</code></pre>
-<pre class="r"><code>pie(rep(1,length(myPalette6)),labels=myPalette6,col=myPalette6); print(myPalette6)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-4-7.png" width="672" /></p>
-<pre><code>## [1] &quot;red&quot;     &quot;#fdd67b&quot;</code></pre>
-<pre class="r"><code>pie(rep(1,length(myPalette7)),labels=myPalette7,col=myPalette7); print(myPalette7)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-4-8.png" width="672" /></p>
-<pre><code>## [1] &quot;#0000FF&quot; &quot;#4848B6&quot; &quot;#91916D&quot; &quot;#DADA24&quot; &quot;#FFDA00&quot; &quot;#FF9100&quot; &quot;#FF4800&quot;
-## [8] &quot;#FF0000&quot;</code></pre>
+pie(rep(1,length(myPalette1)),labels=myPalette1,col=myPalette1)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<pre class="r"><code>pie(rep(1,length(myPalette2)),labels=myPalette2,col=myPalette2)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
+<pre class="r"><code>pie(rep(1,length(myPalette3)),labels=myPalette3,col=myPalette3)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-5-4.png" width="672" /></p>
+<pre class="r"><code>pie(rep(1,length(myPalette4)),labels=myPalette4,col=myPalette4)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-5-5.png" width="672" /></p>
+<pre class="r"><code>pie(rep(1,length(myPalette5)),labels=myPalette5,col=myPalette5)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-5-6.png" width="672" /></p>
+<pre class="r"><code>pie(rep(1,length(myPalette6)),labels=myPalette6,col=myPalette6)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-5-7.png" width="672" /></p>
+<pre class="r"><code>pie(rep(1,length(myPalette7)),labels=myPalette7,col=myPalette7)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-5-8.png" width="672" /></p>
 </div>
 
 <p id="footer">Copyright &copy; 2017 Zarrar Khan All rights reserved.</p>

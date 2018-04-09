@@ -14,7 +14,8 @@ output:
 
 ```{r,eval=F}
 rm(list=ls()) # Clear variables
-if(!require(tables)){install.packages("tables")};library(tables) # Load packages
+if("ggplot2" %in% rownames(installed.packages()) == FALSE) {install.packages("ggplot2")};library(ggplot2)
+# Load packages
 ```
 
 # R Directories and File Manipulation
@@ -29,21 +30,59 @@ file.remove(paste(getwd(),"/x/y/example.txt",sep="")) # remove a file
 unlink("x",recursive=T) # delete entire folders
 ```
 
-# R reshape
+# R Reading and Saving Files
+```{r, eval=F}
+
+# Function to save figures as pdf or png
+pdfOnly<-1;
+
+if(pdfOnly==1){pdf(paste(dir,"/",filename,".pdf",sep=""),width=figWidth_Inch,height=figHeight_Inch)
+    print(figure)
+    dev.off()} else{
+  
+    pdf(paste(dir,"/",filename,".pdf",sep=""),width=figWidth_Inch,height=figHeight_Inch)
+    print(figure)
+    dev.off()
+    
+    png(paste(dir,"/",filename,".png",sep=""),width=png_Width, height=png_Width*figHeight_Inch/figWidth_Inch, units="px")
+    print(figure)
+    dev.off()
+  }
+}
+
+# csv files
+
+read.csv(paste("XXX.csv",sep=""), stringsAsFactors = F, header=F)
+write.csv(df,file=paste("XXX.csv",sep=""),row.names=F)
+
+```
+
+# R Manipulate Data
 
 ```{r}
 if(!require(reshape2)){install.packages("reshape2")};library(reshape2) # Load packages
+
 # Create Dummy Data
-df<-data.frame(names=c("Z","A","X"),freq=c(10,12,2),color=c("blue","red","red"));print(df)
+df<-data.frame(names=c("Z","A","X","W"),freq=c(10,12,2,5),color=c("blue","red","red","green"));print(df)
+
+# Load pre-loaded data
+data(iris);head(iris)
+
 # Go from Long to Wide format using dcast
 #dcast(data,row1+row2~col1+col2,value.var="value", fun.aggregate=functions (e.g. sum or mean))
 df_wide<-dcast(df,names~color,value.var="freq",fun.aggregate=sum,na.rm=T);print(df_wide)
+
 #Go from Wide to Long using melt can ignore measure.vars if want all of them to collapse
 #dt3<-melt(dt2, id.vars=c("year","month"), measure.vars=c(""), value.name="",variable.name="Level_m")
 df_long<-melt(df_wide, id.vars=c("names"), value.name="freq",variable.name="color");print(df_long)
+
 # Aggregate long data to summarize
 df_agg<-aggregate(freq~names, data=df_long, sum, na.rm=TRUE); print(df_agg)
 ```
+
+# R Charts
+
+# R Maps - Spatial
 
 # R Colors
 
@@ -80,5 +119,6 @@ pie(rep(1,length(myPalette5)),labels=myPalette5,col=myPalette5)
 pie(rep(1,length(myPalette6)),labels=myPalette6,col=myPalette6)
 pie(rep(1,length(myPalette7)),labels=myPalette7,col=myPalette7)
 ```
+
 
 
