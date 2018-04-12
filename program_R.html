@@ -337,8 +337,8 @@ div.tocify {
 if(&quot;ggplot2&quot; %in% rownames(installed.packages()) == FALSE) {install.packages(&quot;ggplot2&quot;)};library(ggplot2)
 # Load packages</code></pre>
 </div>
-<div id="r-directories-and-file-manipulation" class="section level1">
-<h1>R Directories and File Manipulation</h1>
+<div id="r-directories-and-files" class="section level1">
+<h1>R Directories and Files</h1>
 <pre class="r"><code>wd0 &lt;- getwd() # Get current dirctory
 dirname(wd0)  # Gives parent directory of the current one
 dir.create(&quot;x&quot;) # creates directory x in working dir
@@ -381,9 +381,6 @@ if(!require(reshape2)){install.packages(&quot;reshape2&quot;)};library(reshape2)
 <pre><code>## Loading required package: dplyr</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;dplyr&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
-## 
-##     vars</code></pre>
 <pre><code>## The following objects are masked from &#39;package:stats&#39;:
 ## 
 ##     filter, lag</code></pre>
@@ -393,43 +390,100 @@ if(!require(reshape2)){install.packages(&quot;reshape2&quot;)};library(reshape2)
 <pre class="r"><code>if(!require(tibble)){install.packages(&quot;tibble&quot;)};library(tibble) # Load packages</code></pre>
 <pre><code>## Loading required package: tibble</code></pre>
 <pre class="r"><code># Create Dummy Data
-df&lt;-data.frame(names=c(&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;,&quot;W&quot;),freq=c(10,12,2,5),color=c(&quot;blue&quot;,&quot;red&quot;,&quot;red&quot;,&quot;green&quot;));print(df)</code></pre>
-<pre><code>##   names freq color
-## 1     Z   10  blue
-## 2     A   12   red
-## 3     X    2   red
-## 4     W    5 green</code></pre>
+df&lt;-data.frame(names=c(&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;,&quot;W&quot;,&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;,&quot;W&quot;,&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;,&quot;W&quot;),
+               subname=c(&quot;Z1&quot;,&quot;A1&quot;,&quot;X1&quot;,&quot;W1&quot;,&quot;Z2&quot;,&quot;A2&quot;,&quot;X2&quot;,&quot;W2&quot;,&quot;Z3&quot;,&quot;A3&quot;,&quot;X3&quot;,&quot;W3&quot;),
+               freq=c(10,12,2,5,13,21,23,52,101,122,21,52),
+               color=c(&quot;blue&quot;,&quot;red&quot;,&quot;red&quot;,&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;red&quot;,&quot;red&quot;,&quot;green&quot;));print(df)</code></pre>
+<pre><code>##    names subname freq color
+## 1      Z      Z1   10  blue
+## 2      A      A1   12   red
+## 3      X      X1    2   red
+## 4      W      W1    5   red
+## 5      Z      Z2   13 green
+## 6      A      A2   21  blue
+## 7      X      X2   23   red
+## 8      W      W2   52 green
+## 9      Z      Z3  101  blue
+## 10     A      A3  122   red
+## 11     X      X3   21   red
+## 12     W      W3   52 green</code></pre>
 <pre class="r"><code># Go from Long to Wide format using dcast
 #dcast(data,row1+row2~col1+col2,value.var=&quot;value&quot;, fun.aggregate=functions (e.g. sum or mean))
-df_wide&lt;-dcast(df,names~color,value.var=&quot;freq&quot;,fun.aggregate=sum,na.rm=T);print(df_wide)</code></pre>
-<pre><code>##   names blue green red
-## 1     A    0     0  12
-## 2     W    0     5   0
-## 3     X    0     0   2
-## 4     Z   10     0   0</code></pre>
+df_wide&lt;-dcast(df,names+subname~color,value.var=&quot;freq&quot;,fun.aggregate=sum,na.rm=T);print(df_wide)</code></pre>
+<pre><code>##    names subname blue green red
+## 1      A      A1    0     0  12
+## 2      A      A2   21     0   0
+## 3      A      A3    0     0 122
+## 4      W      W1    0     0   5
+## 5      W      W2    0    52   0
+## 6      W      W3    0    52   0
+## 7      X      X1    0     0   2
+## 8      X      X2    0     0  23
+## 9      X      X3    0     0  21
+## 10     Z      Z1   10     0   0
+## 11     Z      Z2    0    13   0
+## 12     Z      Z3  101     0   0</code></pre>
 <pre class="r"><code>#Go from Wide to Long using melt can ignore measure.vars if want all of them to collapse
 #dt3&lt;-melt(dt2, id.vars=c(&quot;year&quot;,&quot;month&quot;), measure.vars=c(&quot;&quot;), value.name=&quot;&quot;,variable.name=&quot;Level_m&quot;)
-df_long&lt;-melt(df_wide, id.vars=c(&quot;names&quot;), value.name=&quot;freq&quot;,variable.name=&quot;color&quot;);print(df_long)</code></pre>
-<pre><code>##    names color freq
-## 1      A  blue    0
-## 2      W  blue    0
-## 3      X  blue    0
-## 4      Z  blue   10
-## 5      A green    0
-## 6      W green    5
-## 7      X green    0
-## 8      Z green    0
-## 9      A   red   12
-## 10     W   red    0
-## 11     X   red    2
-## 12     Z   red    0</code></pre>
-<pre class="r"><code># Aggregate long data to summarize
+df_long&lt;-melt(df_wide, id.vars=c(&quot;names&quot;,&quot;subname&quot;), value.name=&quot;freq&quot;,variable.name=&quot;color&quot;);print(df_long)</code></pre>
+<pre><code>##    names subname color freq
+## 1      A      A1  blue    0
+## 2      A      A2  blue   21
+## 3      A      A3  blue    0
+## 4      W      W1  blue    0
+## 5      W      W2  blue    0
+## 6      W      W3  blue    0
+## 7      X      X1  blue    0
+## 8      X      X2  blue    0
+## 9      X      X3  blue    0
+## 10     Z      Z1  blue   10
+## 11     Z      Z2  blue    0
+## 12     Z      Z3  blue  101
+## 13     A      A1 green    0
+## 14     A      A2 green    0
+## 15     A      A3 green    0
+## 16     W      W1 green    0
+## 17     W      W2 green   52
+## 18     W      W3 green   52
+## 19     X      X1 green    0
+## 20     X      X2 green    0
+## 21     X      X3 green    0
+## 22     Z      Z1 green    0
+## 23     Z      Z2 green   13
+## 24     Z      Z3 green    0
+## 25     A      A1   red   12
+## 26     A      A2   red    0
+## 27     A      A3   red  122
+## 28     W      W1   red    5
+## 29     W      W2   red    0
+## 30     W      W3   red    0
+## 31     X      X1   red    2
+## 32     X      X2   red   23
+## 33     X      X3   red   21
+## 34     Z      Z1   red    0
+## 35     Z      Z2   red    0
+## 36     Z      Z3   red    0</code></pre>
+<pre class="r"><code># Aggregate data to summarize
 df_agg&lt;-aggregate(freq~names, data=df_long, sum, na.rm=TRUE); print(df_agg)</code></pre>
 <pre><code>##   names freq
-## 1     A   12
-## 2     W    5
-## 3     X    2
-## 4     Z   10</code></pre>
+## 1     A  155
+## 2     W  109
+## 3     X   46
+## 4     Z  124</code></pre>
+<pre class="r"><code># Aggregate over some names only
+select_names&lt;-c(&quot;Z&quot;,&quot;X&quot;)
+df_long_select&lt;-df_long[df_long$name %in% select_names,];head(df_long_select)</code></pre>
+<pre><code>##    names subname color freq
+## 7      X      X1  blue    0
+## 8      X      X2  blue    0
+## 9      X      X3  blue    0
+## 10     Z      Z1  blue   10
+## 11     Z      Z2  blue    0
+## 12     Z      Z3  blue  101</code></pre>
+<pre class="r"><code>df_agg_select&lt;-aggregate(freq~names, data=df_long_select, sum, na.rm=TRUE); print(df_agg_select)</code></pre>
+<pre><code>##   names freq
+## 1     X   46
+## 2     Z  124</code></pre>
 <pre class="r"><code># Load pre-loaded data
 data(mtcars);head(mtcars)</code></pre>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
@@ -449,6 +503,62 @@ df_mtcars&lt;-as.data.frame(rownames_to_column(mtcars,&quot;model&quot;));head(d
 ## 5 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## 6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
 </div>
+<div id="r-subsetting" class="section level1">
+<h1>R Subsetting</h1>
+<pre class="r"><code>rm(list=ls())
+
+if(!require(reshape2)){install.packages(&quot;reshape2&quot;)};library(reshape2) # Load packages
+if(!require(dplyr)){install.packages(&quot;dplyr&quot;)};library(dplyr) # Load packages
+if(!require(tibble)){install.packages(&quot;tibble&quot;)};library(tibble) # Load packages
+
+# Create Dummy Data
+df&lt;-data.frame(names=c(&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;,&quot;W&quot;,&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;,&quot;W&quot;,&quot;Z&quot;,&quot;A&quot;,&quot;X&quot;,&quot;W&quot;),
+               subname=c(&quot;Z1&quot;,&quot;A1&quot;,&quot;X1&quot;,&quot;W1&quot;,&quot;Z2&quot;,&quot;A2&quot;,&quot;X2&quot;,&quot;W2&quot;,&quot;Z3&quot;,&quot;A3&quot;,&quot;X3&quot;,&quot;W3&quot;),
+               freq=c(10,12,2,5,13,21,23,52,101,122,21,52),
+               color=c(&quot;blue&quot;,&quot;red&quot;,&quot;red&quot;,&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;red&quot;,&quot;red&quot;,&quot;green&quot;));print(df)</code></pre>
+<pre><code>##    names subname freq color
+## 1      Z      Z1   10  blue
+## 2      A      A1   12   red
+## 3      X      X1    2   red
+## 4      W      W1    5   red
+## 5      Z      Z2   13 green
+## 6      A      A2   21  blue
+## 7      X      X2   23   red
+## 8      W      W2   52 green
+## 9      Z      Z3  101  blue
+## 10     A      A3  122   red
+## 11     X      X3   21   red
+## 12     W      W3   52 green</code></pre>
+<pre class="r"><code># Subset by column
+df_select&lt;-subset(df,select=c(subname,freq));print(df_select) # choose the columns</code></pre>
+<pre><code>##    subname freq
+## 1       Z1   10
+## 2       A1   12
+## 3       X1    2
+## 4       W1    5
+## 5       Z2   13
+## 6       A2   21
+## 7       X2   23
+## 8       W2   52
+## 9       Z3  101
+## 10      A3  122
+## 11      X3   21
+## 12      W3   52</code></pre>
+<pre class="r"><code>df_selectR&lt;-subset(df,select=-c(subname,freq));print(df_selectR) # remove certain columns</code></pre>
+<pre><code>##    names color
+## 1      Z  blue
+## 2      A   red
+## 3      X   red
+## 4      W   red
+## 5      Z green
+## 6      A  blue
+## 7      X   red
+## 8      W green
+## 9      Z  blue
+## 10     A   red
+## 11     X   red
+## 12     W green</code></pre>
+</div>
 <div id="r-colors" class="section level1">
 <h1>R Colors</h1>
 <p><a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf" class="uri">https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf</a></p>
@@ -460,7 +570,7 @@ if(!require(graphics)){install.packages(&quot;graphics&quot;)};library(graphics)
 # View a single color quickly
 x&lt;-adjustcolor(&quot;red&quot;, alpha.f = 0.2)
 pie(rep(1,12),label=x,col=x)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<p><img src="program_R_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
 <pre class="r"><code># R colors
 myPalette1&lt;- rainbow(n=12,alpha=0.9)
 myPalette2&lt;- heat.colors(n=12,alpha=0.7)
@@ -473,19 +583,19 @@ myPalette6&lt;- c(&quot;red&quot;,&quot;#fdd67b&quot;)
 myPalette7&lt;- colorRampPalette(c(&quot;blue&quot;, &quot;yellow&quot;,&quot;red&quot;))(8) 
 
 pie(rep(1,length(myPalette1)),labels=myPalette1,col=myPalette1)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-5-2.png" width="672" /></p>
+<p><img src="program_R_files/figure-html/unnamed-chunk-6-2.png" width="672" /></p>
 <pre class="r"><code>pie(rep(1,length(myPalette2)),labels=myPalette2,col=myPalette2)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-5-3.png" width="672" /></p>
+<p><img src="program_R_files/figure-html/unnamed-chunk-6-3.png" width="672" /></p>
 <pre class="r"><code>pie(rep(1,length(myPalette3)),labels=myPalette3,col=myPalette3)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-5-4.png" width="672" /></p>
+<p><img src="program_R_files/figure-html/unnamed-chunk-6-4.png" width="672" /></p>
 <pre class="r"><code>pie(rep(1,length(myPalette4)),labels=myPalette4,col=myPalette4)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-5-5.png" width="672" /></p>
+<p><img src="program_R_files/figure-html/unnamed-chunk-6-5.png" width="672" /></p>
 <pre class="r"><code>pie(rep(1,length(myPalette5)),labels=myPalette5,col=myPalette5)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-5-6.png" width="672" /></p>
+<p><img src="program_R_files/figure-html/unnamed-chunk-6-6.png" width="672" /></p>
 <pre class="r"><code>pie(rep(1,length(myPalette6)),labels=myPalette6,col=myPalette6)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-5-7.png" width="672" /></p>
+<p><img src="program_R_files/figure-html/unnamed-chunk-6-7.png" width="672" /></p>
 <pre class="r"><code>pie(rep(1,length(myPalette7)),labels=myPalette7,col=myPalette7)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-5-8.png" width="672" /></p>
+<p><img src="program_R_files/figure-html/unnamed-chunk-6-8.png" width="672" /></p>
 </div>
 <div id="r-charts" class="section level1">
 <h1>R Charts</h1>
@@ -533,6 +643,15 @@ z_theme &lt;&lt;- theme_bw() +
         ,plot.title=          element_text(face=&quot;bold&quot;, hjust=0,size=18,margin = margin(b=20))
         )
 
+#--------------
+# Master Options
+#--------------
+
+figWidth_InchMaster &lt;- 13
+figHeight_InchMaster &lt;- 9
+prettyBreaksyMaster &lt;- 5
+titleOn &lt;- 1
+
 #---------------
 # Line Chart 
 #---------------
@@ -543,12 +662,13 @@ l1$gear&lt;-as.factor(l1$gear)
 
 # Figure options
 titleOn&lt;-1
-figWidth_Inch&lt;-10
-figHeight_Inch&lt;-8
+figWidth_Inch&lt;-figWidth_InchMaster*1
+figHeight_Inch&lt;-figHeight_InchMaster
 range_x&lt;-range(l1$wt)
 range_y&lt;-range(l1$mpg)
 breakx_maj&lt;-0.5
 breakx_min&lt;-0.25
+prettyBreaksy&lt;-prettyBreaksyMaster
 
 # Colors
 # Using a Palette Ramp
@@ -577,9 +697,9 @@ p &lt;- p + scale_x_continuous (breaks=(seq(signif((min(range_x)-breakx_maj),2),
                                          ,by=breakx_maj)), 
                              minor_breaks=(seq(signif((min(range_x)-breakx_maj),2),signif((max(range_x)+breakx_maj),2)
                                          ,by=breakx_min)),expand=c(0,breakx_min))
-p &lt;- p +  scale_y_continuous(breaks = pretty_breaks(n = 10))
+p &lt;- p +  scale_y_continuous(breaks = pretty_breaks(n = prettyBreaksy))
 plot(p)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<p><img src="program_R_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
 <pre class="r"><code># To print to PDF or PNG
 #pdf(&quot;figure.pdf&quot;,width=figWidth_Inch,height=figHeight_Inch)
 #    print(p)

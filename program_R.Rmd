@@ -18,7 +18,7 @@ if("ggplot2" %in% rownames(installed.packages()) == FALSE) {install.packages("gg
 # Load packages
 ```
 
-# R Directories and File Manipulation
+# R Directories and Files
 
 ```{r, eval=F}
 wd0 <- getwd() # Get current dirctory
@@ -193,7 +193,7 @@ z_theme <<- theme_bw() +
 #--------------
 
 figWidth_InchMaster <- 13
-figWidth_InchMaster <- 9
+figHeight_InchMaster <- 9
 prettyBreaksyMaster <- 5
 titleOn <- 1
 
