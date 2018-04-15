@@ -21,6 +21,7 @@ output:
 | Mon 	| Tue | Wed | Thur | Fri |
 |:----:|:----:|:----:|:----:|:----:|
 | Classical | Rock | Rock | Flamenco | Flamenco |
+||Back in Black|Back in Black|XXXX|XXXX|
 
 #Lesson Pages
 
@@ -34,99 +35,101 @@ output:
 
 # Reportoire
 
+## Rock
+
+| Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
+|:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
+|XXX| ACDC | X | 5 	| G G D C 	| x,x 	|
+
 ## Classical
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| Status	| Notes	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
-| [Asturias](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Cadiz](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Cordoba](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Granada](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Mallorca](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Serenata Arabe](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Sevilla](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Tango in D](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Torre Bermeja](#thankyou) | Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Abri la puerta mi China](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Danze paraguaya](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Julia florida](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [La catedral I](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [La catedral II](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [La catedral III](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Las abejas](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Limonsa el ultimo tremolo](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Preludio in G](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Un sueño en la floresta](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Vals no3](#thankyou) | Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [BWV 565 Toccata in dm](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [BWV 578 Fugue in gm](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [BWV 1001 Violin Sonata Adagio](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [BWV 1001 Violin Sonata Fugue](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [BWV 1001 Violin Sonata Presto](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [BWV 1007 Cello Suite 1](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [BWV 997 Lute Suite](#thankyou) | Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Moonlight Sonata](#thankyou) | Beethoven | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Fur Elise](#thankyou) | Beethoven | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Canarios](#thankyou) | Gaspar Sanz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Espanoleta](#thankyou) | Gaspar Sanz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Babel](#thankyou) | Gustavo Santaolalla | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Usuahia a la quiaca](#thankyou) | Gustavo Santaolalla | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Bachianas Aria](#thankyou) | Hietor Villa Lobos | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Prelude 1](#thankyou) | Hietor Villa Lobos | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Sound of Bells](#thankyou) | Joao Texeira Guimaraes | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Evocation](#thankyou) | Jose Luis Merlin | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Rio Ancho](#thankyou) | Paco de Lucia | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Estudio Remembranza](#thankyou) | Segovia | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Cavatina](#thankyou) | Stanley Myers | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Adelita](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Alhambra](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [El Columpio](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Lagrima](#thankyou) | Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Torija](#thankyou) | Torroba | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Zapateado](#thankyou) | Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
-| [Green Sleeves](#thankyou) | Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Asturias| Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Cadiz| Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Cordoba| Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Granada| Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Mallorca| Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Serenata Arabe| Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Sevilla| Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Tango in D| Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Torre Bermeja| Isaac Albeniz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Abri la puerta mi China| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Danze paraguaya| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Julia florida| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|La catedral I| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|La catedral II| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|La catedral III| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Las abejas| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Limonsa el ultimo tremolo| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Preludio in G| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Un sueño en la floresta| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Vals no3| Augustin Barrios | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|BWV 565 Toccata in dm| Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|BWV 578 Fugue in gm| Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|BWV 1001 Violin Sonata Adagio| Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|BWV 1001 Violin Sonata Fugue| Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|BWV 1001 Violin Sonata Presto| Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|BWV 1007 Cello Suite 1| Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|BWV 997 Lute Suite| Bach | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Moonlight Sonata| Beethoven | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Fur Elise| Beethoven | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Canarios| Gaspar Sanz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Espanoleta| Gaspar Sanz | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Babel| Gustavo Santaolalla | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Usuahia a la quiaca| Gustavo Santaolalla | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Bachianas Aria| Hietor Villa Lobos | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Prelude 1| Hietor Villa Lobos | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Sound of Bells| Joao Texeira Guimaraes | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Evocation| Jose Luis Merlin | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Rio Ancho| Paco de Lucia | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Estudio Remembranza| Segovia | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Cavatina| Stanley Myers | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Adelita| Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Alhambra| Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|El Columpio| Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Lagrima| Tarrega | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Torija| Torroba | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Zapateado| Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
+|Green Sleeves| Joaquin Rodrigo | X | 5 	| G G D C 	| x,x 	| Status	| Notes	| 
 
 
 ## Flamenco
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
-| [Thank you](#thankyou) | Alanis | X | 5 	| G G D C 	| x,x 	|
+|XXX| Alanis | X | 5 	| G G D C 	| x,x 	|
 
 
 ## Unplugged
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
-| [Thank you](#thankyou) | Alanis | X | 5 	| G G D C 	| x,x 	|
-| [Dangerous](#dangerous) | David Guetta | X | x 	| x 	| x,x 	|
-| [Maps](#maps) | Maroon 5 | X | x 	| x 	| x,x 	|
-| [I'm yours](#imyours) | Jason Mraz | X | x 	| x 	| x,x 	|
-| [Father & son](#fatherson) | Cat Stevens | X | x 	| x 	| x,x 	|
-| [Can't keep it in](#cantkeepitin) | Cat Stevens | X | x 	| x 	| x,x 	|
-| [The Wind](#thewind) | Cat Stevens | X | x 	| x 	| x,x 	|
-| [While my guitar gently weeps](#whilemyguitargentlyweeps) | George Harrison | X | x 	| x 	| x,x 	|
-| [Ain't nobody loves me better](#aintnobody) | Chaka khan | X | 5 	| G G D C 	| x,x 	|
-| [You belong to me](#youbelongtome) | Jason Wade | X | x 	| x 	| x,x 	|
-| [Lovesong](#lovesong) | Adele | X | x 	| x 	| x,x 	|
-| [Fast Car](#fastcar) | Tracy Chapman | X | x 	| x 	| x,x 	|
-| [Dream on](#dreamon) | Aerosmith | X | x 	| x 	| x,x 	|
-| [Sail Away](#sailaway) | David Gray | X | x 	| x 	| x,x 	|
-| [No woman no cry](#nowomannocry) | Bob Marley | X | x 	| x 	| x,x 	|
-| [Fortunate Son](#fortunateson) | CCR | X | x 	| x 	| x,x 	|
-| [Hurt](#hurt) | Johnny Cash | X | x 	| x 	| x,x 	|
-| [Hey hey my my](#heyheymymy) | Rolling Stones | X | x 	| x 	| x,x 	|
-| [I see fire](#iseefire) | Ed Sheeran | X | x 	| x 	| x,x 	|
-| [La masa](#lamasa) | Silvio Rodriguez | X | x 	| x 	| x,x 	|
-| [Rosa Maria](#rosamaria) | Chambao | X | x 	| x 	| x,x 	|
-| [Ooncha](#ooncha) | Noori | X | x 	| x 	| x,x 	|
-| [Ajnabi](#ajnabi) | Aaroh | X | x 	| x 	| x,x 	|
-| [Khudi](#khudi) | Junoon | X | x 	| x 	| x,x 	|
+|Thank you| Alanis | X | 5 	| G G D C 	| x,x 	|
+|Dangerous | David Guetta | X | x 	| x 	| x,x 	|
+|Maps| Maroon 5 | X | x 	| x 	| x,x 	|
+|I'm yours| Jason Mraz | X | x 	| x 	| x,x 	|
+|Father & son | Cat Stevens | X | x 	| x 	| x,x 	|
+|Can't keep it in | Cat Stevens | X | x 	| x 	| x,x 	|
+|The Wind| Cat Stevens | X | x 	| x 	| x,x 	|
+|While my guitar gently weeps | George Harrison | X | x 	| x 	| x,x 	|
+|Ain't nobody loves me better | Chaka khan | X | 5 	| G G D C 	| x,x 	|
+|You belong to me| Jason Wade | X | x 	| x 	| x,x 	|
+|Lovesong | Adele | X | x 	| x 	| x,x 	|
+|Fast Car | Tracy Chapman | X | x 	| x 	| x,x 	|
+|Dream on | Aerosmith | X | x 	| x 	| x,x 	|
+|Sail Away| David Gray | X | x 	| x 	| x,x 	|
+|No woman no cry | Bob Marley | X | x 	| x 	| x,x 	|
+|Fortunate Son | CCR | X | x 	| x 	| x,x 	|
+|Hurt| Johnny Cash | X | x 	| x 	| x,x 	|
+|Hey hey my my | Rolling Stones | X | x 	| x 	| x,x 	|
+|I see fire | Ed Sheeran | X | x 	| x 	| x,x 	|
+|La masa | Silvio Rodriguez | X | x 	| x 	| x,x 	|
+|Rosa Maria | Chambao | X | x 	| x 	| x,x 	|
+|Ooncha | Noori | X | x 	| x 	| x,x 	|
+|Ajnabi | Aaroh | X | x 	| x 	| x,x 	|
+|Khudi | Junoon | X | x 	| x 	| x,x 	|
 
 
-## Rock
 
-| Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
-|:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
-| [Thank you](#thankyou) | Alanis | X | 5 	| G G D C 	| x,x 	|
 
