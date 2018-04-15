@@ -21,19 +21,18 @@ output:
 | Mon 	| Tue | Wed | Thur | Fri |
 |:----:|:----:|:----:|:----:|:----:|
 | Classical | Rock | Rock | Flamenco | Flamenco |
-||Back in Black|Back in Black|XXXX|XXXX|
+|Asturias|Back in Black|Back in Black|Lessons|Lessons|
 
 #Lesson Pages
 
 * Sight Reading
 * Theory
 * Ear training
-* <a href="music_flamenco.html">Flamenco</a>
-* Classical
-* Uplugged/Finger style
-* Rock
+* <a href="music_lessons_flamenco.html">Flamenco</a>
 
 # Reportoire
+
+<a href="music_reportoire.html">Reportoire Page with tabs and details</a>
 
 ## Rock
 
@@ -98,13 +97,14 @@ output:
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
-|XXX| Alanis | X | 5 	| G G D C 	| x,x 	|
+|XXX| XXX | X | 5 	| G G D C 	| x,x 	|
 
 
 ## Unplugged
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
+|Desperado theme| XXX | X | 5 	| G G D C 	| x,x 	|
 |Thank you| Alanis | X | 5 	| G G D C 	| x,x 	|
 |Dangerous | David Guetta | X | x 	| x 	| x,x 	|
 |Maps| Maroon 5 | X | x 	| x 	| x,x 	|

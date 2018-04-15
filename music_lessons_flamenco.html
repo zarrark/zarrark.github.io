@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>Music - Lessons - Flamenco</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="styles.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Zarrar Khan</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Plan</a>
+</li>
+<li>
+  <a href="art.html">Art</a>
+</li>
+<li>
+  <a href="music.html">Music</a>
+</li>
+<li>
+  <a href="train.html">Train</a>
+</li>
+<li>
+  <a href="spirit.html">Spirit</a>
+</li>
+<li>
+  <a href="books.html">Books</a>
+</li>
+<li>
+  <a href="chess.html">Chess</a>
+</li>
+<li>
+  <a href="science.html">Science</a>
+</li>
+<li>
+  <a href="math.html">Math</a>
+</li>
+<li>
+  <a href="program.html">Program</a>
+</li>
+<li>
+  <a href="language.html">Language</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Music - Lessons - Flamenco</h1>
+
+</div>
+
+
+<div id="theory" class="section level1">
+<h1>Theory</h1>
+<p>From “Music Theory For Flamenco” by “Flamenco Chuck” Keyser 1998.</p>
+<p><br><br></p>
+<p>Natural scale (without any sharps or flats): C D E F G A B C</p>
+<div id="flamenco-modes-scales" class="section level2">
+<h2>Flamenco Modes &amp; Scales</h2>
+</div>
+</div>
+<div id="techniques" class="section level1">
+<h1>Techniques</h1>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Technique</th>
+<th align="center">BMP</th>
+<th align="center">Beats</th>
+<th align="center">Minutes</th>
+<th align="left">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Picado</td>
+<td align="center">80</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="left">14Dec2017</td>
+</tr>
+<tr class="even">
+<td align="left">Tremolo</td>
+<td align="center">80</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="left">x</td>
+</tr>
+<tr class="odd">
+<td align="left">Alzapua</td>
+<td align="center">80</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="left">x</td>
+</tr>
+<tr class="even">
+<td align="left">Arpeggio</td>
+<td align="center">80</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="left">x</td>
+</tr>
+<tr class="odd">
+<td align="left">Pulgar</td>
+<td align="center">80</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="left">x</td>
+</tr>
+<tr class="even">
+<td align="left">Rasgueado - 3 finger</td>
+<td align="center">80</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="left">x</td>
+</tr>
+<tr class="odd">
+<td align="left">Rasgueado - 4 finger</td>
+<td align="center">80</td>
+<td align="center">4</td>
+<td align="center">1</td>
+<td align="left">x</td>
+</tr>
+</tbody>
+</table>
+<p><img src="music_lessons_flamenco_files/figure-html/bunch_o_figs_svg-1.svg" width="768" /></p>
+<ul>
+<li>Rasgueado</li>
+</ul>
+</div>
+<div id="toques" class="section level1">
+<h1>Toques</h1>
+</div>
+<div id="lessons" class="section level1">
+<h1>Lessons</h1>
+<div id="graf-martinez---flamenco-guitar-method" class="section level2">
+<h2>Graf Martinez - Flamenco Guitar Method</h2>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Lesson</th>
+<th align="left">Technique</th>
+<th align="center">BMP</th>
+<th align="center">Minutes</th>
+<th align="center">Date</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">T1 - Sencillos 1 (Tangos)</td>
+<td align="left">1 Finger Rasgueado</td>
+<td align="center">120</td>
+<td align="center">1</td>
+<td align="center">14Dec2017</td>
+</tr>
+<tr class="even">
+<td align="left">T2 - Estudio por Solea</td>
+<td align="left">3 Finger Rasgueado</td>
+<td align="center">0</td>
+<td align="center">0</td>
+<td align="center">x</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="atrafana-school--" class="section level2">
+<h2>Atrafana School -</h2>
+</div>
+<div id="juan-martin---el-arte-de-flamenco" class="section level2">
+<h2>Juan Martin - El arte de flamenco</h2>
+</div>
+<div id="aaron-gilmartin---learn-to-play-flamenco-guitar" class="section level2">
+<h2>Aaron Gilmartin - Learn to play flamenco guitar</h2>
+</div>
+<div id="manuel-granados---manual-guitarra-flamenca" class="section level2">
+<h2>Manuel Granados - Manual Guitarra Flamenca</h2>
+</div>
+<div id="paco-pena---toques-flamenco" class="section level2">
+<h2>Paco Pena - Toques Flamenco</h2>
+</div>
+</div>
+<div id="reportoire" class="section level1">
+<h1>Reportoire</h1>
+</div>
+<div id="listening" class="section level1">
+<h1>Listening</h1>
+</div>
+
+<p id="footer">Copyright &copy; 2017 Zarrar Khan All rights reserved.</p>
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
