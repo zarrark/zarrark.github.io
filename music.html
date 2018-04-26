@@ -425,6 +425,20 @@ div.tocify {
 </tr>
 </tbody>
 </table>
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=pAgnJDJN4VA" frameborder="0" allowfullscreen>
+</iframe>
+<pre class="r"><code>if(!require(htmltools)){install.packages(&quot;htmltools&quot;)};library(htmltools) # Load packages</code></pre>
+<pre><code>## Loading required package: htmltools</code></pre>
+<pre class="r"><code>if(!require(vembedr)){install.packages(&quot;vembedr&quot;)};library(vembedr) # Load packages</code></pre>
+<pre><code>## Loading required package: vembedr</code></pre>
+<pre class="r"><code>embed_url(&quot;https://www.youtube.com/watch?v=pAgnJDJN4VA&quot;) %&gt;%
+  div(class = &quot;vembedr&quot;) %&gt;%
+  div(align = &quot;center&quot;)</code></pre>
+<div align="center">
+<div class="vembedr">
+<iframe src="https://www.youtube.com/embed/pAgnJDJN4VA" width="420" height="315" frameborder="0" allowfullscreen=""></iframe>
+</div>
+</div>
 </div>
 <div id="classical" class="section level2">
 <h2>Classical</h2>
