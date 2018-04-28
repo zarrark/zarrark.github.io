@@ -40,14 +40,7 @@ output:
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
 |XXX| ACDC | X | 5 	| G G D C 	| x,x 	|
 
-
-```{r,echo=F, message=F,warning=F}
-if(!require(htmltools)){install.packages("htmltools")};library(htmltools) # Load packages
-if(!require(vembedr)){install.packages("vembedr")};library(vembedr) # Load packages
-embed_url("https://www.youtube.com/watch?v=pAgnJDJN4VA") %>%
-  div(class = "vembedr") %>%
-  div(align = "center")
-```
+<iframe width="560" height="315" src="https://www.youtube.com/watch?v=pAgnJDJN4VA" frameborder="0" allowfullscreen></iframe>
 
 ## Classical
 
