@@ -20,6 +20,8 @@ if("ggplot2" %in% rownames(installed.packages()) == FALSE) {install.packages("gg
 
 # R Directories and Files
 
+## Create & delete
+
 ```{r, eval=F}
 wd0 <- getwd() # Get current dirctory
 dirname(wd0)  # Gives parent directory of the current one
@@ -30,7 +32,7 @@ file.remove(paste(getwd(),"/x/y/example.txt",sep="")) # remove a file
 unlink("x",recursive=T) # delete entire folders
 ```
 
-# R Reading and Saving Files
+## R Reading and Saving Files
 ```{r, eval=F}
 
 # Function to save figures as pdf or png
@@ -59,6 +61,7 @@ write.csv(df,file=paste("XXX.csv",sep=""),row.names=F)
 
 # R Manipulate Data
 
+## Reshape Data (Wide, Long)
 ```{r}
 rm(list=ls())
 
@@ -95,7 +98,7 @@ data(mtcars);head(mtcars)
 df_mtcars<-as.data.frame(rownames_to_column(mtcars,"model"));head(df_mtcars)
 ```
 
-# R Subsetting
+## R Subsetting
 
 ```{r}
 rm(list=ls())
@@ -166,13 +169,10 @@ if(!require(ggplot2)){install.packages("ggplot2")};library(ggplot2)
 if(!require(RColorBrewer)){install.packages("RColorBrewer")};library(RColorBrewer) 
 if(!require(scales)){install.packages("scales")};library(scales) # For pretty_breaks
 
-# Load pre-loaded data
-data(mtcars);head(mtcars)
 
-# Add rownames as a column
-df_mtcars<-as.data.frame(rownames_to_column(mtcars,"model"));head(df_mtcars)
-
-# Custom theme
+#--------------
+# Custom Theme
+#--------------
 z_theme <<- theme_bw() + 
   theme(text = element_text(family = NULL, face = "plain",colour = "black", 
                              size = 16 ,hjust = 0.5, vjust = 0.5, angle = 0, lineheight = 0.9)
@@ -188,62 +188,164 @@ z_theme <<- theme_bw() +
         ,plot.title=          element_text(face="bold", hjust=0,size=18,margin = margin(b=20))
         )
 
+
+
+#--------------
+# Custom Colors
+#--------------
+# Custom Colors for large unassigned palettes
+# Custom Colors https://stackoverflow.com/questions/15282580/how-to-generate-a-number-of-most-distinctive-colors-in-r
+qual_col_pals = brewer.pal.info[brewer.pal.info$category == 'qual',]
+colorsX_Unassigned= unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
+myPalette<-colorsX_Unassigned
+pie(rep(1,length(myPalette)),label=names(myPalette),col=myPalette)
+
+# Color scheme for labels in FillLabel if known
+colorsX_elec_subsec <- c( "coal" = "#a0237c","gas" = "#25a9e0","oil" = "#d01c2a","biomass" = "#00931d",
+                       "nuclear" = "#ef8e27",
+                       "geothermal" = "#ad440c",
+                       "hydro" = "#fdfa28",
+                       "wind" = "#3d86f9",
+                       "solar" = "#fdd67b",
+                       "refined liquids" = "#507fab")
+myPalette<-colorsX_elec_subsec
+pie(rep(1,length(myPalette)),label=names(myPalette),col=myPalette)
+
+
+#---------------
+# Charting Functions
+#---------------
+fig_LineSingle<- function(l1){
+  p<-ggplot(l1,aes(x=x,y=NewValue,group=scenario))
+  p<-p + z_theme
+  p<-p + geom_line(aes(),color="red",stat="identity",position="identity",size=1.5) 
+  p<-p + guides(fill = guide_legend(override.aes = list(colour = NULL)))
+  p<-p + xlab(eval(parse(text=unique(l1$xLabel)))) + ylab(eval(parse(text=unique(l1$NewUnits))))
+  p<-p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+  p<-p + scale_x_continuous (breaks=(seq(min(range(l1$x))-breakx_majMaster,max(range(l1$x))+breakx_majMaster,by=breakx_majMaster)), 
+                             minor_breaks=(seq(min(range(l1$x)),max(range(l1$x)),by=breakx_minMaster)),expand=c(0,breakx_majMaster/2))
+  p<-p + scale_y_continuous(breaks = pretty_breaks(n = prettyBreaksyMaster))}
+
+
+fig_LineMultiple<-function(l1){
+  
+  paletteX<-get(l1$FillPalette);
+  if(useNewLabels==1){
+    if(!is.null(names(paletteX))){
+      names(paletteX)<-toTitleCase(sub("\\b[a-zA-Z0-9]{1} \\b", "",names(paletteX)))}
+    l1$Fill<-toTitleCase(sub("\\b[a-zA-Z0-9]{1} \\b", "",l1$Fill))
+  }
+  
+  p <- ggplot(l1[order((l1$Fill)),],aes(x=x,y=NewValue,group=Fill))
+  p <- p + z_theme
+  p <- p + geom_line(aes(color=Fill),stat="identity",position="identity",size=1.5) 
+  p <- p + guides(color = guide_legend(color=NULL,reverse=T,title=unique(l1$FillLabel)))
+  p <- p + xlab(eval(parse(text=unique(l1$xLabel)))) + ylab(eval(parse(text=unique(l1$NewUnits))))
+  p <- p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+  p <- p + scale_x_continuous (breaks=(seq(min(range(l1$x)),max(range(l1$x)),by=breakx_majMaster)), 
+                               minor_breaks=(seq(min(range(l1$x)),max(range(l1$x)),by=breakx_minMaster)),expand=c(0,breakx_majMaster/2))
+  p <- p +  scale_y_continuous(breaks = pretty_breaks(n = prettyBreaksyMaster))
+  p <- p + scale_fill_manual(values=paletteX)
+}
+
+fig_Bar<-function(l1){
+  
+  paletteX<-get(l1$FillPalette);
+  if(useNewLabels==1){
+    if(!is.null(names(paletteX))){
+      names(paletteX)<-toTitleCase(sub("\\b[a-zA-Z0-9]{1} \\b", "",names(paletteX)))}
+    l1$Fill<-toTitleCase(sub("\\b[a-zA-Z0-9]{1} \\b", "",l1$Fill))
+  }
+  
+  p <- ggplot(l1[order((l1$Fill)),],aes(x=x,y=NewValue,group=scenario, fill=Fill))
+  p <- p + z_theme
+  p <- p + geom_bar(aes(), stat="identity",width=0.9*breakx_minMaster)
+  p <- p + guides(fill = guide_legend(color=NULL,reverse=T,title=unique(l1$FillLabel)))
+  p <- p + xlab(eval(parse(text=unique(l1$xLabel)))) + ylab(eval(parse(text=unique(l1$NewUnits))))
+  p <- p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+  p <- p + scale_x_continuous (breaks=(seq(min(range(l1$x)),max(range(l1$x)),by=breakx_majMaster)), 
+                               minor_breaks=(seq(min(range(l1$x)),max(range(l1$x)),by=breakx_minMaster)),expand=c(0,breakx_majMaster/2))
+  p <- p +  scale_y_continuous(breaks = pretty_breaks(n = prettyBreaksyMaster))
+  p <- p + scale_fill_manual(values=paletteX)
+}
+
+
 #--------------
 # Master Options
 #--------------
 
-figWidth_InchMaster <- 13
-figHeight_InchMaster <- 9
-prettyBreaksyMaster <- 5
-titleOn <- 1
+# Chart Details
+titleOn<-1 # 1 for yes, 0 for no
+useNewLabels<- 0 # 1 for new modified labels without letter prefix and capitalized
+prettyBreaksyMaster<-5
+breakx_majMaster<-10
+breakx_minMaster<-5
+
+# PDF details
+figWidth_InchMaster<-13
+figWidth_StateCharts_Multplier<-2.5
+figWidth_FreeScale_Multplier<-1.2
+figHeight_InchMaster<-9
+figHeight_StateCharts_Multplier<-2
+pngWidth=1000
+pdfOnly=1
 
 #---------------
-# Line Chart 
+# Data Prep 
 #---------------
 
-# Data Prep
-l1<-df_mtcars
-l1$gear<-as.factor(l1$gear)
+# Load pre-loaded data
+lx<-data.frame(scenario="Scenario1",
+               regions=rep(x=c("R1","R2","R3","R4"),each=4*2*11),
+               subsector=rep(x=c("coal","gas","wind","solar"),each=2*11),
+               technology=rep(x=c("coal IGCC","coal CCS","gas CCGT","gas Turbine","wind onshore","wind offshore","solar pv","solar CSP"),each=11),
+               year=seq(from=2000,to=2050,by=5),
+               elecProd=round(rnorm(88,0,100),2))
 
-# Figure options
-titleOn<-1
-figWidth_Inch<-figWidth_InchMaster*1
-figHeight_Inch<-figHeight_InchMaster
-range_x<-range(l1$wt)
-range_y<-range(l1$mpg)
-breakx_maj<-0.5
-breakx_min<-0.25
-prettyBreaksy<-prettyBreaksyMaster
 
-# Colors
-# Using a Palette Ramp
-n = length(levels(l1$gear))
-getcol = colorRampPalette(brewer.pal(9, "Set1")) #Palettes (Spectral, Set1, RdYlBl)
-#colorRampPalette(c("blue", "red"))( 4) 
+# Add columns for your Fill, FillLabel, FillPalette, NewValue and NewUnits
+# Example Want to study the elecProd for the sectors and regions
+# So elecProd will be our NewValue and NewUnits will be MWh
+# X will be the years and xLabel will be "Years"
+# We will aggregate the data by taking the sum over all regions
+# Then we will look at the aggregated data for each region (facets)
+# Then we will look at the data for in bars for the different subsectors for all regions stacked with a total
+# Then we will look at the data for in bars for the different subsectors for all regions dodged with a total
+# Then we will look at the data for in multiple lines for the different subsectors for all regions
 
-# Or predefined for variables gear
-colorsX <- c( "3" = "red","4" = "blue","5" = "green")  # Must have all levels from data colomun "gear"
-l1$NewLabel<-paste("Gear ",l1$gear,sep="")
-colorsX1<-rownames_to_column(as.data.frame(colorsX),"gear")
-l1<-merge(l1,colorsX1,by="gear");
+lx$NewValue<-lx$elecProd
+lx$NewUnits<-"~MWh"  # Use ~ for spaces ^ for superscripts _ for subscripts. Will be parsed later
+lx$x<-lx$year
+lx$xLabel<-"~Year" # Use ~ for spaces ^ for superscripts _ for subscripts. Will be parsed later
+lx$Fill<-lx$subsector
+lx$FillLabel<-"Subsector"
+lx$FillPalette<-"colorsX_Unassigned"
 
-p<-ggplot(l1,aes(x=wt,y=mpg,group=gear))
-p <- p + z_theme
-p <- p + geom_line(aes(color=gear),stat="identity",position="identity",size=1.5) 
-#p <- p + geom_line(aes(),color="red",stat="identity",position="identity",size=1.5) 
-#p <- p + scale_color_manual(values=getcol(n),name="Gear") # using Palette Ramp
-p <- p + scale_color_manual(values=unique(as.character(l1$colorsX)),label=unique(as.character(l1$NewLabel)))
-p <- p + facet_grid(.~cyl, scales="fixed")
-p <- p + guides(fill = guide_legend(override.aes = list(colour = NULL)))
-p <- p + if(titleOn==1){ggtitle (paste("mpg by wt for different cyl",sep=""))}else{ggtitle(NULL)} 
-p <- p + xlab("wt") + ylab("mpg")
-p <- p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
-p <- p + scale_x_continuous (breaks=(seq(signif((min(range_x)-breakx_maj),2),signif((max(range_x)+breakx_maj),2)
-                                         ,by=breakx_maj)), 
-                             minor_breaks=(seq(signif((min(range_x)-breakx_maj),2),signif((max(range_x)+breakx_maj),2)
-                                         ,by=breakx_min)),expand=c(0,breakx_min))
-p <- p +  scale_y_continuous(breaks = pretty_breaks(n = prettyBreaksy))
-plot(p)
+
+#---------------
+# Aggregate Data for Plots
+#---------------
+
+lOrig<-lx # unedited data
+
+# Plot mean weight for all models
+# subset the dataframe to keep only relevant columns then aggregate by taking mean
+l1<-subset(lx,select=c(scenario,NewValue,NewUnits,x,xLabel))
+l1<-aggregate(NewValue~., data=l1, sum, na.rm=TRUE)
+p_line<-fig_LineSingle(l1); print(p_line)
+
+# Plot mean weight for each model
+# subset the dataframe to keep only relevant columns then aggregate by taking mean
+l1<-subset(lx,select=c(Fill,FillLabel,FillPalette,scenario,NewValue,NewUnits,x,xLabel))
+l1<-aggregate(NewValue~., data=l1, sum, na.rm=TRUE)
+p_lineMulti<-fig_LineMultiple(l1); print(p_lineMulti)
+
+# Plot the bar plot
+# subset the dataframe to keep only relevant columns then aggregate by taking mean
+l1<-subset(lx,select=c(Fill,FillLabel,FillPalette,scenario,NewValue,NewUnits,x,xLabel))
+l1<-aggregate(NewValue~., data=l1, sum, na.rm=TRUE)
+p_bar<-fig_Bar(l1); print(p_bar)
+
 
 # To print to PDF or PNG
 #pdf("figure.pdf",width=figWidth_Inch,height=figHeight_Inch)

@@ -339,6 +339,8 @@ if(&quot;ggplot2&quot; %in% rownames(installed.packages()) == FALSE) {install.pa
 </div>
 <div id="r-directories-and-files" class="section level1">
 <h1>R Directories and Files</h1>
+<div id="create-delete" class="section level2">
+<h2>Create &amp; delete</h2>
 <pre class="r"><code>wd0 &lt;- getwd() # Get current dirctory
 dirname(wd0)  # Gives parent directory of the current one
 dir.create(&quot;x&quot;) # creates directory x in working dir
@@ -347,8 +349,8 @@ file.create(paste(getwd(),&quot;/x/y/example.txt&quot;,sep=&quot;&quot;)) # crea
 file.remove(paste(getwd(),&quot;/x/y/example.txt&quot;,sep=&quot;&quot;)) # remove a file
 unlink(&quot;x&quot;,recursive=T) # delete entire folders</code></pre>
 </div>
-<div id="r-reading-and-saving-files" class="section level1">
-<h1>R Reading and Saving Files</h1>
+<div id="r-reading-and-saving-files" class="section level2">
+<h2>R Reading and Saving Files</h2>
 <pre class="r"><code># Function to save figures as pdf or png
 pdfOnly&lt;-1;
 
@@ -371,8 +373,11 @@ if(pdfOnly==1){pdf(paste(dir,&quot;/&quot;,filename,&quot;.pdf&quot;,sep=&quot;&
 read.csv(paste(&quot;XXX.csv&quot;,sep=&quot;&quot;), stringsAsFactors = F, header=F)
 write.csv(df,file=paste(&quot;XXX.csv&quot;,sep=&quot;&quot;),row.names=F)</code></pre>
 </div>
+</div>
 <div id="r-manipulate-data" class="section level1">
 <h1>R Manipulate Data</h1>
+<div id="reshape-data-wide-long" class="section level2">
+<h2>Reshape Data (Wide, Long)</h2>
 <pre class="r"><code>rm(list=ls())
 
 if(!require(reshape2)){install.packages(&quot;reshape2&quot;)};library(reshape2) # Load packages</code></pre>
@@ -503,8 +508,8 @@ df_mtcars&lt;-as.data.frame(rownames_to_column(mtcars,&quot;model&quot;));head(d
 ## 5 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## 6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
 </div>
-<div id="r-subsetting" class="section level1">
-<h1>R Subsetting</h1>
+<div id="r-subsetting" class="section level2">
+<h2>R Subsetting</h2>
 <pre class="r"><code>rm(list=ls())
 
 if(!require(reshape2)){install.packages(&quot;reshape2&quot;)};library(reshape2) # Load packages
@@ -559,6 +564,7 @@ df_select&lt;-subset(df,select=c(subname,freq));print(df_select) # choose the co
 ## 11     X   red
 ## 12     W green</code></pre>
 </div>
+</div>
 <div id="r-colors" class="section level1">
 <h1>R Colors</h1>
 <p><a href="https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf" class="uri">https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf</a></p>
@@ -609,25 +615,9 @@ if(!require(RColorBrewer)){install.packages(&quot;RColorBrewer&quot;)};library(R
 <pre><code>## Loading required package: RColorBrewer</code></pre>
 <pre class="r"><code>if(!require(scales)){install.packages(&quot;scales&quot;)};library(scales) # For pretty_breaks</code></pre>
 <pre><code>## Loading required package: scales</code></pre>
-<pre class="r"><code># Load pre-loaded data
-data(mtcars);head(mtcars)</code></pre>
-<pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<pre class="r"><code># Add rownames as a column
-df_mtcars&lt;-as.data.frame(rownames_to_column(mtcars,&quot;model&quot;));head(df_mtcars)</code></pre>
-<pre><code>##               model  mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## 1         Mazda RX4 21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
-## 2     Mazda RX4 Wag 21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
-## 3        Datsun 710 22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
-## 4    Hornet 4 Drive 21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## 5 Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
-## 6           Valiant 18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<pre class="r"><code># Custom theme
+<pre class="r"><code>#--------------
+# Custom Theme
+#--------------
 z_theme &lt;&lt;- theme_bw() + 
   theme(text = element_text(family = NULL, face = &quot;plain&quot;,colour = &quot;black&quot;, 
                              size = 16 ,hjust = 0.5, vjust = 0.5, angle = 0, lineheight = 0.9)
@@ -643,63 +633,163 @@ z_theme &lt;&lt;- theme_bw() +
         ,plot.title=          element_text(face=&quot;bold&quot;, hjust=0,size=18,margin = margin(b=20))
         )
 
+
+
+#--------------
+# Custom Colors
+#--------------
+# Custom Colors for large unassigned palettes
+# Custom Colors https://stackoverflow.com/questions/15282580/how-to-generate-a-number-of-most-distinctive-colors-in-r
+qual_col_pals = brewer.pal.info[brewer.pal.info$category == &#39;qual&#39;,]
+colorsX_Unassigned= unlist(mapply(brewer.pal, qual_col_pals$maxcolors, rownames(qual_col_pals)))
+myPalette&lt;-colorsX_Unassigned
+pie(rep(1,length(myPalette)),label=names(myPalette),col=myPalette)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code># Color scheme for labels in FillLabel if known
+colorsX_elec_subsec &lt;- c( &quot;coal&quot; = &quot;#a0237c&quot;,&quot;gas&quot; = &quot;#25a9e0&quot;,&quot;oil&quot; = &quot;#d01c2a&quot;,&quot;biomass&quot; = &quot;#00931d&quot;,
+                       &quot;nuclear&quot; = &quot;#ef8e27&quot;,
+                       &quot;geothermal&quot; = &quot;#ad440c&quot;,
+                       &quot;hydro&quot; = &quot;#fdfa28&quot;,
+                       &quot;wind&quot; = &quot;#3d86f9&quot;,
+                       &quot;solar&quot; = &quot;#fdd67b&quot;,
+                       &quot;refined liquids&quot; = &quot;#507fab&quot;)
+myPalette&lt;-colorsX_elec_subsec
+pie(rep(1,length(myPalette)),label=names(myPalette),col=myPalette)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<pre class="r"><code>#---------------
+# Charting Functions
+#---------------
+fig_LineSingle&lt;- function(l1){
+  p&lt;-ggplot(l1,aes(x=x,y=NewValue,group=scenario))
+  p&lt;-p + z_theme
+  p&lt;-p + geom_line(aes(),color=&quot;red&quot;,stat=&quot;identity&quot;,position=&quot;identity&quot;,size=1.5) 
+  p&lt;-p + guides(fill = guide_legend(override.aes = list(colour = NULL)))
+  p&lt;-p + xlab(eval(parse(text=unique(l1$xLabel)))) + ylab(eval(parse(text=unique(l1$NewUnits))))
+  p&lt;-p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+  p&lt;-p + scale_x_continuous (breaks=(seq(min(range(l1$x))-breakx_majMaster,max(range(l1$x))+breakx_majMaster,by=breakx_majMaster)), 
+                             minor_breaks=(seq(min(range(l1$x)),max(range(l1$x)),by=breakx_minMaster)),expand=c(0,breakx_majMaster/2))
+  p&lt;-p + scale_y_continuous(breaks = pretty_breaks(n = prettyBreaksyMaster))}
+
+
+fig_LineMultiple&lt;-function(l1){
+  
+  paletteX&lt;-get(l1$FillPalette);
+  if(useNewLabels==1){
+    if(!is.null(names(paletteX))){
+      names(paletteX)&lt;-toTitleCase(sub(&quot;\\b[a-zA-Z0-9]{1} \\b&quot;, &quot;&quot;,names(paletteX)))}
+    l1$Fill&lt;-toTitleCase(sub(&quot;\\b[a-zA-Z0-9]{1} \\b&quot;, &quot;&quot;,l1$Fill))
+  }
+  
+  p &lt;- ggplot(l1[order((l1$Fill)),],aes(x=x,y=NewValue,group=Fill))
+  p &lt;- p + z_theme
+  p &lt;- p + geom_line(aes(color=Fill),stat=&quot;identity&quot;,position=&quot;identity&quot;,size=1.5) 
+  p &lt;- p + guides(color = guide_legend(color=NULL,reverse=T,title=unique(l1$FillLabel)))
+  p &lt;- p + xlab(eval(parse(text=unique(l1$xLabel)))) + ylab(eval(parse(text=unique(l1$NewUnits))))
+  p &lt;- p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+  p &lt;- p + scale_x_continuous (breaks=(seq(min(range(l1$x)),max(range(l1$x)),by=breakx_majMaster)), 
+                               minor_breaks=(seq(min(range(l1$x)),max(range(l1$x)),by=breakx_minMaster)),expand=c(0,breakx_majMaster/2))
+  p &lt;- p +  scale_y_continuous(breaks = pretty_breaks(n = prettyBreaksyMaster))
+  p &lt;- p + scale_fill_manual(values=paletteX)
+}
+
+fig_Bar&lt;-function(l1){
+  
+  paletteX&lt;-get(l1$FillPalette);
+  if(useNewLabels==1){
+    if(!is.null(names(paletteX))){
+      names(paletteX)&lt;-toTitleCase(sub(&quot;\\b[a-zA-Z0-9]{1} \\b&quot;, &quot;&quot;,names(paletteX)))}
+    l1$Fill&lt;-toTitleCase(sub(&quot;\\b[a-zA-Z0-9]{1} \\b&quot;, &quot;&quot;,l1$Fill))
+  }
+  
+  p &lt;- ggplot(l1[order((l1$Fill)),],aes(x=x,y=NewValue,group=scenario, fill=Fill))
+  p &lt;- p + z_theme
+  p &lt;- p + geom_bar(aes(), stat=&quot;identity&quot;,width=0.9*breakx_minMaster)
+  p &lt;- p + guides(fill = guide_legend(color=NULL,reverse=T,title=unique(l1$FillLabel)))
+  p &lt;- p + xlab(eval(parse(text=unique(l1$xLabel)))) + ylab(eval(parse(text=unique(l1$NewUnits))))
+  p &lt;- p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
+  p &lt;- p + scale_x_continuous (breaks=(seq(min(range(l1$x)),max(range(l1$x)),by=breakx_majMaster)), 
+                               minor_breaks=(seq(min(range(l1$x)),max(range(l1$x)),by=breakx_minMaster)),expand=c(0,breakx_majMaster/2))
+  p &lt;- p +  scale_y_continuous(breaks = pretty_breaks(n = prettyBreaksyMaster))
+  p &lt;- p + scale_fill_manual(values=paletteX)
+}
+
+
 #--------------
 # Master Options
 #--------------
 
-figWidth_InchMaster &lt;- 13
-figHeight_InchMaster &lt;- 9
-prettyBreaksyMaster &lt;- 5
-titleOn &lt;- 1
+# Chart Details
+titleOn&lt;-1 # 1 for yes, 0 for no
+useNewLabels&lt;- 0 # 1 for new modified labels without letter prefix and capitalized
+prettyBreaksyMaster&lt;-5
+breakx_majMaster&lt;-10
+breakx_minMaster&lt;-5
+
+# PDF details
+figWidth_InchMaster&lt;-13
+figWidth_StateCharts_Multplier&lt;-2.5
+figWidth_FreeScale_Multplier&lt;-1.2
+figHeight_InchMaster&lt;-9
+figHeight_StateCharts_Multplier&lt;-2
+pngWidth=1000
+pdfOnly=1
 
 #---------------
-# Line Chart 
+# Data Prep 
 #---------------
 
-# Data Prep
-l1&lt;-df_mtcars
-l1$gear&lt;-as.factor(l1$gear)
+# Load pre-loaded data
+lx&lt;-data.frame(scenario=&quot;Scenario1&quot;,
+               regions=rep(x=c(&quot;R1&quot;,&quot;R2&quot;,&quot;R3&quot;,&quot;R4&quot;),each=4*2*11),
+               subsector=rep(x=c(&quot;coal&quot;,&quot;gas&quot;,&quot;wind&quot;,&quot;solar&quot;),each=2*11),
+               technology=rep(x=c(&quot;coal IGCC&quot;,&quot;coal CCS&quot;,&quot;gas CCGT&quot;,&quot;gas Turbine&quot;,&quot;wind onshore&quot;,&quot;wind offshore&quot;,&quot;solar pv&quot;,&quot;solar CSP&quot;),each=11),
+               year=seq(from=2000,to=2050,by=5),
+               elecProd=round(rnorm(88,0,100),2))
 
-# Figure options
-titleOn&lt;-1
-figWidth_Inch&lt;-figWidth_InchMaster*1
-figHeight_Inch&lt;-figHeight_InchMaster
-range_x&lt;-range(l1$wt)
-range_y&lt;-range(l1$mpg)
-breakx_maj&lt;-0.5
-breakx_min&lt;-0.25
-prettyBreaksy&lt;-prettyBreaksyMaster
 
-# Colors
-# Using a Palette Ramp
-n = length(levels(l1$gear))
-getcol = colorRampPalette(brewer.pal(9, &quot;Set1&quot;)) #Palettes (Spectral, Set1, RdYlBl)
-#colorRampPalette(c(&quot;blue&quot;, &quot;red&quot;))( 4) 
+# Add columns for your Fill, FillLabel, FillPalette, NewValue and NewUnits
+# Example Want to study the elecProd for the sectors and regions
+# So elecProd will be our NewValue and NewUnits will be MWh
+# X will be the years and xLabel will be &quot;Years&quot;
+# We will aggregate the data by taking the sum over all regions
+# Then we will look at the aggregated data for each region (facets)
+# Then we will look at the data for in bars for the different subsectors for all regions stacked with a total
+# Then we will look at the data for in bars for the different subsectors for all regions dodged with a total
+# Then we will look at the data for in multiple lines for the different subsectors for all regions
 
-# Or predefined for variables gear
-colorsX &lt;- c( &quot;3&quot; = &quot;red&quot;,&quot;4&quot; = &quot;blue&quot;,&quot;5&quot; = &quot;green&quot;)  # Must have all levels from data colomun &quot;gear&quot;
-l1$NewLabel&lt;-paste(&quot;Gear &quot;,l1$gear,sep=&quot;&quot;)
-colorsX1&lt;-rownames_to_column(as.data.frame(colorsX),&quot;gear&quot;)
-l1&lt;-merge(l1,colorsX1,by=&quot;gear&quot;);
+lx$NewValue&lt;-lx$elecProd
+lx$NewUnits&lt;-&quot;~MWh&quot;  # Use ~ for spaces ^ for superscripts _ for subscripts. Will be parsed later
+lx$x&lt;-lx$year
+lx$xLabel&lt;-&quot;~Year&quot; # Use ~ for spaces ^ for superscripts _ for subscripts. Will be parsed later
+lx$Fill&lt;-lx$subsector
+lx$FillLabel&lt;-&quot;Subsector&quot;
+lx$FillPalette&lt;-&quot;colorsX_Unassigned&quot;
 
-p&lt;-ggplot(l1,aes(x=wt,y=mpg,group=gear))
-p &lt;- p + z_theme
-p &lt;- p + geom_line(aes(color=gear),stat=&quot;identity&quot;,position=&quot;identity&quot;,size=1.5) 
-#p &lt;- p + geom_line(aes(),color=&quot;red&quot;,stat=&quot;identity&quot;,position=&quot;identity&quot;,size=1.5) 
-#p &lt;- p + scale_color_manual(values=getcol(n),name=&quot;Gear&quot;) # using Palette Ramp
-p &lt;- p + scale_color_manual(values=unique(as.character(l1$colorsX)),label=unique(as.character(l1$NewLabel)))
-p &lt;- p + facet_grid(.~cyl, scales=&quot;fixed&quot;)
-p &lt;- p + guides(fill = guide_legend(override.aes = list(colour = NULL)))
-p &lt;- p + if(titleOn==1){ggtitle (paste(&quot;mpg by wt for different cyl&quot;,sep=&quot;&quot;))}else{ggtitle(NULL)} 
-p &lt;- p + xlab(&quot;wt&quot;) + ylab(&quot;mpg&quot;)
-p &lt;- p + theme(axis.text.x=element_text(angle=90,hjust=1,vjust=0.5))
-p &lt;- p + scale_x_continuous (breaks=(seq(signif((min(range_x)-breakx_maj),2),signif((max(range_x)+breakx_maj),2)
-                                         ,by=breakx_maj)), 
-                             minor_breaks=(seq(signif((min(range_x)-breakx_maj),2),signif((max(range_x)+breakx_maj),2)
-                                         ,by=breakx_min)),expand=c(0,breakx_min))
-p &lt;- p +  scale_y_continuous(breaks = pretty_breaks(n = prettyBreaksy))
-plot(p)</code></pre>
-<p><img src="program_R_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+
+#---------------
+# Aggregate Data for Plots
+#---------------
+
+lOrig&lt;-lx # unedited data
+
+# Plot mean weight for all models
+# subset the dataframe to keep only relevant columns then aggregate by taking mean
+l1&lt;-subset(lx,select=c(scenario,NewValue,NewUnits,x,xLabel))
+l1&lt;-aggregate(NewValue~., data=l1, sum, na.rm=TRUE)
+p_line&lt;-fig_LineSingle(l1); print(p_line)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-7-3.png" width="672" /></p>
+<pre class="r"><code># Plot mean weight for each model
+# subset the dataframe to keep only relevant columns then aggregate by taking mean
+l1&lt;-subset(lx,select=c(Fill,FillLabel,FillPalette,scenario,NewValue,NewUnits,x,xLabel))
+l1&lt;-aggregate(NewValue~., data=l1, sum, na.rm=TRUE)
+p_lineMulti&lt;-fig_LineMultiple(l1); print(p_lineMulti)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-7-4.png" width="672" /></p>
+<pre class="r"><code># Plot the bar plot
+# subset the dataframe to keep only relevant columns then aggregate by taking mean
+l1&lt;-subset(lx,select=c(Fill,FillLabel,FillPalette,scenario,NewValue,NewUnits,x,xLabel))
+l1&lt;-aggregate(NewValue~., data=l1, sum, na.rm=TRUE)
+p_bar&lt;-fig_Bar(l1); print(p_bar)</code></pre>
+<p><img src="program_R_files/figure-html/unnamed-chunk-7-5.png" width="672" /></p>
 <pre class="r"><code># To print to PDF or PNG
 #pdf(&quot;figure.pdf&quot;,width=figWidth_Inch,height=figHeight_Inch)
 #    print(p)
