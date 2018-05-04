@@ -120,6 +120,56 @@ df_selectR<-subset(df,select=-c(subname,freq));print(df_selectR) # remove certai
 
 ```
 
+
+## R dplyr
+
+```{r}
+
+# http://genomicsclass.github.io/book/pages/dplyr_tutorial.html
+# select() select columns; filter()	filter rows; arrange()	re-order or arrange rows; mutate()	create new columns
+# summarise()	summarise values; group_by()	allows for group operations in the “split-apply-combine” concept
+
+library(dplyr)
+
+df<-data.frame(basins=rep(c("Basin 1","Basin 2"),each=36), 
+               subbasins=rep(c(rep(c("SubBasin 1a","SubBasin 1b"),each=18),rep(c("SubBasin 2a","SubBasin 2b"),each=18))),
+               sector=rep(rep(c("Agr","Res","Elec"),each=6),2),
+               year=rep(rep(c("2010","2020","2030"),each=2),6*2),
+               technology=rep(c("gas","coal"),36),
+               energy=runif(2*3*3*2*2));df;
+
+# Select (-, starts_with(), ends_with(), contains(), matches(),one_of())
+
+dfx<-df%>%dplyr::select(-basins); head(dfx);
+dfx<-df%>%dplyr::select(ends_with("basins")); head(dfx);
+dfx<-df%>%dplyr::select(contains("tech")); head(dfx);
+dfx<-df%>%dplyr::select(sector:energy); head(dfx);
+dfx<-df%>%dplyr::select(matches("ins")); head(dfx);
+
+# Filter
+dfx<-df%>%filter(subbasins=="SubBasin 1a"); head(dfx);
+dfx<-df%>%filter(subbasins %in% c("SubBasin 1a","SubBasin 2b")); head(dfx);
+dfx<-df%>%filter(grepl("a$",subbasins)); head(dfx);  
+
+```
+
+## R regexp
+```{r}
+# RegExpressions
+# "" place expresion inside
+# ^X starting with X
+# X$ Ending with X
+# containing X 
+v<-c("xx12xx23xx","xx123","123xx","12xx3"); v
+vx<-grep("x$",v,value=F);vx
+vx<-grep("x$",v,value=T);vx
+vx<-v[grep("x$",v,value=F)];vx
+
+vx<-grepl("x$",v);vx
+vx<-v[grepl("x$",v)];vx
+vx<-v[!grepl("x$",v)];vx
+```
+
 # R Colors
 
 [https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf](https://www.nceas.ucsb.edu/~frazier/RSpatialGuides/colorPaletteCheatsheet.pdf)
