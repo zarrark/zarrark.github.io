@@ -8,6 +8,12 @@ output:
     toc_float: true 
 ---
 
+```{r,eval=F,echo=F}
+r <- getOption("repos")
+r["CRAN"] <- "http://cran.cnr.berkeley.edu/"
+options(repos = r)
+```
+
 # Summary
 
 |	Theme	        |	Goals | In Progress | 

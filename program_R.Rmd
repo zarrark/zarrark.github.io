@@ -13,7 +13,7 @@ output:
 - To display R code without output use ```{r,eval=F} x=2 ```
 
 ```{r,eval=F}
-rm(list=ls()) # Clear variables
+
 if("ggplot2" %in% rownames(installed.packages()) == FALSE) {install.packages("ggplot2")};library(ggplot2)
 # Load packages
 ```
@@ -179,7 +179,6 @@ vx<-v[!grepl("x$",v)];vx
 
 ```{r}
 # Load Packages
-if(!require(graphics)){install.packages("graphics")};library(graphics)
 if(!require(graphics)){install.packages("graphics")};library(graphics)
 
 # View a single color quickly
