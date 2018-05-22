@@ -11,19 +11,57 @@ output:
 
 # Socio-Economic
 
+## Poverty
+
+## Population
+
+## Health
+
+## SDGs
+
 # SSP/RCP/SPA
 
 @riahi2017_SSP
 
 # Climate Change
 
+## Causes
+
+## Evidence
+
+## Impacts
+
 # Emissions
+
+## Causes
+
+## By Region
+
+## Impacts
 
 # Energy
 
+## By Fuel
+
+## By Country by Fuel
+
+## Access
+
 # Water
 
+## Withdrawals & Consumption
+
+## Access, availability
+
+## Scarcity
+
+## By Source
+
 # Agriculture-Land
+
+## Landuse
+
+## Irrigation
 
 # Technologies
 

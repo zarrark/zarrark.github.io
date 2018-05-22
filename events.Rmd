@@ -1,0 +1,27 @@
+---
+title: "Events"
+bibliography: bib_science_16Mar2018.bib
+link-citations: true
+csl: ieee-with-url.csl
+output:
+  html_document:
+    toc: true  
+    toc_float: true 
+---
+
+# Socio-Economic
+
+
+# Climate Change
+
+
+# Energy
+
+
+# Water
+
+
+# Agriculture-Land
+
+
+# References

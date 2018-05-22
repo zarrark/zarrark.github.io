@@ -18,6 +18,8 @@ navbar:
     href: chess.html
   - text: Science
     href: science.html
+  - text: Events
+    href: events.html
   - text: Math
     href: math.html
   - text: Program
