@@ -11,7 +11,7 @@
 
 
 
-<title>Training</title>
+<title>Events</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,6 +19,9 @@
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
@@ -164,6 +167,101 @@ $(document).ready(function () {
 
 
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
 
 
 <div class="navbar navbar-default  navbar-fixed-top" role="navigation">
@@ -226,141 +324,35 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Training</h1>
+<h1 class="title toc-ignore">Events</h1>
 
 </div>
 
 
-<p>R Figures</p>
-<pre class="r"><code>n &lt;- 100
-x &lt;- rnorm(n)
-par(mfrow=c(1,2), las=1)
-for(i in 1:8) {
-  y &lt;- i*x + rnorm(n)
-  plot(x, y, main=i)
-}</code></pre>
-<p><img src="train_files/figure-html/bunch_o_figs_svg-1.svg" width="768" /><img src="train_files/figure-html/bunch_o_figs_svg-2.svg" width="768" /><img src="train_files/figure-html/bunch_o_figs_svg-3.svg" width="768" /><img src="train_files/figure-html/bunch_o_figs_svg-4.svg" width="768" /></p>
-<pre class="r"><code>require(ggplot2);library(ggplot2)
-
-x1&lt;-data.frame(Date=c(1,2,3),Hours=c(1,2,3),Project=c(3,4,5))
-x1$DummyUp&lt;-x1$Hours*2
-x1$DummyDown&lt;-x1$Hours*0.5
-
-p1&lt;-ggplot(x1,aes(x=Date,y=Hours)) 
-p1 &lt;- p1 + geom_line(size=0.8) 
-p1&lt;- p1 + scale_color_brewer(name=&quot;Theme&quot;,palette=&quot;Set1&quot;)
-#p1 &lt;- p1 + geom_bar(aes(fill=Project),stat=&quot;identity&quot;, color=&quot;black&quot;) 
-#p1&lt;- p1 + guides(fill = guide_legend(override.aes = list(colour = NULL),ncol=4))
-#p1&lt;-p1 + facet_grid(Theme+Project ~ .)
-#p1&lt;-p1+geom_text(aes(y=Hours,label=prettyNum(round(Hours,1),big.mark=&quot;,&quot;)),size=2,hjust=-0.2,angle=90)
-p1 &lt;- p1 + xlab(NULL) + ylab(&quot;Hours&quot;) + theme(axis.title.y=element_text(margin=margin(r=10)))
-p1 &lt;- p1 + ggtitle (&quot;Daily hours worked&quot;) + theme(plot.title=element_text(face=&quot;bold&quot;,size=18,margin = margin(b=20)))
-p1&lt;-p1+theme(legend.position=&quot;bottom&quot;) + theme(legend.title=element_blank())
-#p1&lt;-p1+scale_x_date(date_breaks = &quot;1 week&quot;, date_minor_breaks = &quot;1 day&quot;, date_labels = &quot;%d-%b-%Y&quot;)
-p1&lt;-p1+theme(axis.text.x = element_text(angle=90, vjust =0.5 ,hjust=1))
-p1 &lt;- p1 + geom_blank(aes(y=DummyUp)) + geom_blank(aes(y=DummyDown))
-plot(p1)</code></pre>
-<p><img src="train_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<p>kable</p>
-<pre class="r"><code>n &lt;- 100
-x &lt;- rnorm(n)
-y &lt;- 2*x + rnorm(n)
-out &lt;- lm(y ~ x)
-library(knitr)
-kable(summary(out)$coef, digits=2)</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th></th>
-<th align="right">Estimate</th>
-<th align="right">Std. Error</th>
-<th align="right">t value</th>
-<th align="right">Pr(&gt;|t|)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>(Intercept)</td>
-<td align="right">0.1</td>
-<td align="right">0.11</td>
-<td align="right">0.87</td>
-<td align="right">0.39</td>
-</tr>
-<tr class="even">
-<td>x</td>
-<td align="right">2.0</td>
-<td align="right">0.11</td>
-<td align="right">18.59</td>
-<td align="right">0.00</td>
-</tr>
-</tbody>
-</table>
-<p>X table</p>
-<pre class="r"><code>n &lt;- 100
-x &lt;- rnorm(n)
-y &lt;- 2*x + rnorm(n)
-out &lt;- lm(y ~ x)
-library(xtable)
-tab &lt;- xtable(summary(out)$coef, digits=c(0, 2, 2, 1, 2))
-print(tab, type=&quot;html&quot;)</code></pre>
-<!-- html table generated in R 3.5.0 by xtable 1.8-2 package -->
-<!-- Thu May 31 12:18:57 2018 -->
-<table border="1">
-<tr>
-<th>
-</th>
-<th>
-Estimate
-</th>
-<th>
-Std. Error
-</th>
-<th>
-t value
-</th>
-<th>
-Pr(&gt;|t|)
-</th>
-</tr>
-<tr>
-<td align="right">
-(Intercept)
-</td>
-<td align="right">
--0.05
-</td>
-<td align="right">
-0.11
-</td>
-<td align="right">
--0.5
-</td>
-<td align="right">
-0.63
-</td>
-</tr>
-<tr>
-<td align="right">
-x
-</td>
-<td align="right">
-1.98
-</td>
-<td align="right">
-0.11
-</td>
-<td align="right">
-18.5
-</td>
-<td align="right">
-0.00
-</td>
-</tr>
-</table>
+<div id="socio-economic" class="section level1">
+<h1>Socio-Economic</h1>
+</div>
+<div id="climate-change" class="section level1">
+<h1>Climate Change</h1>
+</div>
+<div id="energy" class="section level1">
+<h1>Energy</h1>
+</div>
+<div id="water" class="section level1">
+<h1>Water</h1>
+</div>
+<div id="agriculture-land" class="section level1">
+<h1>Agriculture-Land</h1>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+</div>
 
 <p id="footer">Copyright &copy; 2017 Zarrar Khan All rights reserved.</p>
 
 
+</div>
+</div>
 
 </div>
 
