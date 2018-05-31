@@ -581,88 +581,88 @@ df&lt;-data.frame(basins=rep(c(&quot;Basin 1&quot;,&quot;Basin 2&quot;),each=36)
                technology=rep(c(&quot;gas&quot;,&quot;coal&quot;),36),
                energy=runif(2*3*3*2*2));df;</code></pre>
 <pre><code>##     basins   subbasins sector year technology       energy
-## 1  Basin 1 SubBasin 1a    Agr 2010        gas 0.7338569956
-## 2  Basin 1 SubBasin 1a    Agr 2010       coal 0.1729707909
-## 3  Basin 1 SubBasin 1a    Agr 2020        gas 0.2690952790
-## 4  Basin 1 SubBasin 1a    Agr 2020       coal 0.4019298267
-## 5  Basin 1 SubBasin 1a    Agr 2030        gas 0.9274549230
-## 6  Basin 1 SubBasin 1a    Agr 2030       coal 0.6444510911
-## 7  Basin 1 SubBasin 1a    Res 2010        gas 0.4647164603
-## 8  Basin 1 SubBasin 1a    Res 2010       coal 0.1192381480
-## 9  Basin 1 SubBasin 1a    Res 2020        gas 0.0083572182
-## 10 Basin 1 SubBasin 1a    Res 2020       coal 0.7526511401
-## 11 Basin 1 SubBasin 1a    Res 2030        gas 0.3244356210
-## 12 Basin 1 SubBasin 1a    Res 2030       coal 0.3100389740
-## 13 Basin 1 SubBasin 1a   Elec 2010        gas 0.0779354533
-## 14 Basin 1 SubBasin 1a   Elec 2010       coal 0.5471017556
-## 15 Basin 1 SubBasin 1a   Elec 2020        gas 0.8096616585
-## 16 Basin 1 SubBasin 1a   Elec 2020       coal 0.1817546859
-## 17 Basin 1 SubBasin 1a   Elec 2030        gas 0.6514780384
-## 18 Basin 1 SubBasin 1a   Elec 2030       coal 0.1418127096
-## 19 Basin 1 SubBasin 1b    Agr 2010        gas 0.8881826214
-## 20 Basin 1 SubBasin 1b    Agr 2010       coal 0.1863697330
-## 21 Basin 1 SubBasin 1b    Agr 2020        gas 0.0314174830
-## 22 Basin 1 SubBasin 1b    Agr 2020       coal 0.7367035921
-## 23 Basin 1 SubBasin 1b    Agr 2030        gas 0.7756607158
-## 24 Basin 1 SubBasin 1b    Agr 2030       coal 0.2882347703
-## 25 Basin 1 SubBasin 1b    Res 2010        gas 0.5065604772
-## 26 Basin 1 SubBasin 1b    Res 2010       coal 0.8486182543
-## 27 Basin 1 SubBasin 1b    Res 2020        gas 0.7786807790
-## 28 Basin 1 SubBasin 1b    Res 2020       coal 0.6569573276
-## 29 Basin 1 SubBasin 1b    Res 2030        gas 0.3816062314
-## 30 Basin 1 SubBasin 1b    Res 2030       coal 0.0094086104
-## 31 Basin 1 SubBasin 1b   Elec 2010        gas 0.7334477054
-## 32 Basin 1 SubBasin 1b   Elec 2010       coal 0.7962910945
-## 33 Basin 1 SubBasin 1b   Elec 2020        gas 0.9478549825
-## 34 Basin 1 SubBasin 1b   Elec 2020       coal 0.7073528450
-## 35 Basin 1 SubBasin 1b   Elec 2030        gas 0.5021098873
-## 36 Basin 1 SubBasin 1b   Elec 2030       coal 0.5985762533
-## 37 Basin 2 SubBasin 2a    Agr 2010        gas 0.1253525293
-## 38 Basin 2 SubBasin 2a    Agr 2010       coal 0.0956364111
-## 39 Basin 2 SubBasin 2a    Agr 2020        gas 0.7036787993
-## 40 Basin 2 SubBasin 2a    Agr 2020       coal 0.5957679434
-## 41 Basin 2 SubBasin 2a    Agr 2030        gas 0.2418688757
-## 42 Basin 2 SubBasin 2a    Agr 2030       coal 0.6548496981
-## 43 Basin 2 SubBasin 2a    Res 2010        gas 0.3352308557
-## 44 Basin 2 SubBasin 2a    Res 2010       coal 0.1229956225
-## 45 Basin 2 SubBasin 2a    Res 2020        gas 0.0290822366
-## 46 Basin 2 SubBasin 2a    Res 2020       coal 0.0003251866
-## 47 Basin 2 SubBasin 2a    Res 2030        gas 0.1284523399
-## 48 Basin 2 SubBasin 2a    Res 2030       coal 0.4337943459
-## 49 Basin 2 SubBasin 2a   Elec 2010        gas 0.5059263748
-## 50 Basin 2 SubBasin 2a   Elec 2010       coal 0.2234224894
-## 51 Basin 2 SubBasin 2a   Elec 2020        gas 0.8156582895
-## 52 Basin 2 SubBasin 2a   Elec 2020       coal 0.9119311532
-## 53 Basin 2 SubBasin 2a   Elec 2030        gas 0.9982883432
-## 54 Basin 2 SubBasin 2a   Elec 2030       coal 0.0011228395
-## 55 Basin 2 SubBasin 2b    Agr 2010        gas 0.9374811393
-## 56 Basin 2 SubBasin 2b    Agr 2010       coal 0.1253894526
-## 57 Basin 2 SubBasin 2b    Agr 2020        gas 0.7526683444
-## 58 Basin 2 SubBasin 2b    Agr 2020       coal 0.2144453931
-## 59 Basin 2 SubBasin 2b    Agr 2030        gas 0.5993736770
-## 60 Basin 2 SubBasin 2b    Agr 2030       coal 0.7962334622
-## 61 Basin 2 SubBasin 2b    Res 2010        gas 0.8864322235
-## 62 Basin 2 SubBasin 2b    Res 2010       coal 0.9235712152
-## 63 Basin 2 SubBasin 2b    Res 2020        gas 0.2606568160
-## 64 Basin 2 SubBasin 2b    Res 2020       coal 0.2028075429
-## 65 Basin 2 SubBasin 2b    Res 2030        gas 0.4112365947
-## 66 Basin 2 SubBasin 2b    Res 2030       coal 0.8095420329
-## 67 Basin 2 SubBasin 2b   Elec 2010        gas 0.1984236683
-## 68 Basin 2 SubBasin 2b   Elec 2010       coal 0.3115469893
-## 69 Basin 2 SubBasin 2b   Elec 2020        gas 0.7696658066
-## 70 Basin 2 SubBasin 2b   Elec 2020       coal 0.0946175568
-## 71 Basin 2 SubBasin 2b   Elec 2030        gas 0.2052772595
-## 72 Basin 2 SubBasin 2b   Elec 2030       coal 0.1895799476</code></pre>
+## 1  Basin 1 SubBasin 1a    Agr 2010        gas 0.7218900595
+## 2  Basin 1 SubBasin 1a    Agr 2010       coal 0.3121661996
+## 3  Basin 1 SubBasin 1a    Agr 2020        gas 0.5899031332
+## 4  Basin 1 SubBasin 1a    Agr 2020       coal 0.9250565525
+## 5  Basin 1 SubBasin 1a    Agr 2030        gas 0.0665085006
+## 6  Basin 1 SubBasin 1a    Agr 2030       coal 0.1033235688
+## 7  Basin 1 SubBasin 1a    Res 2010        gas 0.6551376863
+## 8  Basin 1 SubBasin 1a    Res 2010       coal 0.5674995054
+## 9  Basin 1 SubBasin 1a    Res 2020        gas 0.0979202085
+## 10 Basin 1 SubBasin 1a    Res 2020       coal 0.7907750427
+## 11 Basin 1 SubBasin 1a    Res 2030        gas 0.0377045101
+## 12 Basin 1 SubBasin 1a    Res 2030       coal 0.8729063144
+## 13 Basin 1 SubBasin 1a   Elec 2010        gas 0.9784032339
+## 14 Basin 1 SubBasin 1a   Elec 2010       coal 0.4520769424
+## 15 Basin 1 SubBasin 1a   Elec 2020        gas 0.1716886344
+## 16 Basin 1 SubBasin 1a   Elec 2020       coal 0.9193255764
+## 17 Basin 1 SubBasin 1a   Elec 2030        gas 0.3126430726
+## 18 Basin 1 SubBasin 1a   Elec 2030       coal 0.1900122131
+## 19 Basin 1 SubBasin 1b    Agr 2010        gas 0.8202409339
+## 20 Basin 1 SubBasin 1b    Agr 2010       coal 0.8265415628
+## 21 Basin 1 SubBasin 1b    Agr 2020        gas 0.5708858648
+## 22 Basin 1 SubBasin 1b    Agr 2020       coal 0.7083181650
+## 23 Basin 1 SubBasin 1b    Agr 2030        gas 0.8854153284
+## 24 Basin 1 SubBasin 1b    Agr 2030       coal 0.8190653382
+## 25 Basin 1 SubBasin 1b    Res 2010        gas 0.9499936409
+## 26 Basin 1 SubBasin 1b    Res 2010       coal 0.1874287622
+## 27 Basin 1 SubBasin 1b    Res 2020        gas 0.0009543707
+## 28 Basin 1 SubBasin 1b    Res 2020       coal 0.4752214253
+## 29 Basin 1 SubBasin 1b    Res 2030        gas 0.1935503893
+## 30 Basin 1 SubBasin 1b    Res 2030       coal 0.1765301730
+## 31 Basin 1 SubBasin 1b   Elec 2010        gas 0.0870066755
+## 32 Basin 1 SubBasin 1b   Elec 2010       coal 0.0433261916
+## 33 Basin 1 SubBasin 1b   Elec 2020        gas 0.1485839605
+## 34 Basin 1 SubBasin 1b   Elec 2020       coal 0.0786363131
+## 35 Basin 1 SubBasin 1b   Elec 2030        gas 0.0715477420
+## 36 Basin 1 SubBasin 1b   Elec 2030       coal 0.6928707445
+## 37 Basin 2 SubBasin 2a    Agr 2010        gas 0.5409901259
+## 38 Basin 2 SubBasin 2a    Agr 2010       coal 0.4779562200
+## 39 Basin 2 SubBasin 2a    Agr 2020        gas 0.7506494224
+## 40 Basin 2 SubBasin 2a    Agr 2020       coal 0.7347982491
+## 41 Basin 2 SubBasin 2a    Agr 2030        gas 0.5539022731
+## 42 Basin 2 SubBasin 2a    Agr 2030       coal 0.5913832537
+## 43 Basin 2 SubBasin 2a    Res 2010        gas 0.6791346122
+## 44 Basin 2 SubBasin 2a    Res 2010       coal 0.6263773695
+## 45 Basin 2 SubBasin 2a    Res 2020        gas 0.4537515638
+## 46 Basin 2 SubBasin 2a    Res 2020       coal 0.0129738878
+## 47 Basin 2 SubBasin 2a    Res 2030        gas 0.9440016772
+## 48 Basin 2 SubBasin 2a    Res 2030       coal 0.5283932055
+## 49 Basin 2 SubBasin 2a   Elec 2010        gas 0.7674881653
+## 50 Basin 2 SubBasin 2a   Elec 2010       coal 0.2297130842
+## 51 Basin 2 SubBasin 2a   Elec 2020        gas 0.5320694179
+## 52 Basin 2 SubBasin 2a   Elec 2020       coal 0.3012328367
+## 53 Basin 2 SubBasin 2a   Elec 2030        gas 0.5883483582
+## 54 Basin 2 SubBasin 2a   Elec 2030       coal 0.1592816843
+## 55 Basin 2 SubBasin 2b    Agr 2010        gas 0.5928938915
+## 56 Basin 2 SubBasin 2b    Agr 2010       coal 0.0522071118
+## 57 Basin 2 SubBasin 2b    Agr 2020        gas 0.5823036453
+## 58 Basin 2 SubBasin 2b    Agr 2020       coal 0.2166415539
+## 59 Basin 2 SubBasin 2b    Agr 2030        gas 0.5401194971
+## 60 Basin 2 SubBasin 2b    Agr 2030       coal 0.1206644189
+## 61 Basin 2 SubBasin 2b    Res 2010        gas 0.0194042311
+## 62 Basin 2 SubBasin 2b    Res 2010       coal 0.4923769766
+## 63 Basin 2 SubBasin 2b    Res 2020        gas 0.0159336706
+## 64 Basin 2 SubBasin 2b    Res 2020       coal 0.7694149499
+## 65 Basin 2 SubBasin 2b    Res 2030        gas 0.4825745297
+## 66 Basin 2 SubBasin 2b    Res 2030       coal 0.7320915130
+## 67 Basin 2 SubBasin 2b   Elec 2010        gas 0.8320571887
+## 68 Basin 2 SubBasin 2b   Elec 2010       coal 0.1410787490
+## 69 Basin 2 SubBasin 2b   Elec 2020        gas 0.2794610825
+## 70 Basin 2 SubBasin 2b   Elec 2020       coal 0.1185576543
+## 71 Basin 2 SubBasin 2b   Elec 2030        gas 0.2809306895
+## 72 Basin 2 SubBasin 2b   Elec 2030       coal 0.3582783514</code></pre>
 <pre class="r"><code># Select (-, starts_with(), ends_with(), contains(), matches(),one_of())
 
 dfx&lt;-df%&gt;%dplyr::select(-basins); head(dfx);</code></pre>
 <pre><code>##     subbasins sector year technology    energy
-## 1 SubBasin 1a    Agr 2010        gas 0.7338570
-## 2 SubBasin 1a    Agr 2010       coal 0.1729708
-## 3 SubBasin 1a    Agr 2020        gas 0.2690953
-## 4 SubBasin 1a    Agr 2020       coal 0.4019298
-## 5 SubBasin 1a    Agr 2030        gas 0.9274549
-## 6 SubBasin 1a    Agr 2030       coal 0.6444511</code></pre>
+## 1 SubBasin 1a    Agr 2010        gas 0.7218901
+## 2 SubBasin 1a    Agr 2010       coal 0.3121662
+## 3 SubBasin 1a    Agr 2020        gas 0.5899031
+## 4 SubBasin 1a    Agr 2020       coal 0.9250566
+## 5 SubBasin 1a    Agr 2030        gas 0.0665085
+## 6 SubBasin 1a    Agr 2030       coal 0.1033236</code></pre>
 <pre class="r"><code>dfx&lt;-df%&gt;%dplyr::select(ends_with(&quot;basins&quot;)); head(dfx);</code></pre>
 <pre><code>##    basins   subbasins
 ## 1 Basin 1 SubBasin 1a
@@ -681,12 +681,12 @@ dfx&lt;-df%&gt;%dplyr::select(-basins); head(dfx);</code></pre>
 ## 6       coal</code></pre>
 <pre class="r"><code>dfx&lt;-df%&gt;%dplyr::select(sector:energy); head(dfx);</code></pre>
 <pre><code>##   sector year technology    energy
-## 1    Agr 2010        gas 0.7338570
-## 2    Agr 2010       coal 0.1729708
-## 3    Agr 2020        gas 0.2690953
-## 4    Agr 2020       coal 0.4019298
-## 5    Agr 2030        gas 0.9274549
-## 6    Agr 2030       coal 0.6444511</code></pre>
+## 1    Agr 2010        gas 0.7218901
+## 2    Agr 2010       coal 0.3121662
+## 3    Agr 2020        gas 0.5899031
+## 4    Agr 2020       coal 0.9250566
+## 5    Agr 2030        gas 0.0665085
+## 6    Agr 2030       coal 0.1033236</code></pre>
 <pre class="r"><code>dfx&lt;-df%&gt;%dplyr::select(matches(&quot;ins&quot;)); head(dfx);</code></pre>
 <pre><code>##    basins   subbasins
 ## 1 Basin 1 SubBasin 1a
@@ -698,28 +698,28 @@ dfx&lt;-df%&gt;%dplyr::select(-basins); head(dfx);</code></pre>
 <pre class="r"><code># Filter
 dfx&lt;-df%&gt;%filter(subbasins==&quot;SubBasin 1a&quot;); head(dfx);</code></pre>
 <pre><code>##    basins   subbasins sector year technology    energy
-## 1 Basin 1 SubBasin 1a    Agr 2010        gas 0.7338570
-## 2 Basin 1 SubBasin 1a    Agr 2010       coal 0.1729708
-## 3 Basin 1 SubBasin 1a    Agr 2020        gas 0.2690953
-## 4 Basin 1 SubBasin 1a    Agr 2020       coal 0.4019298
-## 5 Basin 1 SubBasin 1a    Agr 2030        gas 0.9274549
-## 6 Basin 1 SubBasin 1a    Agr 2030       coal 0.6444511</code></pre>
+## 1 Basin 1 SubBasin 1a    Agr 2010        gas 0.7218901
+## 2 Basin 1 SubBasin 1a    Agr 2010       coal 0.3121662
+## 3 Basin 1 SubBasin 1a    Agr 2020        gas 0.5899031
+## 4 Basin 1 SubBasin 1a    Agr 2020       coal 0.9250566
+## 5 Basin 1 SubBasin 1a    Agr 2030        gas 0.0665085
+## 6 Basin 1 SubBasin 1a    Agr 2030       coal 0.1033236</code></pre>
 <pre class="r"><code>dfx&lt;-df%&gt;%filter(subbasins %in% c(&quot;SubBasin 1a&quot;,&quot;SubBasin 2b&quot;)); head(dfx);</code></pre>
 <pre><code>##    basins   subbasins sector year technology    energy
-## 1 Basin 1 SubBasin 1a    Agr 2010        gas 0.7338570
-## 2 Basin 1 SubBasin 1a    Agr 2010       coal 0.1729708
-## 3 Basin 1 SubBasin 1a    Agr 2020        gas 0.2690953
-## 4 Basin 1 SubBasin 1a    Agr 2020       coal 0.4019298
-## 5 Basin 1 SubBasin 1a    Agr 2030        gas 0.9274549
-## 6 Basin 1 SubBasin 1a    Agr 2030       coal 0.6444511</code></pre>
+## 1 Basin 1 SubBasin 1a    Agr 2010        gas 0.7218901
+## 2 Basin 1 SubBasin 1a    Agr 2010       coal 0.3121662
+## 3 Basin 1 SubBasin 1a    Agr 2020        gas 0.5899031
+## 4 Basin 1 SubBasin 1a    Agr 2020       coal 0.9250566
+## 5 Basin 1 SubBasin 1a    Agr 2030        gas 0.0665085
+## 6 Basin 1 SubBasin 1a    Agr 2030       coal 0.1033236</code></pre>
 <pre class="r"><code>dfx&lt;-df%&gt;%filter(grepl(&quot;a$&quot;,subbasins)); head(dfx);  </code></pre>
 <pre><code>##    basins   subbasins sector year technology    energy
-## 1 Basin 1 SubBasin 1a    Agr 2010        gas 0.7338570
-## 2 Basin 1 SubBasin 1a    Agr 2010       coal 0.1729708
-## 3 Basin 1 SubBasin 1a    Agr 2020        gas 0.2690953
-## 4 Basin 1 SubBasin 1a    Agr 2020       coal 0.4019298
-## 5 Basin 1 SubBasin 1a    Agr 2030        gas 0.9274549
-## 6 Basin 1 SubBasin 1a    Agr 2030       coal 0.6444511</code></pre>
+## 1 Basin 1 SubBasin 1a    Agr 2010        gas 0.7218901
+## 2 Basin 1 SubBasin 1a    Agr 2010       coal 0.3121662
+## 3 Basin 1 SubBasin 1a    Agr 2020        gas 0.5899031
+## 4 Basin 1 SubBasin 1a    Agr 2020       coal 0.9250566
+## 5 Basin 1 SubBasin 1a    Agr 2030        gas 0.0665085
+## 6 Basin 1 SubBasin 1a    Agr 2030       coal 0.1033236</code></pre>
 </div>
 <div id="r-regexp" class="section level2">
 <h2>R regexp</h2>
