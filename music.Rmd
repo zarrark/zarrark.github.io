@@ -30,17 +30,17 @@ output:
 * Ear training
 * <a href="music_lessons_flamenco.html">Flamenco</a>
 
-# Reportoire
 
-<a href="music_reportoire.html">Reportoire Page with tabs and details</a>
-
-## Rock
+# Rock
 
 | Song 	| Artist | Key | Capo	| Chords 	| Scales 	| 
 |:----:	|:------:|:---:|:---:	|:-----:	|:-----:	|
 |XXX| ACDC | X | 5 	| G G D C 	| x,x 	|
 
-<iframe width="560" height="315" src="https://www.youtube.com/watch?v=pAgnJDJN4VA" frameborder="0" allowfullscreen></iframe>
+Original Song
+<iframe width="420" height="345" src="https://www.youtube.com/watch?v=pAgnJDJN4VA">
+</iframe>
+
 
 ## Classical
 
