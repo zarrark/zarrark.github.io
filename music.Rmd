@@ -43,26 +43,24 @@ output:
 <iframe width="420" height="315" src="https://www.youtube.com/embed/pAgnJDJN4VA"></iframe>
 
 ###Backing Track 1
-<iframe width="420" height="345" src="https://www.youtube.com/embed/LMFBw9KQAEE"></iframe>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/LMFBw9KQAEE?playlist=LMFBw9KQAEE&loop=1"></iframe>
 
 ###Backing Track 2
-<iframe width="420" height="345" src="https://www.youtube.com/embed/mLT97Si65PA "></iframe>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/mLT97Si65PA?playlist=mLT97Si65PA&loop=1 "></iframe>
 
 ###Solo with Tab 1
-<iframe width="420" height="345" src="https://www.youtube.com/embed/k8k5PRsfOvM"></iframe>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/k8k5PRsfOvM?playlist=k8k5PRsfOvM&loop=1"></iframe>
 
 ###Solo with Tab 2
-<iframe width="420" height="345" src="https://www.youtube.com/embed/cMG2jkhSRZA"></iframe>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/cMG2jkhSRZA?playlist=cMG2jkhSRZA&loop=1"></iframe>
 
-###Solo with Tab 3
-<iframe width="420" height="345" src="https://www.youtube.com/embed/af4L1LcLqbM"></iframe> 
 
 ###Rythym Lesson 1
-<iframe width="420" height="345" src="https://www.youtube.com/embed/VCyM7tjz2YA">
+<iframe width="420" height="345" src="https://www.youtube.com/embed/VCyM7tjz2YA?playlist=VCyM7tjz2YA&loop=1">
 </iframe>
 
 ###Rythym Lesson 2
-<iframe width="420" height="345" src="https://www.youtube.com/embed/XYFhsEd7HY8"></iframe>
+<iframe width="420" height="345" src="https://www.youtube.com/embed/XYFhsEd7HY8?playlist=XYFhsEd7HY8&loop=1"></iframe>
 
 ### Solo Tab
 <img src="figures\music\tabs\tab_ACDC_BackInBlackSolo.png" alt="ACDC Back in Black Solo">
