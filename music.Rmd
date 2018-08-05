@@ -76,11 +76,11 @@ src="https://www.youtube.com/embed/_FrOQC-zEog" allowFullScreen="allowFullScreen
 
 ### Tabs & Scales
 
-<img src="figures\music\tabs\tab_ComfotablyNumbSolo1.png" alt="Comfortably Numb Solo 1">
+<img src="figures\music\tabs\tab_ComfotablyNumbSolo1.PNG" alt="Comfortably Numb Solo 1">
 
-<img src="figures\music\tabs\tab_ComfotablyNumbSolo2a.png" alt="Comfortably Numb Solo 2a">
+<img src="figures\music\tabs\tab_ComfotablyNumbSolo2a.PNG" alt="Comfortably Numb Solo 2a">
 
-<img src="figures\music\tabs\tab_ComfotablyNumbSolo2b.png" alt="Comfortably Numb Solo 2b">
+<img src="figures\music\tabs\tab_ComfotablyNumbSolo2b.PNG" alt="Comfortably Numb Solo 2b">
 
 ###Backing Tracks
 
